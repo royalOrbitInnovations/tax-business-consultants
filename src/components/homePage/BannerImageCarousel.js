@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import CarouselOverlayText from "./CarouselOverlayText";
 
 const images = [
   "/images/banner-image-1.jpg",
@@ -21,7 +22,7 @@ export default function MainCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden h-[85vh]">
+    <div className="relative w-full overflow-hidden h-[85vh] z-[-1]">
       <div
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -39,6 +40,7 @@ export default function MainCarousel() {
           </div>
         ))}
       </div>
+      <CarouselOverlayText />
     </div>
   );
 }

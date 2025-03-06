@@ -2,7 +2,7 @@ import ButtonUI from "../ButtonUI";
 
 export default function CarouselOverlayText() {
   return (
-    <div className="absolute top-[60%] translate-y-[-50%] left-[10%] flex flex-col gap-[4rem] tracking-widest">
+    <div className="absolute top-[55%] translate-y-[-50%] left-[10%] flex flex-col gap-[4rem] tracking-widest">
       <h1 className="text-[7rem]/30 w-[50%]">
         <span className="text-(--ui-dark)">Tax Business consultant</span> is a
         professional service provided by individuals or firms
