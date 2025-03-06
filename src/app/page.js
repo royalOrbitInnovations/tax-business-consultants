@@ -1,9 +1,11 @@
 import BannerImageCarousel from "@/components/homePage/BannerImageCarousel";
+import CarouselOverlayText from "@/components/homePage/CarouselOverlayText";
 
 export default function Home() {
   return (
-    <h1>
+    <div className="relative">
       <BannerImageCarousel />
-    </h1>
+      <CarouselOverlayText />
+    </div>
   );
 }

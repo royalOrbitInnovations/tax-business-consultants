@@ -9,7 +9,10 @@ export default function HeaderLinks() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <ul className="flex gap-15 items-center justify-end text-[1.6rem] font-bold">
+    <ul
+      className="flex gap-15 items-center justify-end text-[1.6rem] font-bold"
+      style={{ fontFamily: "var(--font-secondary)" }}
+    >
       <li>Home</li>
       <li>About</li>
       <li>Contact</li>

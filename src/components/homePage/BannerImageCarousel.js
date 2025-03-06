@@ -33,8 +33,9 @@ export default function MainCarousel() {
               fill
               src={image}
               alt={`Slide ${index + 1}`}
-              className="object-cover"
+              className="object-cover object-top"
             />
+            <div className="absolute inset-0 bg-white opacity-80" />
           </div>
         ))}
       </div>
