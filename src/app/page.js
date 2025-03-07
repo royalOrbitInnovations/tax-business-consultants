@@ -1,5 +1,5 @@
 import BannerImageCarousel from "@/components/homePage/BannerImageCarousel";
-import CarouselOverlayText from "@/components/homePage/CarouselOverlayText";
+import ClientSuccessStory from "@/components/homePage/ClientSuccessStory";
 import OurCoverArea from "@/components/homePage/OurCoverArea";
 import WelcomeToTBC from "@/components/homePage/WelcomeToTBC";
 
@@ -9,6 +9,7 @@ export default function Home() {
       <BannerImageCarousel />
       <OurCoverArea />
       <WelcomeToTBC />
+      <ClientSuccessStory />
     </div>
   );
 }

@@ -33,7 +33,7 @@ export default function OurCoverAreaSlider() {
             <Image
               src={item.link}
               fill
-              className="object-cover"
+              className="object-cover shadow-lg rounded-lg"
               alt="Slider Image"
             />
           </div>
