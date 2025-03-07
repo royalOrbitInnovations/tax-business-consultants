@@ -44,8 +44,6 @@ export default function Reviews() {
   const [current, setCurrent] = useState(1);
   const item = data[current - 1];
 
-  console.log(data);
-
   return (
     <div
       className="relative bg-(--ui-light) py-[6rem] px-[10rem] h-[30rem] w-[70%]"

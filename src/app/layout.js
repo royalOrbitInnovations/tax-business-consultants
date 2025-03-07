@@ -1,5 +1,6 @@
 import Header from "@/components/header/Header";
 import "./globals.css";
+import Footer from "@/components/footer/Footer";
 
 export const metadata = {
   title: "Tax Business Consultants",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
