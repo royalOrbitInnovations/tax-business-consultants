@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TextWithBorder from "../TextWithBorder";
 import OurServicesBox from "./OurServicesBox";
 import OurServicesList from "./OurServicesList";
@@ -16,13 +17,15 @@ export default function OurServices() {
         style={{ fontFamily: "var(--font-secondary)" }}
       >
         <OurServicesList />
-        <button className="flex justify-center items-center bg-(--ui-dark) text-white px-[2rem] py-[1rem] text-3xl gap-[1rem]">
-          Make an Appointment
-          <img
-            src="/svg/arrorw-top-right-tax-business-consultants.svg"
-            alt="arrow top right"
-          />
-        </button>
+        <Link href="/contact-us">
+          <button className="flex justify-center items-center bg-(--ui-dark) text-white px-[2rem] py-[1rem] text-3xl gap-[1rem] hover:scale-110 transition-all duration-300 rounded-lg shadow-xl cursor-pointer">
+            Make an Appointment
+            <img
+              src="/svg/arrorw-top-right-tax-business-consultants.svg"
+              alt="arrow top right"
+            />
+          </button>
+        </Link>
       </div>
     </div>
   );

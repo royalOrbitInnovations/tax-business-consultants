@@ -37,7 +37,7 @@ export default function PostsSection() {
               {item.date}
             </span>
           </div>
-          <div className="relative h-[30rem] w-[40rem] rounded-lg overflow-hidden shadow-2xl">
+          <div className="relative h-[30rem] w-[40rem] rounded-lg overflow-hidden shadow-2xl hover:scale-102 hover:rotate-50 transition-all duration-500">
             <Image
               src={item.image}
               fill

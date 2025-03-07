@@ -33,7 +33,7 @@ export default function OurCoverAreaSlider() {
             <Image
               src={item.link}
               fill
-              className="object-cover shadow-lg rounded-lg"
+              className="object-cover shadow-lg rounded-lg hover:scale-90 transition-all duration-1000"
               alt="Slider Image"
             />
           </div>

@@ -11,7 +11,7 @@ export default function logo({ type }) {
             : "/logo-footer-tax-business-consultants.png"
         }
         alt="Brand Logo"
-        className="object-cover"
+        className="object-cover hover:scale-105 transition-all duration-300"
       />
     </div>
   );

@@ -18,21 +18,21 @@ export default function WelcomeToTBC() {
       </p>
       <Link
         href="/about-us"
-        className="flex items-center gap-[1rem] absolute top-[10rem] right-[20rem] text-2xl"
+        className="flex items-center gap-[1rem] absolute top-[10rem] right-[20rem] text-2xl hover:scale-110 transition-all duration-300 hover:font-bold"
       >
         More About Us
         <img
           src="/svg/arrorw-top-right-tax-business-consultants.svg"
-          className=""
+          className="h-[2rem]"
         />
       </Link>
 
-      <div className="absolute top-[45rem] h-[70rem] w-[80%] rounded-[25px] overflow-hidden shadow-xl">
+      <div className="absolute top-[45rem] h-[70rem] w-[80%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300">
         <Image
           src="/images/WTTBC.png"
           alt="WTTBC Business People Walking"
           fill
-          className="object-cover"
+          className="object-cover "
         />
         <div className="absolute  h-[10rem] w-fit bottom-[5rem] left-[5rem] flex gap-[1rem] items-center">
           <img src="/svg/wttbc.svg" className="relative z-1000" />

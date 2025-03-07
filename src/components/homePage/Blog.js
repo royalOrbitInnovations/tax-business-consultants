@@ -19,11 +19,11 @@ export default function Blog() {
             success.
           </p>
         </div>
-        <div className="relative h-[30rem] w-[80rem]">
+        <div className="relative h-[30rem] w-[80rem] rounded-[10px] overflow-hidden shadow-2xl">
           <Image
             src="/images/blog-image.png"
             fill
-            className="object-cover"
+            className="object-cover "
             alt="Blog-Image"
           />
         </div>

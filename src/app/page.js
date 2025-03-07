@@ -12,7 +12,7 @@ import WorldMap from "@/components/homePage/WorldMap";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <>
       <BannerImageCarousel />
       <OurCoverArea />
       <WelcomeToTBC />
@@ -24,6 +24,6 @@ export default function Home() {
       <Contact />
       <NewsAndInsights />
       <Testimonials />
-    </div>
+    </>
   );
 }

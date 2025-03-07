@@ -1,8 +1,9 @@
+import Link from "next/link";
 import ButtonUI from "../ButtonUI";
 
 export default function CarouselOverlayText() {
   return (
-    <div className="absolute top-[55%] translate-y-[-50%] left-[10%] flex flex-col gap-[4rem] tracking-widest">
+    <div className="absolute top-[55%] translate-y-[-50%] left-[10%] flex flex-col gap-[4rem] tracking-widest ">
       <h1 className="text-[7rem]/30 w-[50%]">
         <span className="text-(--ui-dark)">Tax Business consultant</span> is a
         professional service provided by individuals or firms
@@ -19,14 +20,16 @@ export default function CarouselOverlayText() {
         </p>
       </div>
       {/* <hr className="bg-[--ui-dark]" /> */}
-      <ButtonUI width="25rem" size="2.2rem" paddingY="1.8rem">
-        Explore More
-        <img
-          src="/svg/arrorw-top-right-tax-business-consultants.svg"
-          alt="Arrow SVG"
-          className="bg-white rounded-[50%] h-[2rem] w-[2rem]"
-        />
-      </ButtonUI>
+      <Link href="/services" className="z-100">
+        <ButtonUI width="25rem" size="2.2rem" paddingY="1.8rem">
+          Explore More
+          <img
+            src="/svg/arrorw-top-right-tax-business-consultants.svg"
+            alt="Arrow SVG"
+            className="bg-white rounded-[50%] h-[2rem] w-[2rem] hover:scale-105 transition-all duration-300"
+          />
+        </ButtonUI>
+      </Link>
     </div>
   );
 }

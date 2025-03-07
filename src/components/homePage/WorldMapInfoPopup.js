@@ -23,7 +23,7 @@ const data = {
 };
 export default function WorldMapInfoPopup({ country }) {
   return (
-    <div className="absolute right-10 top-10 h-[20rem] w-[35rem] bg-white/90 rounded-4xl py-[2rem] px-[2rem] border shadow-2xl flex flex-col justify-between z-1000">
+    <div className="absolute right-10 top-10 h-[20rem] w-[35rem] bg-white/90 rounded-4xl py-[2rem] px-[2rem] border shadow-2xl flex flex-col justify-between z-10000">
       <div className="grid grid-cols-4 justify-between items-center gap-[.5rem] w-[100%]">
         <h2 className="text-3xl text-white bg-(--ui-dark) py-[.5rem] rounded-2xl text-center">
           {country}

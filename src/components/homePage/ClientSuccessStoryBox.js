@@ -4,7 +4,7 @@ export default function ClientSuccessStoryBox({ item, className }) {
   const { head, text } = item;
   return (
     <div
-      className={` relative bg-(--ui-light) py-[5rem] px-[3rem] flex flex-col gap-[3rem] shadow-xl ${className}`}
+      className={` relative ${className} bg-(--ui-light) py-[5rem] px-[3rem] flex flex-col gap-[3rem] shadow-xl hover:scale-105 transition-all duration-300 hover:bg-[#EFEAE6]`}
     >
       <h2 className="text-[3rem]">{head}</h2>
       <p className="text-[1.8rem]">{text}</p>
