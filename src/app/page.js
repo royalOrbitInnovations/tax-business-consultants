@@ -1,6 +1,7 @@
 import BannerImageCarousel from "@/components/homePage/BannerImageCarousel";
 import Blog from "@/components/homePage/Blog";
 import ClientSuccessStory from "@/components/homePage/ClientSuccessStory";
+import Contact from "@/components/homePage/Contact";
 import IndustriesWeServe from "@/components/homePage/IndustriesWeServe";
 import OurCoverArea from "@/components/homePage/OurCoverArea";
 import OurServices from "@/components/homePage/OurServices";
@@ -18,6 +19,7 @@ export default function Home() {
       <OurServices />
       <Blog />
       <IndustriesWeServe />
+      <Contact />
     </div>
   );
 }
