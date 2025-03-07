@@ -6,6 +6,7 @@ import IndustriesWeServe from "@/components/homePage/IndustriesWeServe";
 import NewsAndInsights from "@/components/homePage/NewsAndInsights";
 import OurCoverArea from "@/components/homePage/OurCoverArea";
 import OurServices from "@/components/homePage/OurServices";
+import Testimonials from "@/components/homePage/Testimonials";
 import WelcomeToTBC from "@/components/homePage/WelcomeToTBC";
 import WorldMap from "@/components/homePage/WorldMap";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <IndustriesWeServe />
       <Contact />
       <NewsAndInsights />
+      <Testimonials />
     </div>
   );
 }
