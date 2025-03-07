@@ -13,9 +13,10 @@ export default function Blog() {
           <p className="text-4xl w-[80%] mt-[2rem]">
             We are confident in our ability to offer cutting-edge solutions that
             empower both businesses and individuals to thrive in the constantly
-            evolving landscape of today's world. Crafted to simplify operations,
-            enhance efficiency, and boost productivity, our solutions are
-            tailored to streamline business processes and drive success.
+            evolving landscape of today&apos;s world. Crafted to simplify
+            operations, enhance efficiency, and boost productivity, our
+            solutions are tailored to streamline business processes and drive
+            success.
           </p>
         </div>
         <div className="relative h-[30rem] w-[80rem]">
