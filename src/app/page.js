@@ -1,4 +1,5 @@
 import BannerImageCarousel from "@/components/homePage/BannerImageCarousel";
+import Blog from "@/components/homePage/Blog";
 import ClientSuccessStory from "@/components/homePage/ClientSuccessStory";
 import OurCoverArea from "@/components/homePage/OurCoverArea";
 import OurServices from "@/components/homePage/OurServices";
@@ -14,6 +15,7 @@ export default function Home() {
       <ClientSuccessStory />
       <WorldMap />
       <OurServices />
+      <Blog />
     </div>
   );
 }

@@ -10,9 +10,9 @@ export default function OurServices() {
         Empowering Business With Strategic Growth Solution
       </h2>
       <OurServicesBox />
-      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[67%] bottom-[-20rem] right-0 h-[40vh]" />
+      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[87%] bottom-[-20rem] right-0 h-[40vh]" />
       <div
-        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[65%] bottom-[-20rem] right-0 h-[40vh] pl-[10%] gap-[5rem] flex justify-center items-center"
+        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[85%] bottom-[-20rem] right-0 h-[40vh] pl-[10%] gap-[5rem] flex justify-center items-center"
         style={{ fontFamily: "var(--font-secondary)" }}
       >
         <OurServicesList />
