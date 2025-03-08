@@ -1,3 +1,9 @@
+import UnderDevelopment from "@/components/UnderDevelopment";
+
 export default function Home() {
-  return <h1>blog</h1>;
+  return (
+    <div>
+      <UnderDevelopment />
+    </div>
+  );
 }

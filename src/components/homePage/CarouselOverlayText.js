@@ -16,11 +16,11 @@ export default function CarouselOverlayText() {
   }, []);
   return (
     <div className="absolute top-[55%] max-6xl:top-[50%] translate-y-[-50%] left-[10%] flex flex-col gap-[4rem] tracking-widest ">
-      <h1 className="text-[7rem]/30 w-[50%] max-16xl:w-[70%] max-16xl:text-[6rem]/25 max-6xl:w-[80%]">
+      <h1 className="text-[7rem]/30 w-[50%] max-16xl:w-[70%] max-16xl:text-[6rem]/25 max-6xl:w-[80%] max-4xl:w-[100%]">
         <span className="text-(--ui-dark)">Tax Business consultant</span> is a
         professional service provided by individuals or firms
       </h1>
-      <div className="flex gap-[1.5rem] w-[40%] max-14xl:w-[60%]  border-b border-gray-400 pb-[2rem]">
+      <div className="flex gap-[1.5rem] w-[40%] max-14xl:w-[60%] max-4xl:w-[80%] border-b border-gray-400 pb-[2rem]">
         <img
           src="/svg/arrorw-top-right-tax-business-consultants.svg"
           alt="Arrow SVG"
