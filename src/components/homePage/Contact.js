@@ -14,14 +14,14 @@ export default function Contact() {
       </div>
 
       {/* Overlay Container */}
-      <div className=" top-[50%] translate-y-[-50%] absolute left-0 w-full flex gap-[5rem] items-center">
-        <h2 className=" ml-[20rem] max-14xl:ml-[10rem] text-[7rem]">
+      <div className=" top-[50%] translate-y-[-50%] absolute left-0 w-full flex max-10xl:flex-col gap-[5rem] items-center max-10xl:pt-[13rem] max-10xl:overflow-hidden max-10xl:pb-[5rem]">
+        <h2 className=" ml-[20rem] max-14xl:ml-[10rem] text-[7rem] max-10xl:text-[5rem] max-10xl:ml-0">
           If you need any consult, How can we help you?
         </h2>
 
         {/* Form */}
         <form
-          className="bg-white rounded-2xl shadow-lg w-[70%] mr-[20rem] max-14xl:mr-[10rem] grid grid-cols-2 auto-rows-auto gap-[4rem] text-3xl p-[4rem]"
+          className="bg-white rounded-2xl shadow-lg w-[70%] mr-[20rem] max-14xl:mr-[10rem] max-10xl:mx-[15rem] grid grid-cols-2 auto-rows-auto gap-[4rem] text-3xl p-[4rem]"
           style={{ fontFamily: "var(--font-secondary)" }}
         >
           <div className="">

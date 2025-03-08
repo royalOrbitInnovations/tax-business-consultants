@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function WelcomeToTBC() {
   return (
-    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh]">
+    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh] max-12xl:h-[60vh] max-10xl:h-[70vh]">
       <TextWithBorder text="Welcome To Tax Business Consultant" />
       <h2 className="text-[4rem]">
         Business Advisory Consulting Firm in Qatar
@@ -18,7 +18,7 @@ export default function WelcomeToTBC() {
       </p>
       <Link
         href="/about-us"
-        className="flex items-center gap-[1rem] absolute top-[10rem] right-[20rem] text-2xl hover:scale-110 transition-all duration-300 hover:font-bold"
+        className="flex items-center gap-[1rem] absolute top-[10rem] right-[20rem] text-2xl hover:scale-110 transition-all duration-300 hover:font-bold max-10xl:relative max-10xl:top-0 max-10xl:right-0"
       >
         More About Us
         <img
@@ -27,7 +27,7 @@ export default function WelcomeToTBC() {
         />
       </Link>
 
-      <div className="absolute top-[45rem] h-[70rem] max-16xl:h-[50rem] w-[80%] max-16xl:w-[70%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
+      <div className="absolute top-[45rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[50rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
         <Image
           src="/images/WTTBC.png"
           alt="WTTBC Business People Walking"

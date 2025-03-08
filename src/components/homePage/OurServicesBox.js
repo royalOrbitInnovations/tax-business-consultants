@@ -33,7 +33,7 @@ const data = [
 
 export default function OurServicesBox() {
   return (
-    <div className="grid grid-cols-4 gap-[2rem] max-14xl:gap-[1.5rem] mt-[6rem]">
+    <div className="grid grid-cols-4 max-10xl:grid-cols-3 gap-[2rem] max-14xl:gap-[1.5rem] mt-[6rem]">
       {data.map((item, index) => (
         <div
           key={index}
@@ -48,12 +48,12 @@ export default function OurServicesBox() {
           <p className="text-2xl">{item.para}</p>
         </div>
       ))}
-      <div className="relative col-span-2 bg-black rounded-[25px] rounded-tr-[150px] flex flex-col p-[4rem] max-14xl:p-[2.5rem] text-white hover:bg-(--ui-dark) transition-all duration-300 shadow-2xl">
+      <div className="relative col-span-2 max-10xl:col-span-3 bg-black rounded-[25px] rounded-tr-[150px] max-10xl:rounded-r-[150px] flex flex-col p-[4rem] max-10xl:px-[8rem] max-10xl:py-[6rem] max-14xl:p-[2.5rem] text-white hover:bg-(--ui-dark) transition-all duration-300 shadow-2xl">
         <h3 className="text-7xl">Choose the</h3>
         <h className="text-[5rem]">BEST SERVICE</h>
         <p className="text-5xl">Because you deserve to be the</p>
         <h className="text-[10rem]">Best</h>
-        <button className="flex absolute bottom-[8rem] right-[8rem] text-[2rem] items-center gap-[1rem] bg-white text-black px-[1rem] py-[1rem] rounded-[10px]">
+        <button className="flex absolute bottom-[8rem] max-10xl:bottom-[50%] max-10xl:translate-y-[50%] right-[8rem] text-[2rem] items-center gap-[1rem] bg-white text-black px-[1rem] py-[1rem] rounded-[10px]">
           Get a Quote
           <img
             src="/svg/arrow-right-tax-business-consultants.svg"

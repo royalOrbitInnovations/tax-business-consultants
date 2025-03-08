@@ -24,7 +24,7 @@ const data = [
 
 export default function PostsSection() {
   return (
-    <div className="flex mt-[5rem] gap-[5rem] max-14xl:gap-[3.5rem] justify-around">
+    <div className="flex mt-[5rem] gap-[5rem] max-14xl:gap-[3.5rem] max-10xl:gap-[2rem] justify-around max-10xl:justify-center">
       {data.map((item, index) => (
         <div key={index}>
           <div className="flex gap-[2rem] mb-[1rem]">

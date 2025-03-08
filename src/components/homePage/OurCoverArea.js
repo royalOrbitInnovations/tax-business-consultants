@@ -12,7 +12,7 @@ export default function OurCoverArea() {
         </h2>
         <OurCoverAreaSlider />
       </div>
-      <div className="mt-[40rem] mx-[1rem] w-[90%] max-14xl:w-[80%] h-[2rem] border-t-5 border-(--ui-dark) relative">
+      <div className="mt-[40rem] max-10xl:mt-[30rem] mx-[1rem] w-[90%] max-14xl:w-[80%] h-[2rem] border-t-5 border-(--ui-dark) relative">
         <div className="flex gap-[2rem] absolute right-[-14rem] top-0 translate-y-[-50%]">
           <img
             src="/svg/arrow-left-tax-business-consultants.svg"

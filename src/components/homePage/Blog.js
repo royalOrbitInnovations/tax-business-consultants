@@ -3,14 +3,14 @@ import TextWithBorder from "../TextWithBorder";
 
 export default function Blog() {
   return (
-    <div className="mt-[30rem] max-14xl:mt-[25rem] px-[20rem] max-14xl:px-[15rem]">
+    <div className="mt-[30rem] max-14xl:mt-[25rem] max-10xl:mt-[30rem] px-[20rem] max-14xl:px-[15rem]">
       <TextWithBorder text="Blog" />
-      <div className=" flex items-center">
+      <div className=" flex  max-10xl:grid max-10xl:grid-cols-1 items-center">
         <div className="flex flex-col gap-[2rem] mt-[4rem] w-[100%]">
-          <h2 className="text-[5rem]/20  w-[70%]">
+          <h2 className="text-[5rem]/20  w-[70%] max-10xl:w-[100%] max-10xl:text-center">
             Get the coverage you need for your business, family, and assets.
           </h2>
-          <p className="text-4xl w-[80%] mt-[2rem]">
+          <p className="text-4xl w-[80%] mt-[2rem] max-10xl:w-[100%]">
             We are confident in our ability to offer cutting-edge solutions that
             empower both businesses and individuals to thrive in the constantly
             evolving landscape of today&apos;s world. Crafted to simplify
@@ -19,11 +19,11 @@ export default function Blog() {
             success.
           </p>
         </div>
-        <div className="relative h-[30rem] w-[80rem] rounded-[10px] overflow-hidden shadow-2xl">
+        <div className="relative max-10xl:row-start-1 max-10xl:mx-auto max-10xl:mt-[3rem] h-[30rem] w-[80rem] rounded-[10px] overflow-hidden shadow-2xl">
           <Image
             src="/images/blog-image.png"
             fill
-            className="object-cover "
+            className="object-cover object-top"
             alt="Blog-Image"
           />
         </div>

@@ -29,7 +29,7 @@ export default function OurCoverAreaSlider() {
     <div className="flex w-[100%] justify-around absolute top-[100%] left-0">
       {data.map((item, index) => (
         <div key={index} className="flex flex-col gap-[2rem]">
-          <div className="relative h-[25rem] w-[46rem] max-18xl:w-[40rem] max-16xl:w-[35rem] max-15xl:w-[30rem] aspect-[16/9]">
+          <div className="relative h-[25rem] w-[46rem] max-18xl:w-[40rem] max-16xl:w-[35rem] max-15xl:w-[30rem] max-10xl:w-[25rem] max-10xl:h-[15rem] aspect-[16/9]">
             <Image
               src={item.link}
               fill
@@ -38,7 +38,9 @@ export default function OurCoverAreaSlider() {
             />
           </div>
           <TextWithBorder text={item.type} py="0.3rem" size="1.6rem" />
-          <h3 className="text-4xl">{item.text}</h3>
+          <h3 className="text-4xl max-10xl:text-3xl max-10xl:font-bold">
+            {item.text}
+          </h3>
         </div>
       ))}
     </div>

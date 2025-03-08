@@ -25,12 +25,14 @@ export default function ClientSuccessStory() {
         provides comprehensive company registration services in Qatar, ensuring
         a seamless launch for your entrepreneurial journey.
       </h3>
-      <div className="grid grid-cols-4 gap-[2rem] max-14xl:gap-[1.2rem]">
+      <div className="grid grid-cols-4 max-10xl:grid-cols-2 gap-[2rem] max-14xl:gap-[1.2rem] max-10xl:gap-[3rem]">
         {data.map((item, index) => (
           <ClientSuccessStoryBox
             key={index}
             item={item}
-            className={index === 1 ? "col-span-2 bg-[#EFEAE6]" : ""}
+            className={
+              index === 1 ? "max-10xl:row-start-1 col-span-2 bg-[#EFEAE6]" : ""
+            }
           />
         ))}
       </div>

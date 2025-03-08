@@ -22,11 +22,11 @@ const data = {
 export default function Footer() {
   return (
     <div
-      className="relative bg-black px-[20rem] max-14xl:px-[10rem] py-[5rem] text-white grid grid-cols-5 overflow-hidden max-14xl:gap-[3rem]"
+      className="relative bg-black px-[20rem] max-14xl:px-[10rem] max-10xl:px-[5rem] py-[5rem] text-white grid grid-cols-5 overflow-hidden max-14xl:gap-[3rem]"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
-      <div className="w-[22rem] flex flex-col gap-[2rem] max-14xl:gap-[1rem]">
-        <div className="relative h-[8rem] w-[20rem]">
+      <div className="w-[22rem] flex flex-col gap-[2rem] max-14xl:gap-[1rem] max-14xl:my-auto">
+        <div className="relative h-[8rem] w-[20rem] max-10xl:h-[6rem] max-10xl:w-[15rem]">
           <Image
             fill
             src="/images/logo-footer-tax-business-consultants.png"
@@ -34,7 +34,7 @@ export default function Footer() {
             className="object-cover"
           />
         </div>
-        <p className="text-2xl">
+        <p className="text-2xl max-10xl:text-xl">
           Get innovative solutions for business growth. Your business&apos;s
           path to success starts with our solutions and expert guidance.
         </p>

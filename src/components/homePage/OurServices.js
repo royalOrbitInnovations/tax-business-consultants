@@ -7,13 +7,13 @@ export default function OurServices() {
   return (
     <div className="relative pt-[10rem] py-[20rem] max-14xl:px-[15rem] px-[20rem] bg-[#EFEAE6]">
       <TextWithBorder text="Our Services" />
-      <h2 className="text-[7rem]/30 w-[60%] max-14xl:w-[80%] mt-[3rem]">
+      <h2 className="text-[7rem]/30 w-[60%] max-14xl:w-[80%] max-10xl:w-[90%] mt-[3rem]">
         Empowering Business With Strategic Growth Solution
       </h2>
       <OurServicesBox />
-      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[87%] bottom-[-25rem] max-14xl:bottom-[-15rem] right-0 h-[40vh] " />
+      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[87%] bottom-[-25rem] max-14xl:bottom-[-15rem] max-10xl:bottom-[-22rem]  right-0 h-[40vh] " />
       <div
-        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[85%] bottom-[-25rem] max-14xl:bottom-[-15rem] b right-0 h-[40vh] pl-[10%] gap-[5rem] flex justify-center items-center"
+        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[85%] bottom-[-25rem] max-14xl:bottom-[-15rem] max-10xl:bottom-[-22rem]  right-0 h-[40vh] pl-[10%] gap-[5rem] flex justify-center items-center"
         style={{ fontFamily: "var(--font-secondary)" }}
       >
         <OurServicesList />
