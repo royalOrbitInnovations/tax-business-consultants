@@ -36,7 +36,7 @@ export default function HeaderLinks() {
         className="flex gap-2 relative hover:text-(--ui-dark) hover:scale-105 transition-all duration-300"
       >
         <div className="flex items-center gap-2">
-          Services
+          <Link href="/services">Services </Link>
           <img
             src="/svg/arrow-down-tax-business-consultants.svg"
             alt="drop-down-arrow"

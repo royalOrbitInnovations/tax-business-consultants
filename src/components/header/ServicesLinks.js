@@ -51,7 +51,12 @@ export default function ServicesLinks({
       {items.map((item, index) => (
         <React.Fragment key={index}>
           <li className="relative overflow-hidden">
-            <Link href={`/services/${item.toLowerCase().replace(/ /g, "-")}`}>
+            <Link
+              href={`/services/${item
+                .toLowerCase()
+                .replace(/%/g, "")
+                .replace(/ /g, "-")}`}
+            >
               <span
                 className={`block relative transition-transform duration-300 ${
                   linkAnimations[index] ? "translate-x-0" : "-translate-x-full"
