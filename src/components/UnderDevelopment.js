@@ -1,6 +1,8 @@
 "use client";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import animationData from "../animations/dev.json";
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function UnderDevelopment() {
   return (
