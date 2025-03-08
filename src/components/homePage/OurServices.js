@@ -5,15 +5,15 @@ import OurServicesList from "./OurServicesList";
 
 export default function OurServices() {
   return (
-    <div className="relative pt-[10rem] py-[20rem] max-14xl:px-[15rem] px-[20rem] bg-[#EFEAE6]">
+    <div className="relative pt-[10rem] py-[20rem] max-5xl:py-[10rem] max-14xl:px-[15rem] px-[20rem] max-6xl:px-[5rem] bg-[#EFEAE6] overflow-hidden">
       <TextWithBorder text="Our Services" />
-      <h2 className="text-[7rem]/30 w-[60%] max-14xl:w-[80%] max-10xl:w-[90%] mt-[3rem]">
+      <h2 className="text-[7rem]/30 max-5xl:text-[5rem] w-[60%] max-14xl:w-[80%] max-10xl:w-[90%] max-6xl:w-[100%] mt-[3rem]">
         Empowering Business With Strategic Growth Solution
       </h2>
       <OurServicesBox />
-      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[87%] bottom-[-25rem] max-14xl:bottom-[-15rem] max-10xl:bottom-[-22rem]  right-0 h-[40vh] " />
+      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] max-5xl:hidden absolute w-[87%] max-6xl:w-[94%] bottom-[-25rem] max-14xl:bottom-[-15rem] max-10xl:bottom-[-22rem] max-6xl:bottom-[-30rem] right-0 h-[40vh] max-6xl:h-[50vh] " />
       <div
-        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] absolute w-[85%] bottom-[-25rem] max-14xl:bottom-[-15rem] max-10xl:bottom-[-22rem]  right-0 h-[40vh] pl-[10%] gap-[5rem] flex justify-center items-center"
+        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] max-5xl:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)] absolute max-5xl:relative w-[85%] max-6xl:w-[92%]  max-5xl:w-[100%] bottom-[-25rem] max-14xl:bottom-[-15rem] max-10xl:bottom-[-22rem] max-6xl:bottom-[-30rem] max-5xl:bottom-0 right-0 h-[40vh] max-6xl:h-[50vh] pl-[10%] max-5xl:pl-0 gap-[5rem]  flex max-6xl:flex-col justify-center items-center max-5xl:mt-[2rem]"
         style={{ fontFamily: "var(--font-secondary)" }}
       >
         <OurServicesList />

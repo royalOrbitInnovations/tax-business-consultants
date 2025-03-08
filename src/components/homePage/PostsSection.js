@@ -24,9 +24,9 @@ const data = [
 
 export default function PostsSection() {
   return (
-    <div className="flex mt-[5rem] gap-[5rem] max-14xl:gap-[3.5rem] max-10xl:gap-[2rem] justify-around max-10xl:justify-center">
+    <div className="flex mt-[5rem] gap-[5rem] max-14xl:gap-[3.5rem] max-10xl:gap-[2rem] justify-around max-10xl:justify-center max-7xl:grid max-7xl:grid-cols-2 max-5xl:grid-cols-1 max-6xl:grid-rows-auto max-5xl:gap-[4rem]">
       {data.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="max-5xl:mx-auto">
           <div className="flex gap-[2rem] mb-[1rem]">
             <span className="flex gap-[1rem]">
               <img src="/svg/consulting-tag.svg" alt="Consulting-tag" />
@@ -37,7 +37,7 @@ export default function PostsSection() {
               {item.date}
             </span>
           </div>
-          <div className="relative h-[30rem] w-[40rem] max-17xl:w-[35rem] max-15xl:w-[30rem] aspect-[16/9] rounded-lg overflow-hidden shadow-2xl hover:scale-102 hover:rotate-20 transition-all duration-500">
+          <div className="relative h-[30rem] w-[40rem] max-17xl:w-[35rem] max-15xl:w-[30rem] aspect-[16/9] rounded-lg overflow-hidden shadow-2xl hover:scale-102 hover:rotate-20 transition-all duration-500 max-5xl:w-[100%]">
             <Image
               src={item.image}
               fill

@@ -11,7 +11,12 @@ const items = [
   "Local Sponsorships",
   "Document Attestation",
 ];
-export default function ServicesLinks({ setDisplay, hovered }) {
+
+export default function ServicesLinks({
+  setDisplay,
+  hovered,
+  isMobile = false,
+}) {
   const [linkAnimations, setLinkAnimations] = useState(items.map(() => false));
   const animationTimeouts = useRef([]);
 
@@ -37,10 +42,11 @@ export default function ServicesLinks({ setDisplay, hovered }) {
       animationTimeouts.current.forEach(clearTimeout);
     };
   }, [hovered]);
+
   return (
     <ul
-      className="bg-white/90 absolute bottom-0 translate-y-[100%] w-[35rem] flex flex-col gap-5 rounded-[25px] px-[3rem] py-[2rem]"
-      onMouseLeave={() => setDisplay(false)}
+      className="bg-white absolute bottom-0 max-5xl:left-[10rem] translate-y-[100%] w-[35rem] max-7xl:w-[80%] flex flex-col gap-5 rounded-[25px] px-[3rem] py-[2rem]"
+      {...(!isMobile && { onMouseLeave: () => setDisplay(false) })}
     >
       {items.map((item, index) => (
         <React.Fragment key={index}>

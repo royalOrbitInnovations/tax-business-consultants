@@ -22,10 +22,10 @@ const data = {
 export default function Footer() {
   return (
     <div
-      className="relative bg-black px-[20rem] max-14xl:px-[10rem] max-10xl:px-[5rem] py-[5rem] text-white grid grid-cols-5 overflow-hidden max-14xl:gap-[3rem]"
+      className="relative bg-black px-[20rem] max-14xl:px-[10rem] max-10xl:px-[5rem] max-6xl:px-[1rem] py-[5rem] text-white grid grid-cols-5 max-10xl:grid-cols-2 max-10xl:grid-auto-rows overflow-hidden max-14xl:gap-[3rem] max-10xl:items-start"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
-      <div className="w-[22rem] flex flex-col gap-[2rem] max-14xl:gap-[1rem] max-14xl:my-auto">
+      <div className="w-[22rem] flex flex-col gap-[2rem] max-14xl:gap-[1rem] max-14xl:my-auto max-10xl:mx-auto max-10xl:row-start-3">
         <div className="relative h-[8rem] w-[20rem] max-10xl:h-[6rem] max-10xl:w-[15rem]">
           <Image
             fill
@@ -55,7 +55,7 @@ export default function Footer() {
       </div>
 
       <FooterContact />
-      <h2 className="absolute text-[10rem] max-14xl:text-[8rem] text-white/20 bottom-[-15%] w-[100%] text-center">
+      <h2 className="absolute text-[10rem] max-14xl:text-[8rem] max-7xl:text-[5rem] text-white/20 bottom-[-15%] max-10xl:bottom-[-10%] max-7xl:bottom-[-5%]  w-[100%] text-center">
         Tax Business Consultants
       </h2>
     </div>

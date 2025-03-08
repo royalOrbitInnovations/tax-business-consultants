@@ -22,7 +22,7 @@ export default function MainCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden h-[85vh] z-[-1]0">
+    <div className="relative w-full overflow-hidden h-[85vh] max-6xl:h-[100vh] z-[-1]0">
       <div
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}

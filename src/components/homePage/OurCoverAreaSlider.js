@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import TextWithBorder from "../TextWithBorder";
 
@@ -25,11 +28,31 @@ const data = [
 ];
 
 export default function OurCoverAreaSlider() {
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  // Only show first three items if the screen width is under 800px
+  const dataToShow =
+    windowWidth < 500
+      ? data.slice(0, 1)
+      : windowWidth < 650
+      ? data.slice(0, 2)
+      : windowWidth < 800
+      ? data.slice(0, 3)
+      : data;
+
   return (
-    <div className="flex w-[100%] justify-around absolute top-[100%] left-0">
-      {data.map((item, index) => (
-        <div key={index} className="flex flex-col gap-[2rem]">
-          <div className="relative h-[25rem] w-[46rem] max-18xl:w-[40rem] max-16xl:w-[35rem] max-15xl:w-[30rem] max-10xl:w-[25rem] max-10xl:h-[15rem] aspect-[16/9]">
+    <div className="flex w-[100%] justify-around max-6xl:items-center absolute top-[100%] left-0">
+      {dataToShow.map((item, index) => (
+        <div
+          key={index}
+          className="flex flex-col max-6xl:items-center gap-[2rem] max-6xl:w-[100%]"
+        >
+          <div className="relative h-[25rem] w-[46rem] max-18xl:w-[40rem] max-16xl:w-[35rem] max-15xl:w-[30rem] max-10xl:w-[25rem] max-5xl:w-[80%] max-10xl:h-[15rem] max-6xl:h-[20rem] max-5xl:h-[25rem]  max-6xl:w-[37rem] aspect-[16/9]">
             <Image
               src={item.link}
               fill

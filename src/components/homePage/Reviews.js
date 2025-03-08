@@ -46,7 +46,7 @@ export default function Reviews() {
 
   return (
     <div
-      className="relative bg-(--ui-light) py-[6rem] max-14xl:py-[4rem] px-[10rem] max-14xl:px-[7.5rem] h-[30rem] w-[70%]"
+      className="relative bg-(--ui-light) py-[6rem] max-14xl:py-[4rem] px-[10rem] max-14xl:px-[7.5rem] max-6xl:px-[3rem] h-[30rem] w-[70%]"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
       <h3 className="text-(--ui-dark) text-5xl font-bold">{item.head}</h3>

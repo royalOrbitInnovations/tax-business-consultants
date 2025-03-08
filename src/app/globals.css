@@ -9,8 +9,11 @@
   --breakpoint-14xl: 1400px;
   --breakpoint-12xl: 1200px;
   --breakpoint-10xl: 1000px;
+  --breakpoint-9xl: 900px;
   --breakpoint-8xl: 800px;
+  --breakpoint-7xl: 700px;
   --breakpoint-6xl: 600px;
+  --breakpoint-5xl: 500px;
   --breakpoint-4xl: 400px;
   --breakpoint-3xl: 300px;
 }
@@ -35,6 +38,12 @@ html {
   font-size: 62.5%;
   @media (max-width: 1200px) {
     font-size: 50%;
+  }
+  @media (max-width: 700px) {
+    font-size: 42%;
+  }
+  @media (max-width: 500px) {
+    font-size: 38%;
   }
 }
 body {

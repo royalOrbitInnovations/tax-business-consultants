@@ -18,7 +18,7 @@ const data = [
 
 export default function ClientSuccessStory() {
   return (
-    <div className="mt-[63rem] max-18xl:mt-[50rem] max-16xl:mt-[28%] max-14xl:mt-[35%] px-[20rem] max-14xl:px-[15rem] flex flex-col gap-[5rem]">
+    <div className="mt-[63rem] max-18xl:mt-[50rem] max-16xl:mt-[28%] max-14xl:mt-[35%] max-6xl:mt-[50%] max-5xl:mt-[55%] px-[20rem] max-14xl:px-[15rem] max-6xl:px-[5rem] flex flex-col gap-[5rem]">
       <TextWithBorder text="Client Success Story" />
       <h3 className="text-[4rem]/20 w-[70%] max-14xl:w-[95%]">
         From feasibility study to business plan development, our expert team
