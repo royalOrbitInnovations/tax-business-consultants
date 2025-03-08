@@ -7,9 +7,10 @@ export default function QABlock({ id, open, setActive, question, answer }) {
         open ? "z-[1000]" : "z-0"
       }`}
       onClick={() => setActive((currId) => (currId === id ? null : id))}
+      style={{ fontFamily: "var(--font-secondary)" }}
     >
       <div className="flex-1">
-        <h2 className="text-3xl font-bold">{question}</h2>
+        <h2 className="text-3xl ">{question}</h2>
       </div>
       <div>
         <img

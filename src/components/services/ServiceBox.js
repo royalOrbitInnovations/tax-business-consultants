@@ -3,7 +3,7 @@ import QuestionBox from "./QuestionBox";
 
 export default function ServiceBox({ heading, questionSet, image, index }) {
   return (
-    <div className="px-[20rem] pt-[5rem] flex gap-[2rem]">
+    <div className="px-[20rem] pt-[5rem] pb-[2rem] flex gap-[2rem]">
       {index % 2 === 0 ? imageDiv(image) : questionDiv(heading, questionSet)}
       {index % 2 === 0 ? questionDiv(heading, questionSet) : imageDiv(image)}
     </div>
@@ -21,7 +21,7 @@ function imageDiv(image) {
 function questionDiv(heading, questionSet) {
   return (
     <div className="grow">
-      <h2 className="flex w-full bg-(--ui-light) h-[5rem] items-center text-[2.6rem] px-[2rem] py-[1rem] mb-[2rem] rounded-2xl">
+      <h2 className="flex w-full bg-(--ui-light) h-[5rem] items-center text-[2.6rem] px-[2rem] py-[1rem] mb-[2rem] rounded-2xl font-bold">
         <img
           src="/svg/arrow-fill.svg"
           alt="Arrow"

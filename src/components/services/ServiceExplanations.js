@@ -45,7 +45,7 @@ const data = [
     },
     set2: {
       heading: "Business Management Services",
-      image: "/images/services-image-1.png",
+      image: "/images/services-image-2.jpg",
       questionSet: {
         set1: {
           question: "Business Training and empowering services",
@@ -76,7 +76,7 @@ const data = [
     },
     set3: {
       heading: "Business Administration Services",
-      image: "/images/services-image-1.png",
+      image: "/images/services-image-3.jpg",
       questionSet: {
         set1: {
           question: "Audit & Tax Filings",
@@ -107,7 +107,7 @@ const data = [
     },
     set4: {
       heading: "Data Analytics",
-      image: "/images/services-image-1.png",
+      image: "/images/services-image-4.jpg",
       questionSet: {
         set1: {
           question: "Digital Marketing & SEO Rank",
