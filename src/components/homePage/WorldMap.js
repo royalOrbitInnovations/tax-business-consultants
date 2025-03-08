@@ -12,11 +12,11 @@ export default function WorldMap() {
           fill
           className="object-cover"
         />
-        <WorldMapDot top="33rem" left="120rem" country="Qatar" />
-        <WorldMapDot top="18rem" left="50rem" country="Canada" />
-        <WorldMapDot top="44rem" left="90rem" country="Ghana" />
-        <WorldMapDot top="66rem" left="105rem" country="Nambia" />
-        <WorldMapDot top="61rem" left="60rem" country="Bolivia" />
+        <WorldMapDot top="42%" left="63%" country="Qatar" />
+        <WorldMapDot top="22%" left="25%" country="Canada" />
+        <WorldMapDot top="53%" left="48%" country="Ghana" />
+        <WorldMapDot top="80%" left="55%" country="Nambia" />
+        <WorldMapDot top="76%" left="32%" country="Bolivia" />
         <WorldMapText />
       </div>
     </div>

@@ -29,11 +29,11 @@ export default function OurCoverAreaSlider() {
     <div className="flex w-[100%] justify-around absolute top-[100%] left-0">
       {data.map((item, index) => (
         <div key={index} className="flex flex-col gap-[2rem]">
-          <div className="relative h-[25rem] w-[46rem]">
+          <div className="relative h-[25rem] w-[46rem] max-18xl:w-[40rem] max-16xl:w-[35rem] max-15xl:w-[30rem] aspect-[16/9]">
             <Image
               src={item.link}
               fill
-              className="object-cover shadow-lg rounded-lg hover:scale-90 transition-all duration-1000"
+              className="object-cover shadow-lg rounded-lg hover:scale-90 transition-all duration-000"
               alt="Slider Image"
             />
           </div>
