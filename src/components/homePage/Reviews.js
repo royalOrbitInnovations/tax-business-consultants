@@ -46,14 +46,14 @@ export default function Reviews() {
 
   return (
     <div
-      className="relative bg-(--ui-light) py-[6rem] px-[10rem] h-[30rem] w-[70%]"
+      className="relative bg-(--ui-light) py-[6rem] max-14xl:py-[4rem] px-[10rem] max-14xl:px-[7.5rem] h-[30rem] w-[70%]"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
       <h3 className="text-(--ui-dark) text-5xl font-bold">{item.head}</h3>
-      <p className="text-3xl mt-[3rem] w-[70%]">{item.text}</p>
+      <p className="text-3xl mt-[3rem] w-[70%] max-14xl:w-[90%]">{item.text}</p>
       <p className="text-2xl mt-[3rem] font-bold">{item.name}</p>
       <p>{item.date}</p>
-      <div className="flex justify-around w-[22rem] bg-white py-[1rem] rounded-full absolute right-[10rem] bottom-[5rem]">
+      <div className="flex justify-around w-[22rem] bg-white py-[1rem] rounded-full absolute right-[10rem] bottom-[5rem] max-14xl:bottom-[3rem] max-14xl:right-[5rem]">
         <span className="text-2xl">{`${current} / ${data.length}`}</span>
         <div className="flex gap-[1rem] justify-center">
           <img

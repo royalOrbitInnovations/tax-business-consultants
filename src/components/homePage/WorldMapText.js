@@ -29,7 +29,7 @@ const data = [
 
 export default function WorldMapText() {
   return (
-    <div className="flex flex-col gap-[4rem] absolute top-[50%] right-[20rem] translate-y-[-50%]">
+    <div className="flex flex-col max-14xl:flex-row flex-wrap justify-center items-center gap-[4rem] absolute top-[50%] right-[20rem] max-14xl:right-0 translate-y-[-50%]">
       {data.map((item, index) => (
         <div
           key={index}

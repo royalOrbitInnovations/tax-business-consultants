@@ -24,7 +24,7 @@ const data = [
 
 export default function PostsSection() {
   return (
-    <div className="flex mt-[5rem] gap-[5rem] justify-around">
+    <div className="flex mt-[5rem] gap-[5rem] max-14xl:gap-[3.5rem] justify-around">
       {data.map((item, index) => (
         <div key={index}>
           <div className="flex gap-[2rem] mb-[1rem]">
@@ -45,7 +45,9 @@ export default function PostsSection() {
               className="object-cover"
             />
           </div>
-          <h2 className="text-[2.5rem] w-[70%] mt-[2rem]">{item.text}</h2>
+          <h2 className="text-[2.5rem] w-[70%] max-14xl:w-[80%] mt-[2rem]">
+            {item.text}
+          </h2>
           <Link
             href="/Blog/post"
             className="flex gap-[1rem] text-2xl items-center font-bold mt-[2rem]"

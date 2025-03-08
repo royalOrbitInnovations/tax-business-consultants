@@ -18,14 +18,14 @@ const data = [
 
 export default function ClientSuccessStory() {
   return (
-    <div className="mt-[63rem] max-18xl:mt-[50rem] max-16xl:mt-[28%] px-[20rem] flex flex-col gap-[5rem]">
+    <div className="mt-[63rem] max-18xl:mt-[50rem] max-16xl:mt-[28%] max-14xl:mt-[35%] px-[20rem] max-14xl:px-[15rem] flex flex-col gap-[5rem]">
       <TextWithBorder text="Client Success Story" />
-      <h3 className="text-[4rem]/20 w-[70%]">
+      <h3 className="text-[4rem]/20 w-[70%] max-14xl:w-[95%]">
         From feasibility study to business plan development, our expert team
         provides comprehensive company registration services in Qatar, ensuring
         a seamless launch for your entrepreneurial journey.
       </h3>
-      <div className="grid grid-cols-4 gap-[2rem]">
+      <div className="grid grid-cols-4 gap-[2rem] max-14xl:gap-[1.2rem]">
         {data.map((item, index) => (
           <ClientSuccessStoryBox
             key={index}

@@ -4,12 +4,12 @@ import Image from "next/image";
 
 export default function WelcomeToTBC() {
   return (
-    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh]">
+    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh]">
       <TextWithBorder text="Welcome To Tax Business Consultant" />
       <h2 className="text-[4rem]">
         Business Advisory Consulting Firm in Qatar
       </h2>
-      <p className="text-[2.2rem] w-[50%]">
+      <p className="text-[2.2rem] w-[50%] max-14xl:w-[70%]">
         Providing professional consulting services to businesses in various
         industries by offering expert advice and guidance to help businesses
         overcome challenges, optimize operations, and ultimately achieve their

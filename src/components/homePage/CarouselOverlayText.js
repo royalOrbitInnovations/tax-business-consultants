@@ -20,7 +20,7 @@ export default function CarouselOverlayText() {
         <span className="text-(--ui-dark)">Tax Business consultant</span> is a
         professional service provided by individuals or firms
       </h1>
-      <div className="flex gap-[1.5rem] w-[40%] border-b border-gray-400 pb-[2rem]">
+      <div className="flex gap-[1.5rem] w-[40%] max-14xl:w-[60%] border-b border-gray-400 pb-[2rem]">
         <img
           src="/svg/arrorw-top-right-tax-business-consultants.svg"
           alt="Arrow SVG"

@@ -15,13 +15,13 @@ export default function Contact() {
 
       {/* Overlay Container */}
       <div className=" top-[50%] translate-y-[-50%] absolute left-0 w-full flex gap-[5rem] items-center">
-        <h2 className=" ml-[20rem] text-[7rem]">
+        <h2 className=" ml-[20rem] max-14xl:ml-[10rem] text-[7rem]">
           If you need any consult, How can we help you?
         </h2>
 
         {/* Form */}
         <form
-          className="bg-white rounded-2xl shadow-lg w-[70%] mr-[20rem] grid grid-cols-2 auto-rows-auto gap-[4rem] text-3xl p-[4rem]"
+          className="bg-white rounded-2xl shadow-lg w-[70%] mr-[20rem] max-14xl:mr-[10rem] grid grid-cols-2 auto-rows-auto gap-[4rem] text-3xl p-[4rem]"
           style={{ fontFamily: "var(--font-secondary)" }}
         >
           <div className="">

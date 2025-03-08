@@ -33,18 +33,22 @@ const data = [
 
 export default function OurServicesBox() {
   return (
-    <div className="grid grid-cols-4 gap-[2rem] mt-[6rem]">
+    <div className="grid grid-cols-4 gap-[2rem] max-14xl:gap-[1.5rem] mt-[6rem]">
       {data.map((item, index) => (
         <div
           key={index}
-          className="bg-(--ui-dark) p-[4rem] rounded-[25px] flex flex-col gap-[1.5rem] text-white justify-center hover:bg-black transition-all duration-300 shadow-2xl"
+          className="bg-(--ui-dark) p-[4rem] max-14xl:p-[2.5rem] rounded-[25px] flex flex-col gap-[1.5rem] text-white justify-center hover:bg-black transition-all duration-300 shadow-2xl"
         >
-          <img src={item.image} alt={item.head} className="h-[8rem] w-[8rem]" />
+          <img
+            src={item.image}
+            alt={item.head}
+            className="h-[8rem] w-[8rem] max-14xl:h-[6rem] max-14xl:w-[6rem]"
+          />
           <h3 className="text-5xl">{item.head}</h3>
           <p className="text-2xl">{item.para}</p>
         </div>
       ))}
-      <div className="relative col-span-2 bg-black rounded-[25px] rounded-tr-[150px] flex flex-col p-[4rem] text-white hover:bg-(--ui-dark) transition-all duration-300 shadow-2xl">
+      <div className="relative col-span-2 bg-black rounded-[25px] rounded-tr-[150px] flex flex-col p-[4rem] max-14xl:p-[2.5rem] text-white hover:bg-(--ui-dark) transition-all duration-300 shadow-2xl">
         <h3 className="text-7xl">Choose the</h3>
         <h className="text-[5rem]">BEST SERVICE</h>
         <p className="text-5xl">Because you deserve to be the</p>

@@ -5,7 +5,7 @@ import WorldMapText from "./WorldMapText";
 export default function WorldMap() {
   return (
     <div className="mt-[3rem]">
-      <div className="relative h-[80rem] w-[100vw]">
+      <div className="relative h-[80rem] max-14xl:h-[60rem] w-[100vw]">
         <Image
           src="/images/world-map.png"
           alt="Worlld Map Image"

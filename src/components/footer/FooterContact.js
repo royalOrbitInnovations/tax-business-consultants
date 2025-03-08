@@ -1,6 +1,6 @@
 export default function FooterContact() {
   return (
-    <div className="mt-[4rem]">
+    <div className="mt-[4rem] max-14xl:col-span-2 max-14xl:mx-auto">
       <h3 className="text-5xl">Don&apos;t Miss Subscribed</h3>
       <div className="relative">
         <input

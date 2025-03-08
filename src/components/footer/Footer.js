@@ -22,10 +22,10 @@ const data = {
 export default function Footer() {
   return (
     <div
-      className="relative bg-black px-[20rem] py-[5rem] text-white grid grid-cols-5 overflow-hidden"
+      className="relative bg-black px-[20rem] max-14xl:px-[10rem] py-[5rem] text-white grid grid-cols-5 overflow-hidden max-14xl:gap-[3rem]"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
-      <div className="w-[22rem] flex flex-col gap-[2rem]">
+      <div className="w-[22rem] flex flex-col gap-[2rem] max-14xl:gap-[1rem]">
         <div className="relative h-[8rem] w-[20rem]">
           <Image
             fill
@@ -46,7 +46,7 @@ export default function Footer() {
         <FooterLinks section={section} key={index} />
       ))}
 
-      <div className="mt-[4rem]">
+      <div className="mt-[4rem] max-14xl:hidden">
         <h3 className="text-5xl font-bold mb-4 ">Get In Touch</h3>
         <p className="text-2xl">
           Hub Business Center <br /> 4th Floor, Royal Plaza <br /> Al Sadd,
@@ -55,7 +55,7 @@ export default function Footer() {
       </div>
 
       <FooterContact />
-      <h2 className="absolute text-[10rem] text-white/20 bottom-[-15%] w-[100%] text-center">
+      <h2 className="absolute text-[10rem] max-14xl:text-[8rem] text-white/20 bottom-[-15%] w-[100%] text-center">
         Tax Business Consultants
       </h2>
     </div>
