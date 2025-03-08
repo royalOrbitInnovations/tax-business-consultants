@@ -14,7 +14,7 @@ export default function Contact() {
       </div>
 
       {/* Overlay Container */}
-      <div className="mt-[15rem] absolute top-0 left-0 w-full flex gap-[5rem]">
+      <div className=" top-[50%] translate-y-[-50%] absolute left-0 w-full flex gap-[5rem] items-center">
         <h2 className=" ml-[20rem] text-[7rem]">
           If you need any consult, How can we help you?
         </h2>

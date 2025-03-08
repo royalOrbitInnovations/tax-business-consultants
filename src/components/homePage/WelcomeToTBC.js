@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function WelcomeToTBC() {
   return (
-    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh]">
+    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh]">
       <TextWithBorder text="Welcome To Tax Business Consultant" />
       <h2 className="text-[4rem]">
         Business Advisory Consulting Firm in Qatar
@@ -27,7 +27,7 @@ export default function WelcomeToTBC() {
         />
       </Link>
 
-      <div className="absolute top-[45rem] h-[70rem] w-[80%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300">
+      <div className="absolute top-[45rem] h-[70rem] max-16xl:h-[50rem] w-[80%] max-16xl:w-[70%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
         <Image
           src="/images/WTTBC.png"
           alt="WTTBC Business People Walking"
