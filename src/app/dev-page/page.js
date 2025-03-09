@@ -1,6 +1,6 @@
 import EmpoweringBuiness from "@/components/services/EmpoweringBuiness";
 import FAQ from "@/components/services/FAQ";
-import ServiceBox from "@/components/services/ServiceBox";
+import PreFooterBanner from "@/components/services/PreFooterBanner";
 import ServiceExplanations from "@/components/services/ServiceExplanations";
 import ServicesBanner from "@/components/services/ServicesBanner";
 import ServicesReview from "@/components/services/ServicesReview";
@@ -13,6 +13,7 @@ export default function Services() {
       <ServiceExplanations />
       <ServicesReview />
       <FAQ />
+      <PreFooterBanner />
     </div>
   );
 }

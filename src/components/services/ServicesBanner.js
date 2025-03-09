@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import PageIndicator from "../PageIndicator";
 
 export default function ServicesBanner() {

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import ServicesLinks from "./ServicesLinks";
@@ -9,7 +11,7 @@ export default function MobileMenu() {
       { label: "Home", href: "/" },
       { label: "About", href: "/about-us" },
       { label: "Contact", href: "/contact-us" },
-      { label: "Services", dropdown: true },
+      { label: "Services", href: "/services", dropdown: true },
       { label: "Blog", href: "/blog" },
     ],
     []
@@ -40,7 +42,7 @@ export default function MobileMenu() {
     return () => {
       animationTimeouts.current.forEach(clearTimeout);
     };
-  }, []); // Use an empty dependency array
+  }, [menuItems]);
 
   return (
     <ul
@@ -55,20 +57,23 @@ export default function MobileMenu() {
           }`}
         >
           {item.dropdown ? (
-            <div className="relative">
-              <div
-                className="flex items-center gap-2 cursor-pointer"
+            <div className="relative flex items-center gap-2">
+              {/* The clickable link */}
+              <Link href={item.href}>{item.label}</Link>
+              {/* The toggle button */}
+              <button
                 onClick={() => setServicesOpen((prev) => !prev)}
+                type="button"
+                className="cursor-pointer"
               >
-                {item.label}
                 <img
                   src="/svg/arrow-down-tax-business-consultants.svg"
                   alt="drop-down-arrow"
-                  className={`transition-transform duration-300 focus:rotate-180 ${
+                  className={`transition-transform duration-300 ${
                     servicesOpen ? "rotate-180" : ""
                   }`}
                 />
-              </div>
+              </button>
               {servicesOpen && (
                 <ServicesLinks
                   isMobile={true}

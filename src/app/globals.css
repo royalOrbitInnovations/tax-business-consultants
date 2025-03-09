@@ -52,3 +52,62 @@ body {
   box-sizing: border-box;
   font-family: var(--font-primary);
 }
+@keyframes carouselSlideInLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes carouselSlideInRight {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-carouselSlideInLeft {
+  animation: carouselSlideInLeft 0.5s ease-out;
+}
+
+.animate-carouselSlideInRight {
+  animation: carouselSlideInRight 0.5s ease-out;
+}
+
+@keyframes textSlideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textSlideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-textSlideInLeft {
+  animation: textSlideInLeft 0.5s ease-out;
+}
+
+.animate-textSlideInRight {
+  animation: textSlideInRight 0.5s ease-out;
+}

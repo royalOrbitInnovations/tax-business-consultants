@@ -10,7 +10,7 @@ export default function QABlock({ id, open, setActive, question, answer }) {
       style={{ fontFamily: "var(--font-secondary)" }}
     >
       <div className="flex-1">
-        <h2 className="text-3xl ">{question}</h2>
+        <h2 className="text-3xl max-10xl:text-2xl">{question}</h2>
       </div>
       <div>
         <img
@@ -32,7 +32,7 @@ export default function QABlock({ id, open, setActive, question, answer }) {
             : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <p className="text-3xl">{answer}</p>
+        <p className="text-2xl">{answer}</p>
       </div>
     </div>
   );

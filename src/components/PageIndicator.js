@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function PageIndicator({ mainText, currentPage }) {
   return (
-    <div className="text-white relative z-[100] top-[50%] translate-y-[-50%] pl-[15rem]">
+    <div className="text-white relative z-[100] top-[50%] translate-y-[-50%] pl-[15rem]  max-6xl:flex max-6xl:flex-col max-6xl:items-center max-6xl:pl-0">
       <h1 className="text-[8rem]">{mainText}</h1>
       <div className="flex gap-[3rem] items-center border w-fit px-[2rem] py-[1rem]">
         <Link href="/" className="text-[2rem]">
