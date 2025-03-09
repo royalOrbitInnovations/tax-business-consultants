@@ -1,6 +1,7 @@
 import Link from "next/link";
 import TextWithBorder from "../TextWithBorder";
 import Image from "next/image";
+import CountUpOnView from "../CountUpOnView";
 
 export default function WelcomeToTBC() {
   return (
@@ -29,7 +30,7 @@ export default function WelcomeToTBC() {
 
       <div className="absolute top-[45rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[50rem] max-5xl:top-[60rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] max-6xl:w-[90%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
         <Image
-          src="/images/WTTBC.webp"
+          src="/images/services-banner-image.webp"
           alt="WTTBC Business People Walking"
           fill
           className="object-cover object-center"
@@ -40,7 +41,9 @@ export default function WelcomeToTBC() {
             className="relative z-1000 max-5xl:h-[10rem] max-5xl:w-[10rem]"
           />
           <div className="flex flex-col gap-[1rem]">
-            <span className="text-7xl font-bold">90%</span>
+            <span className="text-7xl font-bold flex">
+              <CountUpOnView end="90" duration="3" />%
+            </span>
             <span className="text-5xl font-bold">Positive Impression</span>
           </div>
         </div>
