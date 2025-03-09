@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import CarouselOverlayText from "./CarouselOverlayText";
 
 const images = [
-  "/images/banner-image-1.jpg",
-  "/images/banner-image-2.jpg",
-  "/images/banner-image-3.jpg",
+  "/images/banner-image-1.webp",
+  "/images/banner-image-2.webp",
+  "/images/banner-image-3.webp",
 ];
 
 export default function MainCarousel() {

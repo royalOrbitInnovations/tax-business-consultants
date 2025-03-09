@@ -21,7 +21,7 @@ export default function Blog() {
         </div>
         <div className="relative max-10xl:row-start-1 max-10xl:mx-auto max-10xl:mt-[3rem] h-[30rem] w-[80rem] max-8xl:w-[100%] rounded-[10px] overflow-hidden shadow-2xl">
           <Image
-            src="/images/blog-image.png"
+            src="/images/blog-image.webp"
             fill
             className="object-cover object-top"
             alt="Blog-Image"

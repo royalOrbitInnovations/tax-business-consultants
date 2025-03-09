@@ -5,19 +5,19 @@ const data = [
   {
     type: "consulting",
     date: "03 April, 2024",
-    image: "/images/post-image-1.png",
+    image: "/images/post-image-1.webp",
     text: "The Growing Relevance of Data Analytic for Business in Qatar",
   },
   {
     type: "consulting",
     date: "03 April, 2024",
-    image: "/images/post-image-2.png",
+    image: "/images/post-image-2.webp",
     text: "Best Practice for Opening a Corporate Bank Account in Qatar",
   },
   {
     type: "consulting",
     date: "03 April, 2024",
-    image: "/images/post-image-3.png",
+    image: "/images/post-image-3.webp",
     text: "The Company Formatopn Process in Qatar",
   },
 ];

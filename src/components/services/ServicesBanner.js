@@ -6,7 +6,7 @@ export default function ServicesBanner() {
     <div className="relative h-[80vh] w-[100vw]">
       <div className="absolute inset-0 bg-black opacity-50 z-[100]" />
       <Image
-        src="/images/services-banner-image.png"
+        src="/images/services-banner-image.webp"
         alt="services-banner-image"
         fill
         className="object-cover object-center"

@@ -29,7 +29,7 @@ export default function Footer() {
         <div className="relative h-[8rem] w-[20rem] max-10xl:h-[6rem] max-10xl:w-[15rem]">
           <Image
             fill
-            src="/images/logo-footer-tax-business-consultants.png"
+            src="/images/logo-footer-tax-business-consultants.webp"
             alt="Footer-logo"
             className="object-cover"
           />

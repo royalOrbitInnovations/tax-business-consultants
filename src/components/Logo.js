@@ -7,8 +7,8 @@ export default function logo({ type }) {
         fill
         src={
           type === "header"
-            ? "/images/logo-header-tax-business-consultants.png"
-            : "/logo-footer-tax-business-consultants.png"
+            ? "/images/logo-header-tax-business-consultants.webp"
+            : "/logo-footer-tax-business-consultants.webp"
         }
         alt="Brand Logo"
         className="object-cover hover:scale-105 transition-all duration-300"

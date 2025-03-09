@@ -4,7 +4,7 @@ const data = [
   {
     set1: {
       heading: "Business Startup Consultants",
-      image: "/images/services-image-1.png",
+      image: "/images/services-image-1.webp",
       questionSet: {
         set1: {
           question: "Company Registration Services",
@@ -45,7 +45,7 @@ const data = [
     },
     set2: {
       heading: "Business Management Services",
-      image: "/images/services-image-2.jpg",
+      image: "/images/services-image-2.webp",
       questionSet: {
         set1: {
           question: "Business Training and empowering services",
@@ -76,7 +76,7 @@ const data = [
     },
     set3: {
       heading: "Business Administration Services",
-      image: "/images/services-image-3.jpg",
+      image: "/images/services-image-3.webp",
       questionSet: {
         set1: {
           question: "Audit & Tax Filings",
@@ -107,7 +107,7 @@ const data = [
     },
     set4: {
       heading: "Data Analytics",
-      image: "/images/services-image-4.jpg",
+      image: "/images/services-image-4.webp",
       questionSet: {
         set1: {
           question: "Digital Marketing & SEO Rank",

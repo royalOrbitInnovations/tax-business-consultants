@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const data = [
   {
-    image: "/images/services-review-5.jpg",
+    image: "/images/services-review-5.webp",
     head: "Excellent Auditing",
     name: "Sajna Koya",
     review:
@@ -13,7 +13,7 @@ const data = [
     position: "Google Reviewer",
   },
   {
-    image: "/images/services-review-4.jpg",
+    image: "/images/services-review-4.webp",
     head: "Awesome Service",
     name: "Fawaz Mohamed",
     review:
@@ -21,7 +21,7 @@ const data = [
     position: "Google Reviewer",
   },
   {
-    image: "/images/services-review-3.jpg",
+    image: "/images/services-review-3.webp",
     head: "Best Out There!",
     name: "Janneh Ibrahim",
     review:
@@ -29,7 +29,7 @@ const data = [
     position: "Google Reviewer",
   },
   {
-    image: "/images/services-review-2.jpg",
+    image: "/images/services-review-2.webp",
     head: "Very Professional",
     name: "Sanooj Syed Muhammed",
     review:
@@ -37,7 +37,7 @@ const data = [
     position: "Google Reviewer",
   },
   {
-    image: "/images/services-review-1.png",
+    image: "/images/services-review-1.webp",
     head: "Highly Resourceful",
     name: "Shameem Mailanchi",
     review:

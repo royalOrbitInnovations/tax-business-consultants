@@ -6,7 +6,7 @@ export default function Contact() {
       {/* Background Image */}
       <div className="relative h-[100vh] w-[100vw]">
         <Image
-          src="/images/conatcts-bg.png"
+          src="/images/conatcts-bg.webp"
           fill
           className="object-cover"
           alt="Contact BG"

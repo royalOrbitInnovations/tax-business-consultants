@@ -20,7 +20,7 @@ export default function ClientSuccessStoryBox({ item, className }) {
         <>
           <div className="absolute h-[20rem] w-[20rem] bottom-0 right-0">
             <Image
-              src="/images/client-success-story.png"
+              src="/images/client-success-story.webp"
               fill
               alt="Leaf-image"
               className="object-cover"

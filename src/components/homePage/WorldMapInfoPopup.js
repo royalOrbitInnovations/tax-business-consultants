@@ -30,7 +30,7 @@ export default function WorldMapInfoPopup({ country }) {
         </h2>
         <div className="relative h-[3rem] w-[4rem] col-span-2">
           <Image
-            src="/images/qatar-flag.png"
+            src="/images/qatar-flag.webp"
             alt="Qatar-Flag"
             fill
             className="object-cover"
@@ -51,7 +51,7 @@ export default function WorldMapInfoPopup({ country }) {
         </div>
         <div className="relative h-[8rem] w-[8rem]">
           <Image
-            src="/images/graph.png"
+            src="/images/graph.webp"
             alt="Graph-image"
             fill
             className="object-cover"

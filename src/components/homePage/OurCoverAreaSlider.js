@@ -6,22 +6,22 @@ import TextWithBorder from "../TextWithBorder";
 
 const data = [
   {
-    link: "/images/slider-image-1.png",
+    link: "/images/slider-image-1.webp",
     type: "Business",
     text: "Busines Startup Consultants",
   },
   {
-    link: "/images/slider-image-2.png",
+    link: "/images/slider-image-2.webp",
     type: "Business",
     text: "Business Administartion Services",
   },
   {
-    link: "/images/slider-image-3.png",
+    link: "/images/slider-image-3.webp",
     type: "Busines",
     text: "Business Management Services",
   },
   {
-    link: "/images/slider-image-4.png",
+    link: "/images/slider-image-4.webp",
     type: "Marketing",
     text: "Data Analytics",
   },

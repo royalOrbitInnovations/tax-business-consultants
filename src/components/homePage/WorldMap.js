@@ -7,7 +7,7 @@ export default function WorldMap() {
     <div className="mt-[3rem]">
       <div className="relative h-[80rem] max-14xl:h-[60rem] w-[100vw] max-5xl:h-[80vh]">
         <Image
-          src="/images/world-map.png"
+          src="/images/world-map.webp"
           alt="Worlld Map Image"
           fill
           className="object-cover"
