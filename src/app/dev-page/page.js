@@ -1,4 +1,5 @@
 import EmpoweringBuiness from "@/components/services/EmpoweringBuiness";
+import FAQ from "@/components/services/FAQ";
 import ServiceBox from "@/components/services/ServiceBox";
 import ServiceExplanations from "@/components/services/ServiceExplanations";
 import ServicesBanner from "@/components/services/ServicesBanner";
@@ -11,6 +12,7 @@ export default function Services() {
       <EmpoweringBuiness />
       <ServiceExplanations />
       <ServicesReview />
+      <FAQ />
     </div>
   );
 }
