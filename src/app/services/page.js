@@ -1,19 +1,27 @@
-import EmpoweringBuiness from "@/components/services/EmpoweringBuiness";
+import PageBanner from "@/components/PageBanner";
+import EmpoweringBuiness from "@/components/InitialPageText";
 import FAQ from "@/components/services/FAQ";
 import PreFooterBanner from "@/components/services/PreFooterBanner";
 import ServiceExplanations from "@/components/services/ServiceExplanations";
-import ServicesBanner from "@/components/services/ServicesBanner";
 import ServicesReview from "@/components/services/ServicesReview";
+import InitialPageText from "@/components/InitialPageText";
 
 export default function Services() {
   return (
-    <div>
-      <ServicesBanner />
-      <EmpoweringBuiness />
+    <>
+      <PageBanner
+        image="/images/services-banner-image.webp"
+        mainText="Our Services"
+        currentPage="Services"
+      />
+      <InitialPageText
+        heading="Empowering Businesses With Strategic Growth Solutions"
+        text="Our track record speaks volumes, consistently surpassing client        expectations with exceptional results. Committed to delivering unparalleled customer service, we strive to uphold the highest standards in all aspects of our engagements, including business formation in Qatar. As the premier company specializing in advanced business startup and management consulting services in Qatar, we have catered to diverse clients from around the globe."
+      />
       <ServiceExplanations />
       <ServicesReview />
       <FAQ />
       <PreFooterBanner />
-    </div>
+    </>
   );
 }
