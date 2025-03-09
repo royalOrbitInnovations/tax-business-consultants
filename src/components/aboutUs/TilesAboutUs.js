@@ -20,11 +20,14 @@ const data = [
 
 export default function TilesAboutUs() {
   return (
-    <div className="relative flex justify-center items-center gap-[2rem] px-[20rem] py-[10rem]">
+    <div className="relative flex justify-center items-center gap-[5rem] px-[20rem] py-[10rem] max-10xl:px-[10rem] max-8xl:grid max-8xl:grid-cols-2 max-6xl:grid-cols-1 max-6xl:grid-rows-3 max-5xl:px-[5rem]">
       {data.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col items-center justify-center gap-[1rem] w-[20%] h-[40vh] border py-[2rem] px-[2rem] bg-white/10 backdrop-blur-sm text-center rounded-3xl hover:border-3 hover:border-(--ui-dark) transition-all duration-300 hover:text-(--ui-dark) hover:skew-1 hover:scale-105"
+          className={`flex flex-col items-center justify-center gap-[1rem] w-[35rem] h-[40vh] border py-[2rem] px-[2rem] bg-white/10 backdrop-blur-xs text-center rounded-3xl hover:border-3 hover:border-(--ui-dark) transition-all duration-300 hover:text-(--ui-dark) hover:skew-1 hover:scale-105 shadow-xl max-6xl:w-[100%] ${
+            index === 2 &&
+            "max-8xl:col-span-2 max-8xl:w-[100%] max-6xl:row-start-3 max-6xl:col-span-1"
+          } ${index === 1 && "max-6xl:row-start-2"} `}
         >
           <img
             src={item.image}

@@ -52,6 +52,10 @@ body {
   box-sizing: border-box;
   font-family: var(--font-primary);
 }
+
+/*Animations*/
+
+/*Review Image section*/
 @keyframes carouselSlideInLeft {
   from {
     transform: translateX(-50%);
@@ -82,6 +86,8 @@ body {
   animation: carouselSlideInRight 0.5s ease-out;
 }
 
+/*Review Text Section*/
+
 @keyframes textSlideInLeft {
   from {
     transform: translateX(-20px);
@@ -110,4 +116,36 @@ body {
 
 .animate-textSlideInRight {
   animation: textSlideInRight 0.5s ease-out;
+}
+
+/*Leys Collaborate*/
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.8s ease-out forwards;
 }

@@ -40,10 +40,10 @@ export default function PreFooterBanner() {
             />
           </div>
           <div>
-            <p className="flex gap-[.5rem] text-5xl">
+            <div className="flex gap-[.5rem] text-5xl">
               <CountUpOnView end={item.number} duration={3} />
               <span>{item.symbol}</span>
-            </p>
+            </div>
             <p className="text-3xl">{item.text}</p>
           </div>
         </div>

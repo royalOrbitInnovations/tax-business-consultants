@@ -22,11 +22,10 @@ export default function Header() {
 
         {/* Mobile Navigation: show only on small screens */}
         <div className="flex 9xl:hidden items-center gap-8">
-          <Link href="/contact-us">
-            <ButtonUI width="25rem" size="2rem">
-              Consultation
-            </ButtonUI>
-          </Link>
+          <ButtonUI width="25rem" size="2rem" to="/contact-us">
+            Consultation
+          </ButtonUI>
+
           <img
             src="/svg/header-menu-tax-business-consultants.svg"
             alt="Menu-logo"

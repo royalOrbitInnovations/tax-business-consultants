@@ -1,6 +1,9 @@
 import AboutUs from "@/components/aboutUs/AboutUs";
+import LetsCollaborate from "@/components/aboutUs/LetsCollaborate";
+import OurMission from "@/components/aboutUs/OurMission";
 import TilesAboutUs from "@/components/aboutUs/TilesAboutUs";
 import WhyChooseUs from "@/components/aboutUs/WhyChooseUs";
+import FAQ from "@/components/FAQ/FAQ";
 import InitialPageText from "@/components/InitialPageText";
 import PageBanner from "@/components/PageBanner";
 
@@ -19,6 +22,9 @@ export default function About() {
       <AboutUs />
       <TilesAboutUs />
       <WhyChooseUs />
+      <OurMission />
+      <FAQ bg="#EFEAE6" />
+      <LetsCollaborate />
     </>
   );
 }

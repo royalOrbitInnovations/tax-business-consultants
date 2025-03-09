@@ -3,8 +3,8 @@ import TextWithBorder from "../TextWithBorder";
 
 export default function AboutUs() {
   return (
-    <div className="px-[20rem] bg-[#0D172D] py-[10rem] text-white grid grid-cols-2 gap-[2rem] justify-items-center">
-      <div className="flex flex-col gap-[2rem] text-justify">
+    <div className="px-[20rem] bg-[#0D172D] py-[10rem] text-white grid grid-cols-2 gap-[2rem] justify-items-center items-center max-12xl:px-[15rem] max-9xl:grid-cols-1 max-9xl:gap-[5rem] max-5xl:px-[5rem]">
+      <div className="flex flex-col gap-[2rem] text-justify max-9xl:text-left">
         <TextWithBorder text="About Us" />
         <p className="text-5xl">
           As the premier company specializing in advanced business startup and
@@ -28,7 +28,7 @@ export default function AboutUs() {
           <TextWithBorder text="Determine Problem" size="1.5rem" />
         </div>
       </div>
-      <div className="relative h-[50vh] w-[25vw] rounded-[25px] overflow-hidden">
+      <div className="relative h-[50vh] w-[25vw] rounded-[25px] overflow-hidden max-16xl:h-[70vh] max-12xl:w-[100%] max-9xl:row-start-1 max-9xl:h-[50vh] ">
         <Image
           src="/images/about-us-image-2.webp"
           alt="about-us-image-2"

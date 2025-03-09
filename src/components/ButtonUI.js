@@ -17,7 +17,7 @@ export default function ButtonUI({
         padding: paddingY,
       }}
     >
-      {children}
+      <Link href={to}>{children} </Link>
     </button>
   );
 }

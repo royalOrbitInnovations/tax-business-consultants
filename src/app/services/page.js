@@ -1,6 +1,6 @@
 import PageBanner from "@/components/PageBanner";
 import EmpoweringBuiness from "@/components/InitialPageText";
-import FAQ from "@/components/services/FAQ";
+import FAQ from "@/components/FAQ/FAQ";
 import PreFooterBanner from "@/components/services/PreFooterBanner";
 import ServiceExplanations from "@/components/services/ServiceExplanations";
 import ServicesReview from "@/components/services/ServicesReview";

@@ -48,9 +48,7 @@ export default function HeaderLinks() {
         <Link href="/blog">Blog</Link>
       </li>
       <li className="ml-[5rem] flex gap-6">
-        <Link href="/contact-us">
-          <ButtonUI>Consultation</ButtonUI>{" "}
-        </Link>
+        <ButtonUI to="/contact-us">Consultation</ButtonUI>{" "}
         <img
           src="/svg/header-menu-tax-business-consultants.svg"
           alt="Menu-logo"
