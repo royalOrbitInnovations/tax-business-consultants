@@ -46,7 +46,7 @@ const data = [
   },
 ];
 
-export default function ReviewContent({ width }) {
+export default function ReviewContent() {
   // current holds a value between 1 and data.length
   const [current, setCurrent] = useState(4);
   // direction to determine animation: "left" for previous, "right" for next

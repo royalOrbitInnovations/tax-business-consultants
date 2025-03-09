@@ -2,28 +2,40 @@
 
 import Image from "next/image";
 import QuestionBox from "./QuestionBox";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 
 export default function ServiceBox({ heading, questionSet, image, index }) {
-  const [width, setWindowWidth] = useState(window.innerWidth);
+  // Initialize width to 0 (or any default value)
+  const [width, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Check if window is defined (client-side) before accessing it
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+      // Optionally, you can add a resize event listener if you need to update on window resize
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+  const menuLayout =
+    width > 900 ? (
+      <>
+        {index % 2 === 0 ? imageDiv(image) : questionDiv(heading, questionSet)}
+        {index % 2 === 0 ? questionDiv(heading, questionSet) : imageDiv(image)}
+      </>
+    ) : (
+      <>
+        {imageDiv(image)}
+        {questionDiv(heading, questionSet)}
+      </>
+    );
 
   return (
-    <div className="px-[20rem] max-10xl:px-[15rem] max-6xl:px-[10rem] max-5xl:px-[5rem] pt-[5rem] pb-[2rem] flex max-9xl:flex-col  gap-[2rem]">
-      {width > 900 ? (
-        <>
-          {index % 2 === 0
-            ? imageDiv(image)
-            : questionDiv(heading, questionSet)}
-          {index % 2 === 0
-            ? questionDiv(heading, questionSet)
-            : imageDiv(image)}
-        </>
-      ) : (
-        <>
-          {imageDiv(image)}
-          {questionDiv(heading, questionSet)}
-        </>
-      )}
+    <div className="px-[20rem] max-10xl:px-[15rem] max-6xl:px-[10rem] max-5xl:px-[5rem] pt-[5rem] pb-[2rem] flex max-9xl:flex-col gap-[2rem]">
+      {menuLayout}
     </div>
   );
 }
