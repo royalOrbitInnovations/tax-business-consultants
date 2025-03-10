@@ -1,30 +1,23 @@
-import AboutUs from "@/components/aboutUs/AboutUs";
-import LetsCollaborate from "@/components/aboutUs/LetsCollaborate";
-import OurMission from "@/components/aboutUs/OurMission";
-import TilesAboutUs from "@/components/aboutUs/TilesAboutUs";
-import WhyChooseUs from "@/components/aboutUs/WhyChooseUs";
-import FAQ from "@/components/FAQ/FAQ";
+import ConatctAndMap from "@/components/contactUs/ConatctAndMap";
 import InitialPageText from "@/components/InitialPageText";
 import PageBanner from "@/components/PageBanner";
 
-export default function About() {
+export default function ContactUs() {
   return (
     <>
       <PageBanner
-        image="/images/about-us-banner-image.webp"
-        mainText="Our Story"
-        currentPage="About Us"
+        image="/images/contact-us-banner.webp"
+        mainText="Conatct Us"
+        currentPage="Contact Us"
       />
       <InitialPageText
-        heading="Who We Are"
-        text="Tax Business Consultants LLC. is a trusted partner that offers comprehensive support services to startups and established businesses. With a focus on innovation and  client satisfaction, our team of experts provides expert solutions in market analysis, strategic planning, and financial modeling."
+        heading="Get In Touch : Expert Business Consulting Tailored To You"
+        text="We offer a wide range of services, including strategic planning, financial management, marketing, and technology integration. By leveraging the latest industry insights and innovative strategies, we ensure your business stays ahead of the curve."
       />
-      <AboutUs />
-      <TilesAboutUs />
-      <WhyChooseUs />
-      <OurMission />
-      <FAQ bg="#EFEAE6" />
-      <LetsCollaborate />
+      <ConatctAndMap />
     </>
   );
 }
+
+// import ArrowIcon from "../svg/arrow-down-full.svg";
+// <ArrowIcon className="transition-all duration-300" />
