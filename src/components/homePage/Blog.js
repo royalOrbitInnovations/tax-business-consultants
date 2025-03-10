@@ -3,7 +3,7 @@ import TextWithBorder from "../TextWithBorder";
 
 export default function Blog() {
   return (
-    <div className="mt-[30rem] max-5xl:mt-[10rem] max-14xl:mt-[25rem] max-10xl:mt-[30rem] max-6xl:mt-[35rem] px-[20rem] max-14xl:px-[15rem] max-6xl:px-[5rem]">
+    <div className="px-[20rem] max-14xl:px-[15rem] max-6xl:px-[5rem]">
       <TextWithBorder text="Blog" />
       <div className=" flex  max-10xl:grid max-10xl:grid-cols-1 items-center">
         <div className="flex flex-col gap-[2rem] mt-[4rem] w-[100%]">

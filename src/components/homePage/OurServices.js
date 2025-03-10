@@ -5,7 +5,7 @@ import OurServicesList from "./OurServicesList";
 
 export default function OurServices() {
   return (
-    <div className="relative pt-[10rem] py-[20rem] max-5xl:py-[10rem] max-14xl:px-[15rem] px-[20rem] max-6xl:px-[5rem] bg-[#EFEAE6] max-5xl:overflow-hidden">
+    <div className="relative pt-[10rem] py-[20rem] max-5xl:py-[10rem] max-14xl:px-[15rem] px-[20rem] max-6xl:px-[5rem] bg-[#EFEAE6] max-5xl:overflow-hidden mb-[30rem] max-5xl:mb-[10rem] max-14xl:mb-[25rem] max-10xl:mb-[30rem] max-6xl:mb-[35rem]">
       <TextWithBorder text="Our Services" />
       <h2 className="text-[7rem]/30 max-5xl:text-[5rem] w-[60%] max-14xl:w-[80%] max-10xl:w-[90%] max-6xl:w-[100%] mt-[3rem]">
         Empowering Business With Strategic Growth Solution

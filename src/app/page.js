@@ -9,6 +9,7 @@ import OurServices from "@/components/homePage/OurServices";
 import Testimonials from "@/components/homePage/Testimonials";
 import WelcomeToTBC from "@/components/homePage/WelcomeToTBC";
 import WorldMap from "@/components/homePage/WorldMap";
+import BusinessProcess from "@/components/homePage/BusinessProcess";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <ClientSuccessStory />
       <WorldMap />
       <OurServices />
+      <BusinessProcess />
       <Blog />
       <IndustriesWeServe />
       <Contact />
