@@ -17,10 +17,7 @@ export default function SearchBar() {
           type="text"
           className="border border-2 border-(--ui-light) w-[20vw] h-[5rem] p-[2rem] rounded-full text-2xl focus:outline focus:outline-offset-2 focus:outline-(--ui-dark) transition-all duration-300 max-15xl:w-[40rem] "
         />
-        <div
-          className="w-[10rem] h-[10rem] flex justify-center items-center hover:scale-110 transition-all duration-300 cursor-pointer"
-          onClick=""
-        >
+        <div className="w-[10rem] h-[10rem] flex justify-center items-center hover:scale-110 transition-all duration-300 cursor-pointer">
           <Lottie animationData={animationData} loop={true} />
         </div>
       </div>

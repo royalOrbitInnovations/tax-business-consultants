@@ -20,7 +20,7 @@ export default function Home() {
       <ClientSuccessStory />
       <WorldMap />
       <OurServices />
-      <BusinessProcess />
+      {/* <BusinessProcess /> */}
       <Blog />
       <IndustriesWeServe />
       <Contact />
