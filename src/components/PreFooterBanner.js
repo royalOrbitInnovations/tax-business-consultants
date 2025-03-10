@@ -1,4 +1,4 @@
-import CountUpOnView from "../CountUpOnView";
+import CountUpOnView from "./CountUpOnView";
 
 const data = [
   {

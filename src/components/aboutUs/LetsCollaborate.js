@@ -25,7 +25,11 @@ export default function LetsCollaborate() {
           paddingY="2rem"
           size="3rem"
         >
-          <Lottie animationData={animationData} loop={true} />
+          <Lottie
+            animationData={animationData}
+            loop={true}
+            style={{ width: "200px", height: "200px" }}
+          />
           Contact Us
         </ButtonUI>
       </div>
