@@ -32,20 +32,19 @@ export default function CarouselOverlayText() {
         </p>
       </div>
       {/* <hr className="bg-[--ui-dark]" /> */}
-      <Link href="/services" className="z-100">
-        <ButtonUI
-          width={width <= 1600 ? "20rem" : "25rem"}
-          size={width <= 1600 ? "1.8rem" : "2.2rem"}
-          paddingY="1.8rem"
-        >
-          Explore More
-          <img
-            src="/svg/arrorw-top-right-tax-business-consultants.svg"
-            alt="Arrow SVG"
-            className="bg-white rounded-[50%] h-[2rem] w-[2rem] hover:scale-105 transition-all duration-300"
-          />
-        </ButtonUI>
-      </Link>
+      <ButtonUI
+        width={width <= 1600 ? "20rem" : "30rem"}
+        size={width <= 1600 ? "1.8rem" : "2.2rem"}
+        paddingY="1.8rem"
+        to="/contact-us"
+      >
+        Explore More
+        <img
+          src="/svg/arrorw-top-right-tax-business-consultants.svg"
+          alt="Arrow SVG"
+          className="bg-white rounded-[50%] h-[2rem] w-[2rem]"
+        />
+      </ButtonUI>
     </div>
   );
 }

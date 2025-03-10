@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 export default function ButtonUI({
@@ -8,8 +10,9 @@ export default function ButtonUI({
   to = "/",
 }) {
   return (
-    <button
-      className="bg-(--ui-dark) text-white px-[2rem] py-[.6rem] rounded-4xl flex justify-center items-center gap-[2rem] shadow-xl hover:scale-110 transition-all duration-300"
+    <Link
+      href={to}
+      className="bg-[var(--ui-dark)] text-white px-[2rem] py-[.6rem] rounded-4xl flex justify-center items-center gap-[2rem] shadow-xl hover:scale-110 transition-all duration-300"
       style={{
         width: width,
         fontSize: size,
@@ -17,7 +20,7 @@ export default function ButtonUI({
         padding: paddingY,
       }}
     >
-      <Link href={to}>{children} </Link>
-    </button>
+      {children}
+    </Link>
   );
 }

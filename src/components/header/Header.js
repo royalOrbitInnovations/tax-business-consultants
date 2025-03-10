@@ -4,8 +4,7 @@ import { useState } from "react";
 import Logo from "@/components/Logo";
 import HeaderLinks from "@/components/header/HeaderLinks";
 import ButtonUI from "../ButtonUI";
-import Link from "next/link";
-import MobileMenu from "@/components/header/MobileMenu"; // create this file
+import MobileMenu from "@/components/header/MobileMenu";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -52,7 +52,7 @@ export default function OurServicesBox() {
         <h3 className="text-7xl">Choose the</h3>
         <h2 className="text-[5rem]">BEST SERVICE</h2>
         <p className="text-5xl">Because you deserve to be the</p>
-        <h className="text-[10rem]">Best</h>
+        <h2 className="text-[10rem]">Best</h2>
         <button className="flex absolute max-6xl:relative bottom-[8rem]  max-10xl:bottom-[50%] max-6xl:bottom-0 max-10xl:translate-y-[50%] right-[8rem] max-6xl:right-0 text-[2rem] items-center gap-[1rem] bg-white text-black px-[1rem] py-[1rem] rounded-[10px] max-6xl:w-[50%] max-6xl:mb-5">
           Get a Quote
           <img
