@@ -1,4 +1,4 @@
-import Contact from "@/components/Contact";
+import Contact from "@/components/contact/Contact";
 import CallToAction from "@/components/contactUs/CallToAction";
 import ConatctAndMap from "@/components/contactUs/ConatctAndMap";
 import InitialPageText from "@/components/InitialPageText";
