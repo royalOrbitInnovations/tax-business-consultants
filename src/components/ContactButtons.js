@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ContactButtons() {
   return (
-    <div className="fixed bottom-5 right-5 flex flex-col gap-2 z-50">
+    <div className="fixed bottom-0 right-5 flex flex-col gap-[2rem] z-50 bg-(--ui-dark) rounded-t-full py-[2rem] px-[1.5rem]">
       {/* Phone Button */}
       <Link
         href="tel:+1234567890"
