@@ -20,7 +20,7 @@ export default function LetsCollaborate() {
       </h2>
       <div className="flex flex-col justify-center items-center">
         <ButtonUI
-          to="/contact"
+          to="/contact-us"
           width={width < 800 ? "25rem" : "35rem"}
           paddingY="2rem"
           size="3rem"
