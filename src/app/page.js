@@ -24,7 +24,7 @@ export default function Home() {
       <Blog />
       <IndustriesWeServe />
       <Contact />
-      <NewsA7ndInsights />
+      <NewsAndInsights />
       <Testimonials />
     </>
   );
