@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const data = [
   {
     image: "/svg/percentage.svg",
@@ -53,14 +55,16 @@ export default function OurServicesBox() {
         <h2 className="text-[5rem]">BEST SERVICE</h2>
         <p className="text-5xl">Because you deserve to be the</p>
         <h2 className="text-[10rem]">Best</h2>
-        <button className="flex absolute max-6xl:relative bottom-[8rem]  max-10xl:bottom-[50%] max-6xl:bottom-0 max-10xl:translate-y-[50%] right-[8rem] max-6xl:right-0 text-[2rem] items-center gap-[1rem] bg-white text-black px-[1rem] py-[1rem] rounded-[10px] max-6xl:w-[50%] max-6xl:mb-5">
-          Get a Quote
-          <img
-            src="/svg/arrow-right-tax-business-consultants.svg"
-            alt="Right Arrow"
-            className="bg-white rounded-[50%] w-[2rem] h-[2rem]"
-          />
-        </button>
+        <Link href="/contact-us">
+          <button className="flex absolute max-6xl:relative bottom-[8rem]  max-10xl:bottom-[50%] max-6xl:bottom-0 max-10xl:translate-y-[50%] right-[8rem] max-6xl:right-0 text-[2rem] items-center gap-[1rem] bg-white text-black px-[1rem] py-[1rem] rounded-[10px] max-6xl:w-[50%] max-6xl:mb-5 hover:scale-110 transition-all duration-300 cursor-pointer">
+            Get a Quote
+            <img
+              src="/svg/arrow-right-tax-business-consultants.svg"
+              alt="Right Arrow"
+              className="bg-white rounded-[50%] w-[2rem] h-[2rem]"
+            />
+          </button>
+        </Link>
       </div>
       <div></div>
     </div>

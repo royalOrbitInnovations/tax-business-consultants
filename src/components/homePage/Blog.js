@@ -23,7 +23,7 @@ export default function Blog() {
           <Image
             src="/images/blog-image.webp"
             fill
-            className="object-cover object-top"
+            className="object-cover object-top hover:scale-120 transition-all duration-700"
             alt="Blog-Image"
           />
         </div>
