@@ -37,12 +37,12 @@ export default function PostsSection() {
               {item.date}
             </span>
           </div>
-          <div className="relative h-[30rem] w-[40rem] max-17xl:w-[35rem] max-15xl:w-[30rem] aspect-[16/9] rounded-lg overflow-hidden shadow-2xl hover:scale-102 hover:rotate-20 transition-all duration-500 max-5xl:w-[100%] max-4xl:w-[90%]">
+          <div className="relative h-[30rem] w-[40rem] max-17xl:w-[35rem] max-15xl:w-[30rem] aspect-[16/9] rounded-lg overflow-hidden shadow-2xl max-5xl:w-[100%] max-4xl:w-[90%]">
             <Image
               src={item.image}
               fill
               alt="post-image"
-              className="object-cover"
+              className="object-cover hover:scale-110 transition-all duration-500"
             />
           </div>
           <h2 className="text-[2.5rem] w-[70%] max-14xl:w-[80%] mt-[2rem]">

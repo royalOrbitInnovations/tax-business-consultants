@@ -4,8 +4,8 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import ServicesLinks from "./ServicesLinks";
 
-export default function MobileMenu() {
-  // For the main menu, we'll animate each item (Home, About, Contact, Services, Blog)
+export default function MobileMenu({ closeMenu }) {
+  // Define the main menu items
   const menuItems = useMemo(
     () => [
       { label: "Home", href: "/" },
@@ -17,28 +17,27 @@ export default function MobileMenu() {
     []
   );
 
-  // State for the animation of each menu item
+  // For animating each menu item
   const [menuAnimations, setMenuAnimations] = useState(
     Array(menuItems.length).fill(false)
   );
   const animationTimeouts = useRef([]);
 
-  // State to toggle the Services dropdown
+  // To toggle the Services dropdown
   const [servicesOpen, setServicesOpen] = useState(false);
 
+  // Animate in each item, one by one
   useEffect(() => {
-    // When the MobileMenu mounts, animate each menu item sequentially.
-    animationTimeouts.current = menuItems.map((_, index) =>
+    animationTimeouts.current = menuItems.map((_, i) =>
       setTimeout(() => {
         setMenuAnimations((prev) => {
-          const newAnims = [...prev];
-          newAnims[index] = true;
-          return newAnims;
+          const next = [...prev];
+          next[i] = true;
+          return next;
         });
-      }, index * 100)
+      }, i * 100)
     );
 
-    // Cleanup timeouts on unmount
     return () => {
       animationTimeouts.current.forEach(clearTimeout);
     };
@@ -56,15 +55,21 @@ export default function MobileMenu() {
             menuAnimations[index] ? "translate-x-0" : "-translate-x-full"
           }`}
         >
+          {/* If it has dropdown = true, show the arrow */}
           {item.dropdown ? (
             <div className="relative flex items-center gap-2">
-              {/* The clickable link */}
-              <Link href={item.href}>{item.label}</Link>
-              {/* The toggle button */}
+              {/* Clicking "Services" itself goes to /services and closes menu */}
+              <Link href={item.href} onClick={closeMenu}>
+                {item.label}
+              </Link>
+
+              {/* Small arrow to toggle the sub-menu (NOT closing the menu) */}
               <button
-                onClick={() => setServicesOpen((prev) => !prev)}
                 type="button"
-                className="cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent Link click
+                  setServicesOpen((prev) => !prev);
+                }}
               >
                 <img
                   src="/svg/arrow-down-tax-business-consultants.svg"
@@ -74,16 +79,23 @@ export default function MobileMenu() {
                   }`}
                 />
               </button>
+
+              {/* The expanded sub-menu */}
               {servicesOpen && (
                 <ServicesLinks
-                  isMobile={true}
-                  setDisplay={() => {}}
+                  isMobile
                   hovered={servicesOpen}
+                  // For sub-items inside Services, also close the menu on click
+                  setDisplay={() => setServicesOpen(false)}
+                  closeMenu={closeMenu}
                 />
               )}
             </div>
           ) : (
-            <Link href={item.href}>{item.label}</Link>
+            // Regular link closes menu on click
+            <Link href={item.href} onClick={closeMenu}>
+              {item.label}
+            </Link>
           )}
         </li>
       ))}

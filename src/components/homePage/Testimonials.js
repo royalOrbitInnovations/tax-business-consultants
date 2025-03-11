@@ -9,14 +9,6 @@ export default function Testimonials() {
         <TextWithBorder text="Testimonials" />
       </div>
       <div className="flex mt-[8rem] max-14xl:mt-[6rem] justify-around w-[100%] rounded-[50px] max-5xl:rounded-sm overflow-hidden shadow-2xl border-2 border-(--ui-dark) max-6xl:rounded-[20px]">
-        <div className="relative h-[30rem] w-[30%] ">
-          <Image
-            src="/images/testimonials-image.webp"
-            alt="testimonials"
-            fill
-            className="object-cover object-top"
-          />
-        </div>
         <Reviews />
       </div>
     </div>
