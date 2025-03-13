@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import CKEditorApp from "@/components/Admin/CKEditorApp";
+import dynamic from "next/dynamic";
+
+// Dynamically import CKEditorApp on the client only
+const CKEditorApp = dynamic(() => import("@/components/Admin/CKEditorApp"), {
+  ssr: false,
+});
 
 export default function EditPostPage() {
   const searchParams = useSearchParams();
@@ -16,7 +21,6 @@ export default function EditPostPage() {
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  // Fetch the post data if an id is provided
   useEffect(() => {
     if (!postId) {
       setStatus("No post ID provided.");
@@ -53,7 +57,6 @@ export default function EditPostPage() {
       const res = await fetch(`/api/blogs/${postId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        // Note: content will be HTML when using CKEditorApp
         body: JSON.stringify({ heading, content, image: imageUrl }),
       });
       if (res.ok) {
@@ -143,7 +146,7 @@ export default function EditPostPage() {
               <img
                 src={imageUrl}
                 alt="Current post image"
-                className="w-full h-auto rounded shadow text-2xl"
+                className="w-[60rem] h-auto rounded shadow text-2xl"
               />
             </div>
           )}

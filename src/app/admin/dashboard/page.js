@@ -16,11 +16,9 @@ export default function DashboardHome() {
       setLoading(true);
       const res = await fetch("/api/blogs");
       const data = await res.json();
-      console.log("Fetched posts:", data);
       setPosts(data);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching posts:", error);
       setStatus("Error fetching posts");
       setLoading(false);
     }

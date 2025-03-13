@@ -68,7 +68,7 @@ export default function SearchBar({ type }) {
               Blog Posts
             </h2>
           )}
-          <div className="flex justify-end items-center gap-[1rem]">
+          <div className=" relative flex justify-end items-center gap-[1rem]">
             <input
               placeholder="Search for posts"
               type="text"
@@ -87,31 +87,31 @@ export default function SearchBar({ type }) {
             >
               <Lottie animationData={animationData} loop={true} />
             </div>
+
+            {/* Search results container */}
+            {results.length > 0 && (
+              <ul className="absolute top-full left-0 mt-2 w-[18vw] max-15xl:w-[35rem] bg-white shadow-lg rounded-md overflow-hidden z-10">
+                {results.map((post) => (
+                  <li
+                    key={post.id}
+                    className="p-4 border-b border-(--ui-light) hover:bg-(--ui-light) transition-colors duration-300 cursor-pointer"
+                  >
+                    <h3 className="text-xl font-semibold text-(--ui-dark)">
+                      {post.heading}
+                    </h3>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Display "No posts found" only if a search has been performed */}
+            {hasSearched && results.length === 0 && (
+              <div className="absolute top-full left-0 mt-2 w-[18vw] max-15xl:w-[35rem] bg-white shadow-lg rounded-md p-4 z-10">
+                <p className="text-xl text-(--ui-dark)">No posts found</p>
+              </div>
+            )}
           </div>
         </div>
-
-        {/* Search results container */}
-        {results.length > 0 && (
-          <ul className="absolute top-full left-0 mt-2 w-[18vw] max-15xl:w-[35rem] bg-white shadow-lg rounded-md overflow-hidden z-10">
-            {results.map((post) => (
-              <li
-                key={post.id}
-                className="p-4 border-b border-(--ui-light) hover:bg-(--ui-light) transition-colors duration-300 cursor-pointer"
-              >
-                <h3 className="text-xl font-semibold text-(--ui-dark)">
-                  {post.heading}
-                </h3>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {/* Display "No posts found" only if a search has been performed */}
-        {hasSearched && results.length === 0 && (
-          <div className="absolute top-full left-0 mt-2 w-[18vw] max-15xl:w-[35rem] bg-white shadow-lg rounded-md p-4 z-10">
-            <p className="text-xl text-(--ui-dark)">No posts found</p>
-          </div>
-        )}
       </div>
     </div>
   );

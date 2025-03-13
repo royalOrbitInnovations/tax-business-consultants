@@ -13,6 +13,15 @@ async function getDb() {
   return db;
 }
 
+// Utility function to create a slug from a string
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphen
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+}
+
 // GET /api/blogs/[id] - Get a single post
 export async function GET(request, { params }) {
   const awaitedParams = await params;
@@ -38,8 +47,28 @@ export async function PUT(request, { params }) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
 
-    // Merge existing post with updated data
-    db.data.posts[index] = { ...db.data.posts[index], ...updatedPost };
+    const existingPost = db.data.posts[index];
+
+    // Check if the heading was updated
+    if (updatedPost.heading && updatedPost.heading !== existingPost.heading) {
+      // Generate a new slug
+      let newSlug = slugify(updatedPost.heading);
+
+      // Ensure uniqueness by checking other posts (excluding the current one)
+      const isSlugTaken = db.data.posts.some(
+        (p) => p.id === newSlug && p.id.toString() !== id
+      );
+      if (isSlugTaken) {
+        newSlug = `${newSlug}-${Date.now()}`;
+      }
+
+      // Set the new slug as the post id
+      updatedPost.id = newSlug;
+    }
+
+    // Merge the existing post with the updated data
+    db.data.posts[index] = { ...existingPost, ...updatedPost };
+
     await db.write();
 
     return NextResponse.json(db.data.posts[index]);

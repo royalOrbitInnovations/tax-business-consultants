@@ -16,16 +16,32 @@ export async function GET(request) {
   return NextResponse.json(posts);
 }
 
-// POST /api/blogs - Create a new post
+// Helper function to create a slug from the heading
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphen
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+}
+
+// POST /api/blogs - Create a new post with slugified id
 export async function POST(request) {
   try {
     const newPost = await request.json();
-    // Assign a unique id (using timestamp; consider UUID in production)
-    newPost.id = Date.now().toString();
+
+    // Generate slug from the post heading
+    let slug = slugify(newPost.heading);
 
     // Read the current database contents
     await db.read();
     db.data ||= { posts: [] };
+
+    // Ensure uniqueness: if a post with the same slug exists, append a timestamp
+    if (db.data.posts.some((post) => post.id === slug)) {
+      slug = `${slug}-${Date.now()}`;
+    }
+    newPost.id = slug;
 
     // Add the new post
     db.data.posts.push(newPost);

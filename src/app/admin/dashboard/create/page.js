@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import CKEditorApp from "@/components/Admin/CKEditorApp"; // Adjust the path if needed
+import dynamic from "next/dynamic";
+
+// Dynamically import CKEditorApp on the client only
+const CKEditorApp = dynamic(() => import("@/components/Admin/CKEditorApp"), {
+  ssr: false,
+});
 
 export default function CreatePostPage() {
   const router = useRouter();
@@ -104,7 +109,7 @@ export default function CreatePostPage() {
               <img
                 src={imageUrl}
                 alt="Image preview"
-                className="w-full h-auto rounded shadow text-2xl"
+                className="w-[60rem] h-auto rounded shadow text-2xl"
               />
             </div>
           )}
