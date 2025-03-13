@@ -15,7 +15,7 @@ export default function Blog() {
       <SearchBar />
       <BlogSelectorContainer />
       <PreFooterBanner />
-      {/* <BlogPostsDisplay /> */}
+      <BlogPostsDisplay />
     </>
   );
 }
