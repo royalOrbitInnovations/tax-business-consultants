@@ -1,4 +1,3 @@
-import BlogPostsDisplay from "@/components/blog/BlogPostDisplay";
 import BlogSelectorContainer from "@/components/blog/BlogSelectorContainer";
 import SearchBar from "@/components/SearchBar";
 import PageBanner from "@/components/PageBanner";
@@ -12,10 +11,9 @@ export default function Blog() {
         mainText="News & Insight"
         currentPage="Blog"
       />
-      <SearchBar />
+      <SearchBar type="user" />
       <BlogSelectorContainer />
       <PreFooterBanner />
-      <BlogPostsDisplay />
     </>
   );
 }

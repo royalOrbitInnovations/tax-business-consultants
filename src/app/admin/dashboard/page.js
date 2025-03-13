@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import SearchBar from "@/components/SearchBar";
 
 export default function DashboardHome() {
   const [posts, setPosts] = useState([]);
@@ -65,11 +66,12 @@ export default function DashboardHome() {
 
   return (
     <div
-      className="px-[20rem] mx-auto p-8 mt-[20rem]"
+      className="px-[20rem] mx-auto p-8 mt-[15rem]"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
       <div className="flex justify-between items-center mb-10">
         <h1 className="text-4xl font-bold text-center">Admin Dashboard</h1>
+        <SearchBar />
         {/* Create Post Button */}
         <Link
           href="/admin/dashboard/create"

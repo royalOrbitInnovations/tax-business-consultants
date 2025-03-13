@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }) {
   }
 
   return (
-    <article className="w-full max-w-7xl mx-auto my-[15rem] p-10 bg-white/80 shadow-2xl rounded-2xl flex flex-col items-center space-y-8">
+    <article className="w-full max-w-7xl mx-auto my-[15rem] p-[5rem] bg-white/80 shadow-2xl rounded-2xl flex flex-col items-center space-y-8">
       <h1 className="text-7xl font-extrabold text-center text-gray-800">
         {post.heading}
       </h1>
@@ -67,7 +67,9 @@ export default async function BlogPostPage({ params }) {
       >
         <ReactMarkdown>{post.content}</ReactMarkdown>
       </div>
-      <ButtonUI to="/blog">Go Back</ButtonUI>
+      <ButtonUI to="/blog" size="2rem">
+        Go Back
+      </ButtonUI>
     </article>
   );
 }

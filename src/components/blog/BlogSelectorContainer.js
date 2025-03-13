@@ -1,61 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import BlogPostSelector from "./BlogPostSelector";
 
-const data = [
-  {
-    id: 1,
-    image: "/images/blog-images/blog-image-1.webp",
-    heading:
-      "How Business Consultants in Qatar Assist with Strategic Growth & Expansion",
-    excerpt:
-      "Tax Business Consultants is among the top consultant companies in Qatar and offers business entities professional advice according to the expansion of their market. With our expertise within the industry, we understand the unique hurdles that businesses in Qatar encounter and devise workable strategies to attain....",
-  },
-  {
-    id: 2,
-    image: "/images/blog-images/blog-image-1.webp",
-    heading:
-      "How Business Consultants in Qatar Assist with Strategic Growth & Expansion",
-    excerpt:
-      "Tax Business Consultants is among the top consultant companies in Qatar and offers business entities professional advice according to the expansion of their market. With our expertise within the industry, we understand the unique hurdles that businesses in Qatar encounter and devise workable strategies to attain....",
-  },
-  {
-    id: 3,
-    image: "/images/blog-images/blog-image-1.webp",
-    heading:
-      "How Business Consultants in Qatar Assist with Strategic Growth & Expansion",
-    excerpt:
-      "Tax Business Consultants is among the top consultant companies in Qatar and offers business entities professional advice according to the expansion of their market. With our expertise within the industry, we understand the unique hurdles that businesses in Qatar encounter and devise workable strategies to attain....",
-  },
-  {
-    id: 4,
-    image: "/images/blog-images/blog-image-1.webp",
-    heading:
-      "How Business Consultants in Qatar Assist with Strategic Growth & Expansion",
-    excerpt:
-      "Tax Business Consultants is among the top consultant companies in Qatar and offers business entities professional advice according to the expansion of their market. With our expertise within the industry, we understand the unique hurdles that businesses in Qatar encounter and devise workable strategies to attain....",
-  },
-  {
-    id: 5,
-    image: "/images/blog-images/blog-image-1.webp",
-    heading:
-      "How Business Consultants in Qatar Assist with Strategic Growth & Expansion",
-    excerpt:
-      "Tax Business Consultants is among the top consultant companies in Qatar and offers business entities professional advice according to the expansion of their market. With our expertise within the industry, we understand the unique hurdles that businesses in Qatar encounter and devise workable strategies to attain....",
-  },
-  {
-    id: 6,
-    image: "/images/blog-images/blog-image-1.webp",
-    heading:
-      "How Business Consultants in Qatar Assist with Strategic Growth & Expansion",
-    excerpt:
-      "Tax Business Consultants is among the top consultant companies in Qatar and offers business entities professional advice according to the expansion of their market. With our expertise within the industry, we understand the unique hurdles that businesses in Qatar encounter and devise workable strategies to attain....",
-  },
-];
-
 export default function BlogSelectorContainer() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/blogs")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading posts...</p>;
+  if (!posts.length) return <p>No posts found.</p>;
+
   return (
-    <div className="relative mx-[20rem] py-[6rem] mb-[5rem] grid grid-cols-3 gap-[5rem] max-15xl:grid-cols-2 max-15xl:justfiy-center max-15xl:justify-items-center max-15xl:gap-[2rem] max-10xl:mx-[10rem] max-6xl:mx-[5rem] max-6xl:grid-cols-1">
-      {data.map((item) => (
-        <BlogPostSelector key={item.id} blog={item} />
+    <div className="relative mx-[20rem] py-[6rem] mb-[5rem] grid grid-cols-3 gap-[5rem] max-15xl:grid-cols-2 max-15xl:justify-center max-15xl:justify-items-center max-15xl:gap-[2rem] max-10xl:mx-[10rem] max-6xl:mx-[5rem] max-6xl:grid-cols-1">
+      {posts.map((post) => (
+        <BlogPostSelector key={post.id} blog={post} />
       ))}
 
       <div className="absolute flex gap-[2rem] bottom-0 right-0">
