@@ -15,15 +15,14 @@ async function getDb() {
 
 // GET /api/blogs/[id] - Get a single post
 export async function GET(request, { params }) {
-  const { id } = params;
+  const awaitedParams = await params;
+  const { id } = awaitedParams;
   const db = await getDb();
   const post = db.data.posts.find((p) => p.id.toString() === id);
-
   if (!post) {
-    return NextResponse.json({ error: "Post not found" }, { status: 404 });
+    return new Response("Post not found", { status: 404 });
   }
-
-  return NextResponse.json(post);
+  return new Response(JSON.stringify(post), { status: 200 });
 }
 
 // PUT /api/blogs/[id] - Update a post

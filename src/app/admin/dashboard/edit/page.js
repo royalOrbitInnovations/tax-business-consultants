@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import CKEditorApp from "@/components/Admin/CKEditorApp";
 
 export default function EditPostPage() {
   const searchParams = useSearchParams();
@@ -52,6 +53,7 @@ export default function EditPostPage() {
         headers: {
           "Content-Type": "application/json",
         },
+        // Note: content is now HTML if using CKEditorApp
         body: JSON.stringify({ heading, content, image: imageUrl }),
       });
       if (res.ok) {
@@ -76,7 +78,7 @@ export default function EditPostPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-8 space-y-8 pt-[20rem]">
+    <div className="max-w-[70vw] mx-auto p-8 space-y-8 pt-[20rem]">
       <h1 className="text-5xl font-bold text-center">Edit Post</h1>
       {status && <p className="text-center text-lg">{status}</p>}
       <form
@@ -99,22 +101,22 @@ export default function EditPostPage() {
             required
           />
         </div>
-        <div>
+
+        {/* Replace the <textarea> with CKEditorApp */}
+        <div className="prose">
           <label
             className="block font-semibold mb-2 text-4xl"
             htmlFor="content"
           >
-            Content (Markdown supported)
+            Edit your Content
           </label>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            className="w-full text-3xl min h-[40rem] p-3 border rounded"
-            rows={10}
-            required
+          <CKEditorApp
+            initialData={content}
+            onChange={(data) => setContent(data)}
+            placeholder="Type or paste your content here!"
           />
         </div>
+
         <div>
           <label
             className="block font-semibold mb-2 text-4xl"
@@ -139,6 +141,7 @@ export default function EditPostPage() {
             </div>
           )}
         </div>
+
         <button
           type="submit"
           className="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition"

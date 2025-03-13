@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import CKEditorApp from "@/components/Admin/CKEditorApp"; // <-- Adjust the path if needed
 
 export default function CreatePostPage() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function CreatePostPage() {
       const res = await fetch("/api/blogs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        // Note: content will be HTML when using CKEditorApp
         body: JSON.stringify({ heading, content, image: imageUrl }),
       });
       if (res.ok) {
@@ -33,13 +35,15 @@ export default function CreatePostPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-8 space-y-8 pt-[20rem]">
+    <div className="max-w-[70vw] mx-auto p-8 space-y-8 pt-[15rem]">
       <h1 className="text-5xl font-bold text-center">Create Post</h1>
       {status && <p className="text-center text-lg">{status}</p>}
+
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 border p-6 rounded-xl bg-gray-50 shadow-md"
+        className="space-y-6 border p-6 rounded-xl bg-(--ui-light) shadow-md"
       >
+        {/* Blog Heading */}
         <div>
           <label
             htmlFor="heading"
@@ -56,22 +60,23 @@ export default function CreatePostPage() {
             required
           />
         </div>
-        <div>
+
+        {/* Replace textarea with CKEditorApp */}
+        <div className="prose">
           <label
             htmlFor="content"
             className="block font-semibold mb-2 text-4xl"
           >
-            Content (Markdown supported)
+            Content
           </label>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            className="w-full text-3xl min-h-[40rem] p-3 border rounded"
-            rows={10}
-            required
+          <CKEditorApp
+            initialData={content}
+            onChange={(data) => setContent(data)}
+            placeholder="Type or paste your content here!"
           />
         </div>
+
+        {/* Image URL */}
         <div>
           <label
             htmlFor="imageUrl"
@@ -91,12 +96,14 @@ export default function CreatePostPage() {
             <div className="mt-4">
               <img
                 src={imageUrl}
-                alt="Image Links seems to be broken. Please paste correct image link"
+                alt="Image preview"
                 className="w-full h-auto rounded shadow text-2xl"
               />
             </div>
           )}
         </div>
+
+        {/* Submit */}
         <button
           type="submit"
           className="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition"
