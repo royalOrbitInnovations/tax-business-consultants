@@ -18,6 +18,8 @@
   --breakpoint-3xl: 300px;
 }
 
+@plugin "@tailwindcss/typography";
+
 :root {
   --background: #ffffff;
   --ui-dark: #0a3459;

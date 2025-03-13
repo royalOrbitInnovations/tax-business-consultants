@@ -12,7 +12,7 @@ export default function FooterLinks({ section }) {
             key={index}
             className="text-2xl max-10xl:border-r  max-10xl:last:border-r-0 max-10xl:pr-[3rem] max-6xl:pr-[1rem]"
           >
-            <Link href="/">{item}</Link>
+            <Link href={`/${item}}`}>{item}</Link>
           </li>
         ))}
       </ul>

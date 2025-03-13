@@ -3,6 +3,8 @@
 import ButtonUI from "../ButtonUI";
 import { useEffect, useState } from "react";
 
+const data = [{}];
+
 export default function CarouselOverlayText() {
   const [width, setWidth] = useState(0);
 
