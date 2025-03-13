@@ -8,7 +8,7 @@ export default function WelcomeToTBC() {
     <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] max-6xl:px-[5rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh] max-12xl:h-[60vh] max-10xl:h-[70vh] max-6xl:h-[80vh] max-5xl:h-[60vh]">
       <TextWithBorder text="Welcome To Tax Business Consultant" />
       <h2 className="text-[4rem]">
-        Business Advisory Consulting Firm in Qatar
+        CHARTING SUCCESS TOGETHER - Empowering Your Enterprise for Success
       </h2>
       <p className="text-[2.2rem] w-[50%] max-14xl:w-[70%] max-6xl:w-[100%] max-6xl:text-justify">
         Providing professional consulting services to businesses in various

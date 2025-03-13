@@ -11,12 +11,14 @@ export default function Blog() {
             Get the coverage you need for your business, family, and assets.
           </h2>
           <p className="text-4xl w-[80%] mt-[2rem] max-10xl:w-[100%]">
-            We are confident in our ability to offer cutting-edge solutions that
-            empower both businesses and individuals to thrive in the constantly
-            evolving landscape of today&apos;s world. Crafted to simplify
-            operations, enhance efficiency, and boost productivity, our
-            solutions are tailored to streamline business processes and drive
-            success.
+            We Tax Business consultants (TBC) play a crucial role in helping
+            organizations thrive by analyzing challenges, identifying growth
+            opportunities, and implementing strategies. We offer tailored
+            guidance to navigate complexities, optimize operations, and foster
+            innovation, impacting businesses of all sizes. We work closely with
+            leadership, provide market expansion strategies, assist in mergers,
+            and enhance adaptability. Our contributions go beyond immediate
+            gains, laying a foundation for long-term success.
           </p>
         </div>
         <div className="relative max-10xl:row-start-1 max-10xl:mx-auto max-10xl:mt-[3rem] h-[30rem] w-[80rem] max-8xl:w-[100%] rounded-[10px] overflow-hidden shadow-2xl">

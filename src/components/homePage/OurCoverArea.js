@@ -7,8 +7,7 @@ export default function OurCoverArea() {
       <div className="relative pl-[20rem] max-14xl:pl-[15rem] max-6xl:px-[5rem] mt-[5rem]">
         <TextWithBorder text="Our Cover Area" />
         <h2 className="pt-[4rem] pb-[6rem] text-[4rem]/18 w-[50%] max-14xl:w-[70%] max-6xl:w-[100%]">
-          Conduct market research to understand industry trends, competition and
-          customer behaviour.
+          Providing Solutions to Help Business Grow.
         </h2>
         <OurCoverAreaSlider />
       </div>
