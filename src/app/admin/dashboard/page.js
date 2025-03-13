@@ -56,7 +56,16 @@ export default function DashboardHome() {
 
   return (
     <div className="max-w-5xl mx-auto p-8 mt-[20rem]">
-      <h1 className="text-4xl font-bold text-center mb-10">Admin Dashboard</h1>
+      <div className="flex justify-between items-center mb-10">
+        <h1 className="text-4xl font-bold text-center">Admin Dashboard</h1>
+        {/* Create Post Button */}
+        <Link
+          href="/admin/dashboard/create"
+          className="px-6 py-3 bg-green-600 text-white font-bold rounded hover:bg-green-700 transition"
+        >
+          Create Post
+        </Link>
+      </div>
 
       {status && (
         <p className="text-center text-lg text-green-600 mb-6">{status}</p>

@@ -20,11 +20,17 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const newPost = await request.json();
-    // Assign a unique id. In production, you might use a UUID.
+    // Assign a unique id (using timestamp; consider UUID in production)
     newPost.id = Date.now().toString();
 
+    // Read the current database contents
     await db.read();
+    db.data ||= { posts: [] };
+
+    // Add the new post
     db.data.posts.push(newPost);
+
+    // Write back to the JSON file
     await db.write();
 
     return NextResponse.json(newPost, { status: 201 });
