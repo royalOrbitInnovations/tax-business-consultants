@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import CKEditorApp from "@/components/Admin/CKEditorApp"; // <-- Adjust the path if needed
+import CKEditorApp from "@/components/Admin/CKEditorApp"; // Adjust the path if needed
 
 export default function CreatePostPage() {
   const router = useRouter();
@@ -10,11 +10,13 @@ export default function CreatePostPage() {
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [status, setStatus] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   // Handler for form submission to create a post
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Creating post...");
+    setSubmitting(true);
     try {
       const res = await fetch("/api/blogs", {
         method: "POST",
@@ -24,30 +26,32 @@ export default function CreatePostPage() {
       });
       if (res.ok) {
         setStatus("Post created successfully!");
-        setTimeout(() => router.push("/admin/dashboard"), 1500);
+        setTimeout(() => router.back(), 1500);
       } else {
         setStatus("Error creating post.");
+        setSubmitting(false);
       }
     } catch (error) {
       console.error("Error creating post:", error);
       setStatus("Error creating post.");
+      setSubmitting(false);
     }
   };
 
   return (
-    <div className="max-w-[70vw] mx-auto p-8 space-y-8 pt-[15rem]">
+    <div className="max-w-[70vw] mx-auto space-y-8 pt-[15rem] mb-[10rem]">
       <h1 className="text-5xl font-bold text-center">Create Post</h1>
       {status && <p className="text-center text-lg">{status}</p>}
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 border p-6 rounded-xl bg-(--ui-light) shadow-md"
+        className="space-y-6 border border-(--ui-dark) p-[2rem] rounded-xl shadow-2xl"
       >
         {/* Blog Heading */}
-        <div>
+        <div className="flex flex-col items-center">
           <label
             htmlFor="heading"
-            className="block font-semibold mb-2 text-4xl"
+            className="block font-semibold mb-[1rem] text-4xl self-start"
           >
             Heading
           </label>
@@ -56,7 +60,8 @@ export default function CreatePostPage() {
             type="text"
             value={heading}
             onChange={(e) => setHeading(e.target.value)}
-            className="w-full text-3xl p-3 border rounded"
+            className="text-3xl p-3 border rounded w-[60vw] border-gray-300"
+            placeholder="Enter Blog Title"
             required
           />
         </div>
@@ -65,22 +70,24 @@ export default function CreatePostPage() {
         <div className="prose">
           <label
             htmlFor="content"
-            className="block font-semibold mb-2 text-4xl"
+            className="block font-semibold mb-[1rem] text-4xl"
           >
             Content
           </label>
-          <CKEditorApp
-            initialData={content}
-            onChange={(data) => setContent(data)}
-            placeholder="Type or paste your content here!"
-          />
+          <div className="pl-[3rem]">
+            <CKEditorApp
+              initialData={content}
+              onChange={(data) => setContent(data)}
+              placeholder="Type or paste your content here!"
+            />
+          </div>
         </div>
 
         {/* Image URL */}
-        <div>
+        <div className="flex flex-col items-center">
           <label
             htmlFor="imageUrl"
-            className="block font-semibold mb-2 text-4xl"
+            className="block font-semibold mb-[1rem] text-4xl self-start"
           >
             Image URL
           </label>
@@ -89,8 +96,8 @@ export default function CreatePostPage() {
             type="text"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-            className="w-full p-3 border rounded text-2xl"
-            placeholder="Enter image URL"
+            className="w-[60vw] p-3 border rounded text-2xl border-gray-300"
+            placeholder="Enter image URL. The correct URL will render image below"
           />
           {imageUrl && (
             <div className="mt-4">
@@ -106,9 +113,10 @@ export default function CreatePostPage() {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition"
+          disabled={submitting}
+          className="w-full py-3 bg-(--ui-dark) text-white font-bold rounded-full hover:bg-black transition-all duration-300 text-3xl"
         >
-          Create Post
+          {submitting ? "Creating…" : "Create Post"}
         </button>
       </form>
     </div>

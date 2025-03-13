@@ -73,7 +73,7 @@ export default function DashboardHome() {
         {/* Create Post Button */}
         <Link
           href="/admin/dashboard/create"
-          className="text-3xl px-6 py-3 bg-(--ui-dark) text-white font-bold rounded hover:scale-110 transition-all duration-300 rounded-full"
+          className="text-3xl px-6 py-3 bg-(--ui-dark) text-white font-bold hover:scale-110 transition-all duration-300 rounded-full"
         >
           Create Post
         </Link>

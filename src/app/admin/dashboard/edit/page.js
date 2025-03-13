@@ -10,6 +10,7 @@ export default function EditPostPage() {
   const postId = searchParams.get("id");
 
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState("");
   const [heading, setHeading] = useState("");
   const [content, setContent] = useState("");
@@ -47,25 +48,25 @@ export default function EditPostPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Updating post...");
+    setSubmitting(true);
     try {
       const res = await fetch(`/api/blogs/${postId}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // Note: content is now HTML if using CKEditorApp
+        headers: { "Content-Type": "application/json" },
+        // Note: content will be HTML when using CKEditorApp
         body: JSON.stringify({ heading, content, image: imageUrl }),
       });
       if (res.ok) {
         setStatus("Post updated successfully!");
-        // Optionally redirect back to dashboard
-        router.push("/admin/dashboard");
+        setTimeout(() => router.back(), 1500);
       } else {
         setStatus("Error updating post.");
+        setSubmitting(false);
       }
     } catch (error) {
       console.error("Error updating post:", error);
       setStatus("Error updating post.");
+      setSubmitting(false);
     }
   };
 
@@ -78,17 +79,18 @@ export default function EditPostPage() {
   }
 
   return (
-    <div className="max-w-[70vw] mx-auto p-8 space-y-8 pt-[20rem]">
+    <div className="max-w-[70vw] mx-auto space-y-8 pt-[15rem] mb-[10rem]">
       <h1 className="text-5xl font-bold text-center">Edit Post</h1>
       {status && <p className="text-center text-lg">{status}</p>}
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 border p-6 rounded-xl bg-gray-50 shadow-md"
+        className="space-y-6 border border-(--ui-dark) p-[2rem] rounded-xl shadow-2xl bg-gray-50"
       >
-        <div>
+        {/* Blog Heading */}
+        <div className="flex flex-col items-center">
           <label
-            className="block font-semibold mb-2 text-4xl"
             htmlFor="heading"
+            className="block font-semibold mb-[1rem] text-4xl self-start"
           >
             Heading
           </label>
@@ -97,30 +99,34 @@ export default function EditPostPage() {
             type="text"
             value={heading}
             onChange={(e) => setHeading(e.target.value)}
-            className="w-full text-3xl p-3 border rounded"
+            className="text-3xl p-3 border rounded w-[60vw] border-gray-300"
+            placeholder="Enter Blog Title"
             required
           />
         </div>
 
-        {/* Replace the <textarea> with CKEditorApp */}
+        {/* Replace textarea with CKEditorApp */}
         <div className="prose">
           <label
-            className="block font-semibold mb-2 text-4xl"
             htmlFor="content"
+            className="block font-semibold mb-[1rem] text-4xl"
           >
             Edit your Content
           </label>
-          <CKEditorApp
-            initialData={content}
-            onChange={(data) => setContent(data)}
-            placeholder="Type or paste your content here!"
-          />
+          <div className="pl-[3rem]">
+            <CKEditorApp
+              initialData={content}
+              onChange={(data) => setContent(data)}
+              placeholder="Type or paste your content here!"
+            />
+          </div>
         </div>
 
-        <div>
+        {/* Image URL */}
+        <div className="flex flex-col items-center">
           <label
-            className="block font-semibold mb-2 text-4xl"
             htmlFor="imageUrl"
+            className="block font-semibold mb-[1rem] text-4xl self-start"
           >
             Image URL
           </label>
@@ -129,24 +135,27 @@ export default function EditPostPage() {
             type="text"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-            className="w-full p-3 border rounded text-2xl"
+            className="w-[60vw] p-3 border rounded text-2xl border-gray-300"
+            placeholder="Enter image URL. The correct URL will render image below"
           />
           {imageUrl && (
             <div className="mt-4">
               <img
                 src={imageUrl}
                 alt="Current post image"
-                className="w-full h-auto rounded shadow"
+                className="w-full h-auto rounded shadow text-2xl"
               />
             </div>
           )}
         </div>
 
+        {/* Submit */}
         <button
           type="submit"
-          className="w-full py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition"
+          disabled={submitting}
+          className="w-full py-3 bg-(--ui-dark) text-white font-bold rounded-full hover:bg-black transition-all duration-300 text-3xl"
         >
-          Update Post
+          {submitting ? "Updating…" : "Update Post"}
         </button>
       </form>
     </div>

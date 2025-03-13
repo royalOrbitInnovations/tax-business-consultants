@@ -17,10 +17,11 @@
   font-family: "Lato";
   line-height: 1.6;
   word-break: break-word;
-  min-height: 30vh;
+  min-height: 50vh;
 }
 
 .editor-container_classic-editor .editor-container__editor {
+  font-size: 1.5rem;
   min-width: 60vw;
   max-width: 60vw;
 }

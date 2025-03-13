@@ -1,6 +1,6 @@
 import BlogPostsDisplay from "@/components/blog/BlogPostDisplay";
 import BlogSelectorContainer from "@/components/blog/BlogSelectorContainer";
-import SearchBar from "@/components/blog/SearchBar";
+import SearchBar from "@/components/SearchBar";
 import PageBanner from "@/components/PageBanner";
 import PreFooterBanner from "@/components/PreFooterBanner";
 
