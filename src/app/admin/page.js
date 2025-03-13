@@ -19,7 +19,7 @@ export default function AdminLoginPage() {
       });
       if (res.ok) {
         setStatus("Login successful!");
-        router.push("/admin/dashboard");
+        router.push("/admin/dashboard"); // adjust this to your admin dashboard route
       } else {
         const data = await res.json();
         setStatus(data.error || "Login failed");
