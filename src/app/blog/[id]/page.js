@@ -9,8 +9,10 @@ export const metadata = {
 };
 
 export default async function BlogPostPage({ params }) {
+  console.log("Params:", params);
   // Await the dynamic params before destructuring
   const { id } = await params;
+  console.log(id);
 
   // Query Supabase directly
   const { data: post, error } = await supabase
