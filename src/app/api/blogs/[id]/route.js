@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import supabase from "@/app/lib/supabaseClient";
 import { NextResponse } from "next/server";
 
