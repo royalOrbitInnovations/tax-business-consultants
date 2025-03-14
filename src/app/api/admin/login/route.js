@@ -3,12 +3,14 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { password } = await request.json();
+    const { email, password } = await request.json();
 
-    // Validate password using your environment variable.
-    if (password === process.env.ADMIN_PASSWORD) {
-      // Create a signed JWT token.
-      // Ensure you have an environment variable (e.g. ADMIN_SECRET) for signing.
+    // Validate email and password using your environment variables.
+    if (
+      email === process.env.ADMIN_EMAIL &&
+      password === process.env.ADMIN_PASSWORD
+    ) {
+      // Create a signed JWT token using your ADMIN_SECRET.
       const token = jwt.sign({ role: "admin" }, process.env.ADMIN_SECRET, {
         expiresIn: "1d",
       });
@@ -27,7 +29,7 @@ export async function POST(request) {
       return response;
     } else {
       return NextResponse.json(
-        { success: false, error: "Invalid password" },
+        { success: false, error: "Invalid credentials" },
         { status: 401 }
       );
     }

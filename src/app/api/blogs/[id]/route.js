@@ -1,9 +1,11 @@
+export const dynamic = "force-dynamic";
+
 import supabase from "@/app/lib/supabaseClient";
 import { NextResponse } from "next/server";
 
 // GET /api/blogs/[id] - Get a single post
-export async function GET(request, { params }) {
-  const { id } = params;
+export async function GET(request, context) {
+  const { id } = await context.params;
   const { data: post, error } = await supabase
     .from("posts")
     .select("*")
@@ -26,9 +28,9 @@ function slugify(str) {
 }
 
 // PUT /api/blogs/[id] - Update a post
-export async function PUT(request, { params }) {
+export async function PUT(request, context) {
   try {
-    const { id } = params;
+    const { id } = await context.params;
     const updatedPost = await request.json();
 
     // If the heading is updated, generate a new slug and check for uniqueness.
@@ -48,11 +50,12 @@ export async function PUT(request, { params }) {
       }
     }
 
-    // Update the post with the matching id.
+    // Update the post with the matching id and return the updated row.
     const { data, error } = await supabase
       .from("posts")
       .update(updatedPost)
       .eq("id", id)
+      .select() // Ensure we return the updated row
       .single();
 
     if (error) {
@@ -71,10 +74,15 @@ export async function PUT(request, { params }) {
 }
 
 // DELETE /api/blogs/[id] - Delete a post
-export async function DELETE(request, { params }) {
+export async function DELETE(request, context) {
+  const { id } = await context.params;
+
   try {
-    const { id } = params;
-    const { data, error } = await supabase.from("posts").delete().eq("id", id);
+    const { data, error } = await supabase
+      .from("posts")
+      .delete()
+      .eq("id", id)
+      .select(); // Return the deleted row(s)
 
     if (error || !data || data.length === 0) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });

@@ -1,34 +1,8 @@
-// app/blog/[id]/page.js
+import supabase from "@/app/lib/supabaseClient";
 import { notFound } from "next/navigation";
-import { join } from "path";
-import { Low } from "lowdb";
-import { JSONFile } from "lowdb/node";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import ButtonUI from "@/components/ButtonUI";
-
-// Helper function to get a single post by id
-async function getPostById(id) {
-  const file = join(process.cwd(), "data", "db.json");
-  const adapter = new JSONFile(file);
-  const db = new Low(adapter, { posts: [] });
-  await db.read();
-  db.data ||= { posts: [] };
-  return db.data.posts.find((post) => post.id.toString() === id);
-}
-
-// Pre-generate paths based on available posts
-export async function generateStaticParams() {
-  const file = join(process.cwd(), "data", "db.json");
-  const adapter = new JSONFile(file);
-  const db = new Low(adapter, { posts: [] });
-  await db.read();
-  db.data ||= { posts: [] };
-
-  return db.data.posts.map((post) => ({
-    id: post.id.toString(),
-  }));
-}
 
 export const metadata = {
   title: "Blog Post",
@@ -37,12 +11,18 @@ export const metadata = {
 };
 
 export default async function BlogPostPage({ params }) {
-  const resolvedParams = await Promise.resolve(params);
-  const { id } = resolvedParams;
+  // Await the dynamic params before destructuring
+  const { id } = await params;
 
-  const post = await getPostById(id);
+  // Query Supabase directly
+  const { data: post, error } = await supabase
+    .from("posts")
+    .select("*")
+    .eq("id", id)
+    .single();
 
-  if (!post) {
+  // If not found or there's an error, show 404
+  if (!post || error) {
     notFound();
   }
 
@@ -51,22 +31,26 @@ export default async function BlogPostPage({ params }) {
       <h1 className="text-7xl font-extrabold text-center text-gray-800">
         {post.heading}
       </h1>
+
       {post.image && (
         <div className="relative w-full h-[40rem] rounded-3xl overflow-hidden shadow-xl">
           <img
             src={post.image}
             alt={post.heading}
+            fill
             className="object-cover hover:scale-110 transition-all duration-800"
           />
         </div>
       )}
+
       <div
         className="prose max-w-none
-                      prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-5xl
-                      prose-h3:text-4xl prose-p:text-3xl prose-p:leading-relaxed"
+                    prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-5xl
+                    prose-h3:text-4xl prose-p:text-3xl prose-p:leading-relaxed"
       >
         <ReactMarkdown>{post.content}</ReactMarkdown>
       </div>
+
       <ButtonUI to="/blog" size="2rem">
         Go Back
       </ButtonUI>

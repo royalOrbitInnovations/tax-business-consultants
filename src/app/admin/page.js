@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function AdminLoginPage() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   const router = useRouter();
@@ -15,11 +16,11 @@ export default function AdminLoginPage() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ email, password }),
       });
       if (res.ok) {
         setStatus("Login successful!");
-        router.push("/admin/dashboard"); // adjust this to your admin dashboard route
+        router.push("/admin/dashboard");
       } else {
         const data = await res.json();
         setStatus(data.error || "Login failed");
@@ -31,27 +32,39 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex items-center justify-center h-[100vh] w-[100vw] bg-gray-50 rounded-xl">
       <form
         onSubmit={handleSubmit}
-        className="p-6 border rounded shadow-lg bg-white"
+        className="h-[30vh] w-[30vw] p-6 border rounded-2xl shadow-lg bg-white flex flex-col justify-center items-center"
       >
-        <h1 className="text-2xl mb-4 text-center font-bold">Admin Login</h1>
+        <h1 className="text-4xl mb-[5rem] text-center font-bold">
+          Admin Login
+        </h1>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter admin email"
+          className="border p-2 mb-[2rem] rounded-2xl h-[3rem] w-[60%] text-3xl"
+          required
+        />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter admin password"
-          className="border p-2 mb-4 w-full rounded"
+          className="border p-2 mb-[3rem] rounded-2xl h-[3rem] w-[60%] text-3xl"
           required
         />
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-200"
+          className="w-[60%] bg-(--ui-dark) text-white py-2 px-4 rounded-2xl hover:bg-black transition-colors duration-200 text-3xl cursor-pointer"
         >
           Login
         </button>
-        {status && <p className="mt-4 text-center text-red-500">{status}</p>}
+        {status && (
+          <p className="mt-4 text-3xl text-center text-red-500">{status}</p>
+        )}
       </form>
     </div>
   );

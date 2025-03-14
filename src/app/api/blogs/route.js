@@ -54,7 +54,12 @@ export async function POST(request) {
     newPost.id = slug;
 
     // Insert the new post into Supabase
-    const { data, error } = await supabase.from("posts").insert([newPost]);
+    const { data, error } = await supabase
+      .from("posts")
+      .insert([newPost])
+      .select();
+
+    console.log(data, error);
 
     if (error) throw error;
 
