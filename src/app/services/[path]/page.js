@@ -46,7 +46,7 @@ export default async function ServicePage({ params }) {
     return (
       <div className="container mx-auto p-8">
         <h1 className="text-3xl font-bold mb-4">Service Not Found</h1>
-        <p>We couldn't find the service you are looking for.</p>
+        <p>We couldn&apos;t find the service you are looking for.</p>
       </div>
     );
   }
