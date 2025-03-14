@@ -4,6 +4,7 @@ import Footer from "@/components/footer/Footer";
 import ContactButtons from "@/components/ContactButtons";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Head from "next/head";
 
 // Define metadata for the homepage
 export const metadata = {
@@ -49,11 +50,6 @@ export default function RootLayout({ children }) {
       name: "Melvin Prince",
       url: "https://www.melvinprince.io",
     },
-    author: {
-      "@type": "Person",
-      name: "Melvin Prince",
-      url: "https://www.melvinprince.io",
-    },
     sameAs: [
       "https://github.com/melvinprince",
       "https://www.linkedin.com/in/melvinprince/",
@@ -62,12 +58,28 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <head>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta
+          property="og:description"
+          content={metadata.openGraph.description}
+        />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:site_name" content={metadata.openGraph.siteName} />
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={metadata.twitter.description}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
+      </Head>
       <body>
         <Header />
         <Suspense fallback={<Loading />}>{children}</Suspense>
