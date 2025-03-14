@@ -2,6 +2,7 @@
   "name": "tax-business-consultants",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +13,9 @@
     "@ckeditor/ckeditor5-font": "^44.3.0",
     "@ckeditor/ckeditor5-react": "^9.5.0",
     "@emailjs/browser": "^4.4.1",
+    "@supabase/supabase-js": "^2.49.1",
     "ckeditor5": "^44.3.0",
+    "dotenv": "^16.4.7",
     "jose": "^6.0.10",
     "jsonwebtoken": "^9.0.2",
     "lottie-react": "^2.4.1",

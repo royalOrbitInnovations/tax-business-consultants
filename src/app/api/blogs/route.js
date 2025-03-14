@@ -1,16 +1,25 @@
-import db from "@/app/lib/db";
+import supabase from "@/app/lib/supabaseClient";
 import { NextResponse } from "next/server";
 
-// GET /api/blogs - List posts (with optional search query)
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
-  const query = searchParams.get("q")?.toLowerCase();
+  const query = searchParams.get("q");
 
-  await db.read();
-  let posts = db.data.posts || [];
+  // Start building the query to fetch posts
+  let queryBuilder = supabase.from("posts").select("*");
 
+  // If a search query is provided, filter posts with a case-insensitive match on heading
   if (query) {
-    posts = posts.filter((post) => post.heading.toLowerCase().includes(query));
+    queryBuilder = queryBuilder.ilike("heading", `%${query}%`);
+  }
+
+  const { data: posts, error } = await queryBuilder;
+
+  if (error) {
+    return NextResponse.json(
+      { error: "Error fetching posts" },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json(posts);
@@ -25,31 +34,31 @@ function slugify(str) {
     .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
 }
 
-// POST /api/blogs - Create a new post with slugified id
 export async function POST(request) {
   try {
     const newPost = await request.json();
 
-    // Generate slug from the post heading
+    // Generate a slug from the post heading
     let slug = slugify(newPost.heading);
 
-    // Read the current database contents
-    await db.read();
-    db.data ||= { posts: [] };
+    // Check if a post with the same slug exists in Supabase
+    const { data: existingPosts } = await supabase
+      .from("posts")
+      .select("id")
+      .eq("id", slug);
 
-    // Ensure uniqueness: if a post with the same slug exists, append a timestamp
-    if (db.data.posts.some((post) => post.id === slug)) {
+    // If slug already exists, append a timestamp for uniqueness
+    if (existingPosts && existingPosts.length > 0) {
       slug = `${slug}-${Date.now()}`;
     }
     newPost.id = slug;
 
-    // Add the new post
-    db.data.posts.push(newPost);
+    // Insert the new post into Supabase
+    const { data, error } = await supabase.from("posts").insert([newPost]);
 
-    // Write back to the JSON file
-    await db.write();
+    if (error) throw error;
 
-    return NextResponse.json(newPost, { status: 201 });
+    return NextResponse.json(data[0], { status: 201 });
   } catch (error) {
     console.error("Error creating post:", error);
     return NextResponse.json({ error: "Error creating post" }, { status: 500 });

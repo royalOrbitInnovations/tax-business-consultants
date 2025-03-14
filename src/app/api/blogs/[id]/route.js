@@ -1,16 +1,19 @@
-import { join } from "path";
-import { Low } from "lowdb";
-import { JSONFile } from "lowdb/node";
+import supabase from "@/app/lib/supabaseClient";
 import { NextResponse } from "next/server";
 
-// Helper function to create a new lowdb instance (for a single post endpoint)
-async function getDb() {
-  const file = join(process.cwd(), "data", "db.json");
-  const adapter = new JSONFile(file);
-  const db = new Low(adapter, { posts: [] });
-  await db.read();
-  db.data ||= { posts: [] };
-  return db;
+// GET /api/blogs/[id] - Get a single post
+export async function GET(request, { params }) {
+  const { id } = params;
+  const { data: post, error } = await supabase
+    .from("posts")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error || !post) {
+    return new Response("Post not found", { status: 404 });
+  }
+  return new Response(JSON.stringify(post), { status: 200 });
 }
 
 // Utility function to create a slug from a string
@@ -22,56 +25,45 @@ function slugify(str) {
     .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
 }
 
-// GET /api/blogs/[id] - Get a single post
-export async function GET(request, { params }) {
-  const awaitedParams = await params;
-  const { id } = awaitedParams;
-  const db = await getDb();
-  const post = db.data.posts.find((p) => p.id.toString() === id);
-  if (!post) {
-    return new Response("Post not found", { status: 404 });
-  }
-  return new Response(JSON.stringify(post), { status: 200 });
-}
-
 // PUT /api/blogs/[id] - Update a post
 export async function PUT(request, { params }) {
   try {
     const { id } = params;
     const updatedPost = await request.json();
 
-    const db = await getDb();
-    const index = db.data.posts.findIndex((p) => p.id.toString() === id);
-
-    if (index === -1) {
-      return NextResponse.json({ error: "Post not found" }, { status: 404 });
-    }
-
-    const existingPost = db.data.posts[index];
-
-    // Check if the heading was updated
-    if (updatedPost.heading && updatedPost.heading !== existingPost.heading) {
-      // Generate a new slug
+    // If the heading is updated, generate a new slug and check for uniqueness.
+    if (updatedPost.heading && updatedPost.heading !== id) {
       let newSlug = slugify(updatedPost.heading);
 
-      // Ensure uniqueness by checking other posts (excluding the current one)
-      const isSlugTaken = db.data.posts.some(
-        (p) => p.id === newSlug && p.id.toString() !== id
-      );
-      if (isSlugTaken) {
-        newSlug = `${newSlug}-${Date.now()}`;
+      // If the new slug is different from the current id, check for an existing post.
+      if (newSlug !== id) {
+        const { data: existingPosts } = await supabase
+          .from("posts")
+          .select("id")
+          .eq("id", newSlug);
+        if (existingPosts && existingPosts.length > 0) {
+          newSlug = `${newSlug}-${Date.now()}`;
+        }
+        updatedPost.id = newSlug;
       }
-
-      // Set the new slug as the post id
-      updatedPost.id = newSlug;
     }
 
-    // Merge the existing post with the updated data
-    db.data.posts[index] = { ...existingPost, ...updatedPost };
+    // Update the post with the matching id.
+    const { data, error } = await supabase
+      .from("posts")
+      .update(updatedPost)
+      .eq("id", id)
+      .single();
 
-    await db.write();
+    if (error) {
+      console.error("Error updating post:", error);
+      return NextResponse.json(
+        { error: "Error updating post" },
+        { status: 500 }
+      );
+    }
 
-    return NextResponse.json(db.data.posts[index]);
+    return NextResponse.json(data);
   } catch (error) {
     console.error("Error updating post:", error);
     return NextResponse.json({ error: "Error updating post" }, { status: 500 });
@@ -82,15 +74,12 @@ export async function PUT(request, { params }) {
 export async function DELETE(request, { params }) {
   try {
     const { id } = params;
-    const db = await getDb();
-    const initialLength = db.data.posts.length;
-    db.data.posts = db.data.posts.filter((p) => p.id.toString() !== id);
+    const { data, error } = await supabase.from("posts").delete().eq("id", id);
 
-    if (db.data.posts.length === initialLength) {
+    if (error || !data || data.length === 0) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
 
-    await db.write();
     return NextResponse.json({ message: "Post deleted successfully" });
   } catch (error) {
     console.error("Error deleting post:", error);
