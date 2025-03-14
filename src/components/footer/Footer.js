@@ -6,15 +6,32 @@ import FooterContact from "./FooterContact";
 const data = {
   set1: {
     name: "Quick Links",
-    links: ["Home", "About Us", "Blog", "Contact Us", "Services"],
+    links: [
+      { name: "Home", link: "/" },
+      { name: "About Us", link: "/about-us" },
+      { name: "Blog", link: "/blog" },
+      { name: "Contact Us", link: "/contact-us" },
+      { name: "Services", link: "/services" },
+    ],
   },
   set2: {
     name: "Our Services",
     links: [
-      "Business Startup Consultants",
-      "Business Management Services",
-      "Business Administration Services",
-      "Data Analytics",
+      {
+        name: "Ownership Buisness",
+        link: "/services/100-ownership-business-in-qatar",
+      },
+      {
+        name: "Company Formation",
+        link: "/services/company-formation-in-qatar",
+      },
+      { name: "PRO Services", link: "/services/pro-services-in-qatar" },
+      {
+        name: "Business Consultancy",
+        link: "/services/business-consultancy-services",
+      },
+      { name: "Local Sponsorships", link: "/services/local-sponsorships" },
+      { name: "Documents Attestaion", link: "/document-attestation" },
     ],
   },
 };
@@ -55,7 +72,7 @@ export default function Footer() {
       </div>
 
       <FooterContact />
-      <h2 className="absolute text-[10rem] max-14xl:text-[8rem] max-7xl:text-[5rem] text-white/20 bottom-[-15%] max-10xl:bottom-[-10%] max-7xl:bottom-[-5%]  w-[100%] text-center">
+      <h2 className="absolute text-[10rem] max-14xl:text-[8rem] max-7xl:text-[5rem] text-white/20 bottom-[-25%] max-10xl:bottom-[-20%] max-7xl:bottom-[-5%]  w-[100%] text-center">
         Tax Business Consultants
       </h2>
     </div>

@@ -13,7 +13,7 @@ export default function OurCoverArea() {
       </div>
       <div className="mt-[40rem] max-10xl:mt-[30rem] max-6xl:mt-[35rem] mx-[1rem] w-[90%] max-14xl:w-[80%] max-6xl:w-[70%] h-[2rem] border-t-5 border-(--ui-dark) relative">
         <div className="flex gap-[2rem] absolute right-[-14rem] top-0 translate-y-[-50%]">
-          <img
+          {/* <img
             src="/svg/arrow-left-tax-business-consultants.svg"
             alt="Arrow Left"
             className="border rounded-[50%] p-[1rem] cursor-pointer"
@@ -22,7 +22,7 @@ export default function OurCoverArea() {
             src="/svg/arrow-right-tax-business-consultants.svg"
             alt="Arrow Right"
             className="border rounded-[50%] p-[1rem] cursor-pointer"
-          />
+          /> */}
         </div>
       </div>
     </>

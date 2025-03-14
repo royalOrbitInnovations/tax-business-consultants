@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import TextWithBorder from "../TextWithBorder";
-import PostsSection from "./PostsSection";
+import dynamic from "next/dynamic";
+
+const PostsSection = dynamic(() => import("./PostsSection"), {
+  ssr: false,
+});
 
 export default function NewsAndInsights() {
   return (

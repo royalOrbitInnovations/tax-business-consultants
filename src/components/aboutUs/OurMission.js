@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function OurMission() {
   return (
@@ -21,14 +22,16 @@ export default function OurMission() {
           competitiveness, and sustainability in an ever-evolving business
           landscape.
         </p>
-        <span className="flex items-center text-3xl gap-[1rem] hover:gap-[2rem] transition-all duration-300 cursor-pointer">
-          Read More{" "}
-          <img
-            src="/svg/arrow-down.svg"
-            alt="arrow-down"
-            className="rotate-270"
-          />
-        </span>
+        <Link href="/blog">
+          <span className="flex items-center text-3xl gap-[1rem] hover:gap-[2rem] transition-all duration-300 cursor-pointer">
+            Read More
+            <img
+              src="/svg/arrow-down.svg"
+              alt="arrow-down"
+              className="rotate-270"
+            />
+          </span>
+        </Link>
       </div>
     </div>
   );

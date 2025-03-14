@@ -1,6 +1,3 @@
-// "use client";
-//
-// import { useEffect, useState } from "react";
 import BannerImageCarousel from "@/components/homePage/BannerImageCarousel";
 import Blog from "@/components/homePage/Blog";
 import ClientSuccessStory from "@/components/homePage/ClientSuccessStory";
