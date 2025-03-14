@@ -6,6 +6,14 @@ const secret = new TextEncoder().encode(process.env.ADMIN_SECRET);
 
 export async function middleware(req) {
   const { pathname } = req.nextUrl;
+  const res = NextResponse.next();
+
+  // Add digital signature and hidden backlink in response headers
+  res.headers.set(
+    "X-Digital-Signature",
+    "Melvin Prince - Full Stack Developer"
+  );
+  res.headers.set("X-Hidden-Backlink", "https://www.melvinprince.io");
 
   // Only apply middleware for /admin routes.
   if (pathname.startsWith("/admin")) {
@@ -25,7 +33,7 @@ export async function middleware(req) {
           // Token invalid or expired; allow access to login page.
         }
       }
-      return NextResponse.next();
+      return res;
     }
 
     // For any other /admin subroutes, if there's no token, redirect to /admin.
@@ -45,7 +53,7 @@ export async function middleware(req) {
     }
   }
 
-  return NextResponse.next();
+  return res;
 }
 
 // Apply the middleware to all /admin routes.
