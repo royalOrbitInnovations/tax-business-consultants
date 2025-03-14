@@ -6,10 +6,21 @@ import WhyChooseUs from "@/components/aboutUs/WhyChooseUs";
 import FAQ from "@/components/FAQ/FAQ";
 import InitialPageText from "@/components/InitialPageText";
 import PageBanner from "@/components/PageBanner";
+import Head from "next/head";
 
 export default function About() {
   return (
     <>
+      <Head>
+        <title>
+          About Our Tax Consultancy Firm in Qatar | Experienced Tax Advisors
+        </title>
+        <meta
+          name="description"
+          content="Learn about our experienced team of tax consultants in Qatar, dedicated to providing personalized tax advisory and compliance services to meet your financial goals."
+        />
+      </Head>
+
       <PageBanner
         image="/images/about-us-banner-image.webp"
         mainText="Our Story"

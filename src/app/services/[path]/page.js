@@ -3,6 +3,35 @@ import ReactMarkdown from "react-markdown";
 import { services } from "@/app/lib/servicesData";
 import PreFooterBanner from "@/components/PreFooterBanner";
 
+export const metadata = {
+  title:
+    "Comprehensive Business Consulting Services in Qatar | Tax Business Consultants",
+  description:
+    "Discover our range of business consulting services in Qatar, including company formation, tax advisory, and financial planning, designed to drive your business success.",
+  keywords: [
+    "business consulting Qatar",
+    "company formation Qatar",
+    "tax advisory services",
+    "financial planning Qatar",
+    "business growth strategies",
+  ],
+  openGraph: {
+    title: "Comprehensive Business Consulting Services in Qatar",
+    description:
+      "Explore our expert business consulting services in Qatar, offering tailored solutions for company formation, tax advisory, and financial planning.",
+    url: "https://www.taxbusinessconsultants.com/services",
+    siteName: "Tax Business Consultants",
+    locale: "en_QA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Comprehensive Business Consulting Services in Qatar",
+    description:
+      "Professional business consulting services in Qatar, specializing in company formation, tax advisory, and financial planning.",
+  },
+};
+
 export default async function ServicePage({ params }) {
   // Ensure params is awaited if needed.
   const resolvedParams = await Promise.resolve(params);

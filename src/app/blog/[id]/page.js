@@ -3,9 +3,16 @@ import ReactMarkdown from "react-markdown";
 import ButtonUI from "@/components/ButtonUI";
 
 export const metadata = {
-  title: "Blog Post",
+  title: "Business Consulting in Qatar: Expert Insights and Strategies",
   description:
-    "Read our blog post for insights on business consulting in Qatar.",
+    "Explore expert insights on business consulting in Qatar, including strategies for company formation, tax advisory, and financial planning to drive your business success.",
+  keywords: [
+    "business consulting Qatar",
+    "company formation Qatar",
+    "tax advisory services",
+    "financial planning Qatar",
+    "business growth strategies",
+  ],
 };
 
 export default async function BlogPostPage({ params }) {
@@ -37,7 +44,6 @@ export default async function BlogPostPage({ params }) {
           <img
             src={post.image}
             alt={post.heading}
-            fill
             className="object-cover hover:scale-110 transition-all duration-800"
           />
         </div>

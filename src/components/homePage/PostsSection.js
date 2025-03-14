@@ -53,7 +53,6 @@ export default function PostsSection() {
           <div className="relative h-[25rem] w-[40rem] max-17xl:w-[35rem] max-15xl:w-[30rem] aspect-[16/9] rounded-lg overflow-hidden shadow-2xl max-5xl:w-[100%] max-4xl:w-[90%]">
             <img
               src={item.image}
-              fill
               alt="post-image"
               className="object-cover hover:scale-110 transition-all duration-500"
             />

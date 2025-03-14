@@ -10,10 +10,21 @@ import Testimonials from "@/components/homePage/Testimonials";
 import WelcomeToTBC from "@/components/homePage/WelcomeToTBC";
 import WorldMap from "@/components/homePage/WorldMap";
 import BusinessProcess from "@/components/homePage/BusinessProcess";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>
+          Leading Tax Consultancy Services in Qatar | Expert Tax Advisors
+        </title>
+        <meta
+          name="description"
+          content="Offering comprehensive tax consultancy services in Qatar, including corporate tax compliance, VAT advisory, and financial planning for businesses and individuals."
+        />
+      </Head>
+
       <BannerImageCarousel />
       <OurCoverArea />
       <WelcomeToTBC />

@@ -14,9 +14,11 @@ export default function BlogPostSelector({ blog }) {
       </div>
       <Link href={`/blog/${id}`}>
         <h2 className="text-4xl font-bold">{heading}</h2>
-        <div className="h-[10rem] text-2xl overflow-hidden">
-          <ReactMarkdown>{`${content.substring(0, 200)}...`}</ReactMarkdown>
-        </div>
+      </Link>
+      <div className="h-[10rem] text-2xl overflow-hidden">
+        <ReactMarkdown>{`${content.substring(0, 200)}...`}</ReactMarkdown>
+      </div>
+      <Link href={`/blog/${id}`}>
         <button className="text-(--ui-dark) text-2xl self-end px-[3rem] cursor-pointer hover:scale-105 transition-all duration-300">
           Read More
         </button>

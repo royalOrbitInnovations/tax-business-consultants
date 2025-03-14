@@ -4,10 +4,22 @@ import PreFooterBanner from "@/components/PreFooterBanner";
 import ServiceExplanations from "@/components/services/ServiceExplanations";
 import ServicesReview from "@/components/services/ServicesReview";
 import InitialPageText from "@/components/InitialPageText";
+import Head from "next/head";
 
 export default function Services() {
   return (
     <>
+      <Head>
+        <title>
+          Comprehensive Tax Services in Qatar | Corporate & Individual Tax
+          Solutions
+        </title>
+        <meta
+          name="description"
+          content="Discover our range of tax services in Qatar, including corporate tax filing, VAT compliance, tax advisory, and financial planning for both businesses and individuals."
+        />
+      </Head>
+
       <PageBanner
         image="/images/services-banner-image.webp"
         mainText="Our Services"
