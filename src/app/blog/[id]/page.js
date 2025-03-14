@@ -1,7 +1,5 @@
 import supabase from "@/app/lib/supabaseClient";
-import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import Image from "next/image";
 import ButtonUI from "@/components/ButtonUI";
 
 export const metadata = {
@@ -23,7 +21,7 @@ export default async function BlogPostPage({ params }) {
 
   // If not found or there's an error, show 404
   if (!post || error) {
-    notFound();
+    console.error("Error fetching post:", error);
   }
 
   return (
