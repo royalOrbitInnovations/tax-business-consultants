@@ -69,7 +69,7 @@ export default function CarouselOverlayText({ textData, currentIndex }) {
     <div className="absolute top-[55%] max-6xl:top-[50%] translate-y-[-50%] right-[20rem] items-end justify-end text-left flex flex-col gap-[4rem] tracking-widest">
       <AnimatePresence mode="wait">
         <motion.div
-          className="pl-[20rem]"
+          className="pl-[20rem] max-6xl:pl-[5rem]"
           key={currentIndex}
           // initial={{ opacity: 0, x: width }}
           // animate={{ opacity: 1, x: 1000 }}
@@ -80,7 +80,7 @@ export default function CarouselOverlayText({ textData, currentIndex }) {
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-[7rem]/30 w-[50%] max-16xl:w-[70%] max-16xl:text-[6rem]/25 max-6xl:w-[80%] max-4xl:w-[100%]">
+          <h1 className="text-[7rem]/30 w-[50%] max-16xl:w-[70%] max-16xl:text-[6rem]/25 max-6xl:w-[80%] max-4xl:w-[100]">
             <span className="text-(--ui-dark)">{textData.head1}</span>
             {textData.head2}
           </h1>
