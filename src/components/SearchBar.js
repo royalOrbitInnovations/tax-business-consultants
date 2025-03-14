@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import animationData from "../animations/search.json";
+import Link from "next/link";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -10,6 +11,7 @@ export default function SearchBar({ type }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const containerRef = useRef(null);
 
   const handleSearch = async () => {
@@ -47,6 +49,7 @@ export default function SearchBar({ type }) {
         !containerRef.current.contains(event.target)
       ) {
         setResults([]);
+        setIsFocused(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -68,7 +71,7 @@ export default function SearchBar({ type }) {
               Blog Posts
             </h2>
           )}
-          <div className=" relative flex justify-end items-center gap-[1rem]">
+          <div className="relative flex justify-end items-center gap-[1rem]">
             <input
               placeholder="Search for posts"
               type="text"
@@ -79,6 +82,11 @@ export default function SearchBar({ type }) {
                 setHasSearched(false);
               }}
               onKeyDown={handleKeyDown}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() =>
+                // Delay blur so that clicking on a result doesn't immediately hide it
+                setTimeout(() => setIsFocused(false), 100)
+              }
               className="border border-2 border-(--ui-light) w-[20vw] h-[5rem] p-[2rem] rounded-full text-2xl focus:outline focus:outline-offset-2 focus:outline-(--ui-dark) transition-all duration-300 max-15xl:w-[40rem]"
             />
             <div
@@ -89,23 +97,25 @@ export default function SearchBar({ type }) {
             </div>
 
             {/* Search results container */}
-            {results.length > 0 && (
+            {isFocused && results.length > 0 && (
               <ul className="absolute top-full left-0 mt-2 w-[18vw] max-15xl:w-[35rem] bg-white shadow-lg rounded-md overflow-hidden z-10">
                 {results.map((post) => (
                   <li
                     key={post.id}
                     className="p-4 border-b border-(--ui-light) hover:bg-(--ui-light) transition-colors duration-300 cursor-pointer"
                   >
-                    <h3 className="text-xl font-semibold text-(--ui-dark)">
-                      {post.heading}
-                    </h3>
+                    <Link href={`/blog/${post.id}`}>
+                      <h3 className="text-xl font-semibold text-(--ui-dark)">
+                        {post.heading}
+                      </h3>
+                    </Link>
                   </li>
                 ))}
               </ul>
             )}
 
             {/* Display "No posts found" only if a search has been performed */}
-            {hasSearched && results.length === 0 && (
+            {isFocused && hasSearched && results.length === 0 && (
               <div className="absolute top-full left-0 mt-2 w-[18vw] max-15xl:w-[35rem] bg-white shadow-lg rounded-md p-4 z-10">
                 <p className="text-xl text-(--ui-dark)">No posts found</p>
               </div>
