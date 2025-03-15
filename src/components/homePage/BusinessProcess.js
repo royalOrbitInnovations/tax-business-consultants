@@ -13,42 +13,42 @@ const data = [
   {
     step: "Choose business activity",
     description:
-      "Decide on the type of business activity you want to undertake and ensure that it is permissible under Qatar's laws and regulations.",
+      "Identify your business activity and ensure it complies with Qatar’s legal and regulatory framework for seamless registration.",
   },
   {
     step: "Choose a legal structure",
     description:
-      "Decide on the type of legal structure for your business, such as a limited liability company (LLC), branch office, or representative office.",
+      "Select the most suitable legal structure, such as an LLC or branch office, to align with your business objectives and regulatory requirements.",
   },
   {
     step: "Obtain initial approvals",
     description:
-      "Depending on the type of business, you may need to obtain approvals from various government agencies, such as the Ministry of Commerce and Industry, the Ministry of Economy and Commerce, or the Qatar Financial Center.",
+      "Secure necessary approvals from relevant government entities to proceed with registration and licensing effortlessly.",
   },
   {
     step: "Register the company",
     description:
-      "Once you have obtained initial approvals, you will need to register your company with the Ministry of Commerce and Industry. You will need to provide documents such as the company's articles of association, a list of shareholders, and proof of address.",
+      "Complete the official registration process with the Ministry of Commerce and Industry by submitting essential documentation.",
   },
   {
     step: "Obtain residence & work permits",
     description:
-      "If you are planning to bring in foreign employees, you will need to obtain work and residence permits for them.",
+      "Facilitate work and residence permits for foreign employees to ensure smooth workforce integration and legal compliance.",
   },
   {
     step: "Obtain commercial registration",
     description:
-      "This step is necessary for all types of businesses operating in Qatar. You will need to provide documents such as the company's registration certificate, a list of shareholders, and proof of address.",
+      "Acquire the mandatory commercial registration certificate to legally operate your business in Qatar.",
   },
   {
     step: "Open a corporate bank account",
     description:
-      "Once your business is registered, you will need to open a corporate bank account in order to start operations.",
+      "Establish a corporate bank account to enable financial transactions and support business operations efficiently.",
   },
   {
     step: "Start business operations",
     description:
-      "Once all the necessary approvals, licenses, and permits have been obtained, you can start your business operations.",
+      "Once all approvals and registrations are in place, launch your business operations with confidence and compliance.",
   },
 ];
 
