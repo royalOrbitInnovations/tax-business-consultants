@@ -63,7 +63,7 @@ export default function Footer() {
         <FooterLinks section={section} key={index} />
       ))}
 
-      <div className="mt-[4rem] max-14xl:hidden">
+      <div className="mt-[4rem] max-15xl:hidden">
         <h3 className="text-5xl font-bold mb-4 ">Get In Touch</h3>
         <p className="text-2xl">
           Hub Business Center <br /> 4th Floor, Royal Plaza <br /> Al Sadd,
