@@ -34,7 +34,7 @@ export default function CarouselOverlayText({ textData, currentIndex }) {
             <span className="text-(--ui-dark)">{textData.head1} </span>
             {textData.head2}
           </h1>
-          <div className="flex gap-[1.5rem] items-center jutext-left w-[50%] max-14xl:w-[60%] max-4xl:w-[80%] border-b border-gray-400 pb-[2rem] mt-[3rem]">
+          <div className="flex gap-[1.5rem] items-center jutext-left w-[50%] max-14xl:w-[60%] max-4xl:w-[80%] border-b border-gray-400 pb-[2rem] mt-[3rem] mb-[1rem]">
             <img
               src="/svg/arrorw-top-right-tax-business-consultants.svg"
               alt="Arrow SVG"
