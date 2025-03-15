@@ -5,38 +5,38 @@ const data = [
   {
     image: "/svg/percentage.svg",
     head: "100% Ownership Business in Qatar",
-    para: "Qatar offers favourable conditions for foreign entreprenuers eeking to set up business with complete ownership rights.",
+    para: "Enjoy full business ownership in Qatar with a streamlined setup process, ensuring complete control and operational flexibility.",
   },
   {
     image: "/svg/formation.svg",
-    head: "Company Formation in qatar",
-    para: "The process of company formation in Qatar. When it somes to registering a company in Qatar, Tax Business Consultant is your go-to partner",
+    head: "Company Formation in Qatar",
+    para: "Setting up a company in Qatar is seamless with Tax Business Consultant, offering expert guidance from registration to compliance.",
   },
   {
     image: "/svg/PRO-services.svg",
     head: "PRO Services in Qatar",
-    para: "Tax Business Consultant is a leading provider of PRO services in Qatar. Our team of experienced professionals is dedicated to helping entrepreneurs",
+    para: "Get hassle-free PRO services, including legal documentation, visa processing, and government approvals for smooth business operations.",
   },
   {
     image: "/svg/consult.svg",
     head: "Business Consultancy Services",
-    para: "TBC provides company formation, Sponsorship service, PRO services, office facilities and other typing and hukoomi works.",
+    para: "From company formation to sponsorship and compliance, we provide strategic consulting to optimize your business success in Qatar.",
   },
   {
     image: "/svg/lending-money.svg",
     head: "Local Sponsorship",
-    para: " Local sponsorship in Qatar refers to the practice of having a Qatari national act as a sponsor for a foreign individual or company doing business in the country. ",
+    para: "Partner with a trusted Qatari sponsor to fulfill legal requirements while ensuring stability and growth for your business.",
   },
   {
     image: "/svg/document.svg",
-    head: "Document Attestaion",
-    para: "Welcome to TBC Document Attestation Services in Qatar! We provide reliable and hassle-free certificate attestation services for individuals and businesses in Doha and across Qatar.",
+    head: "Document Attestation",
+    para: "We offer secure and efficient document attestation services in Qatar, ensuring legal validation for business and personal documents.",
   },
 ];
 
 export default function OurServicesBox() {
   return (
-    <div className="grid grid-cols-4 max-10xl:grid-cols-3 max-6xl:grid-cols-2 max-6xl:auto-rows-auto gap-[2rem] max-14xl:gap-[1.5rem] mt-[6rem]">
+    <div className="grid grid-cols-4 max-10xl:grid-cols-3 max-6xl:grid-cols-2  max-6xl:auto-rows-auto gap-[2rem] max-14xl:gap-[1.5rem] mt-[6rem]">
       {data.map((item, index) => (
         <div
           key={index}

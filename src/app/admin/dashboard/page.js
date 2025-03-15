@@ -10,13 +10,19 @@ export default function DashboardHome() {
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState("");
 
-  // Fetch all posts from the API endpoint
+  // Fetch all posts and sort them by created_at (newest first)
   const fetchPosts = async () => {
     try {
       setLoading(true);
       const res = await fetch("/api/blogs");
       const data = await res.json();
-      setPosts(data);
+
+      // Sort posts by created_at in descending order (newest first)
+      const sortedPosts = data.sort(
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      );
+
+      setPosts(sortedPosts);
       setLoading(false);
     } catch (error) {
       setStatus("Error fetching posts");
@@ -28,7 +34,7 @@ export default function DashboardHome() {
     fetchPosts();
   }, []);
 
-  // Clear status after 3 seconds when status is updated
+  // Clear status after 3 seconds when updated
   useEffect(() => {
     if (status) {
       const timer = setTimeout(() => setStatus(""), 3000);
@@ -42,9 +48,10 @@ export default function DashboardHome() {
       const res = await fetch(`/api/blogs/${id}`, {
         method: "DELETE",
       });
+
       if (res.ok) {
         setStatus("Post deleted successfully");
-        fetchPosts();
+        fetchPosts(); // Re-fetch posts after deletion
       } else {
         setStatus("Error deleting post");
       }

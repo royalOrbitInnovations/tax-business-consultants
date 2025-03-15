@@ -10,11 +10,14 @@ export default function BlogSelectorContainer() {
   const postsPerPage = 6;
 
   useEffect(() => {
-    // Fetch posts once and store them in state (cache)
+    // Fetch posts and sort by created_at (newest first)
     fetch("/api/blogs")
       .then((res) => res.json())
       .then((data) => {
-        setPosts(data);
+        const sortedPosts = data.sort(
+          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        );
+        setPosts(sortedPosts);
         setLoading(false);
       })
       .catch((error) => {

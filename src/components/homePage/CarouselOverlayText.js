@@ -30,7 +30,7 @@ export default function CarouselOverlayText({ textData, currentIndex }) {
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-[7rem]/30 w-[70%] max-16xl:w-[80%] max-16xl:text-[6rem]/25 max-6xl:w-[90%] max-4xl:w-[100%]">
+          <h1 className="text-[7rem]/30 w-[70%] max-16xl:w-[80%] max-16xl:text-[6rem]/25 max-6xl:w-[90%] max-4xl:w-[100%] max-6xl:text-[5rem]/20">
             <span className="text-(--ui-dark)">{textData.head1} </span>
             {textData.head2}
           </h1>

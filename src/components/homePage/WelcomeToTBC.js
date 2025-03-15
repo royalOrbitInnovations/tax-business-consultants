@@ -10,7 +10,7 @@ export default function WelcomeToTBC() {
       <h2 className="text-[4rem]">
         CHARTING SUCCESS TOGETHER - Empowering Your Enterprise for Success
       </h2>
-      <p className="text-[2.2rem] w-[50%] max-14xl:w-[70%] max-6xl:w-[100%] max-6xl:text-justify">
+      <p className="text-[2.2rem] w-[50%] max-15xl:w-[70%] max-6xl:w-[100%] max-6xl:text-justify">
         Providing professional consulting services to businesses in various
         industries by offering expert advice and guidance to help businesses
         overcome challenges, optimize operations, and ultimately achieve their

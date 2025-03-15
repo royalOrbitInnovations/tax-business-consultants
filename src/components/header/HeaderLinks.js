@@ -19,10 +19,7 @@ export default function HeaderLinks() {
       </li>
 
       <li className="hover:text-(--ui-dark) hover:scale-105 transition-all duration-300">
-        <Link href="/about-us">About</Link>
-      </li>
-      <li className="hover:text-(--ui-dark) hover:scale-105 transition-all duration-300">
-        <Link href="/contact-us">Contact</Link>
+        <Link href="/about-us">About Us</Link>
       </li>
       <li
         onMouseEnter={() => {
@@ -46,6 +43,9 @@ export default function HeaderLinks() {
       </li>
       <li className="hover:text-(--ui-dark) hover:scale-105 transition-all duration-300">
         <Link href="/blog">Blog</Link>
+      </li>
+      <li className="hover:text-(--ui-dark) hover:scale-105 transition-all duration-300">
+        <Link href="/contact-us">Contact Us</Link>
       </li>
       <li className="ml-[5rem] flex gap-6">
         <ButtonUI to="/contact-us">Consultation</ButtonUI>{" "}
