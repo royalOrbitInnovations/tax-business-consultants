@@ -40,7 +40,7 @@ export default function CarouselOverlayText({ textData, currentIndex }) {
               alt="Arrow SVG"
               className="h-[4rem] w-[4rem]"
             />
-            <p className="text-[2rem]/10 max-16xl:text-[1.7rem] max-6xl:text-[2rem] max-16xl:font-bold">
+            <p className="text-[3rem]/10 max-16xl:text-[1.7rem] max-6xl:text-[2rem] max-16xl:font-bold">
               {textData.p}
             </p>
           </div>

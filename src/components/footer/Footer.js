@@ -39,7 +39,7 @@ const data = {
 export default function Footer() {
   return (
     <div
-      className="relative bg-black px-[20rem] max-14xl:px-[10rem] max-10xl:px-[5rem] max-6xl:px-[1rem] py-[5rem] text-white grid grid-cols-5 max-10xl:grid-cols-2 max-10xl:grid-auto-rows overflow-hidden max-14xl:gap-[3rem] max-10xl:items-start"
+      className="relative bg-black px-[10rem] max-14xl:px-[10rem] max-10xl:px-[5rem] max-6xl:px-[1rem] py-[5rem] text-white grid grid-cols-5 max-10xl:grid-cols-2 max-10xl:grid-auto-rows overflow-hidden max-14xl:gap-[3rem] max-10xl:items-start"
       style={{ fontFamily: "var(--font-secondary)" }}
     >
       <div className="w-[22rem] flex flex-col gap-[2rem] max-14xl:gap-[1rem] max-14xl:my-auto max-10xl:mx-auto max-10xl:row-start-3">

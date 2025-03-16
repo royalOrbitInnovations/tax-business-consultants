@@ -48,7 +48,7 @@ export default function OurServicesBox() {
             className="h-[8rem] w-[8rem] max-14xl:h-[6rem] max-14xl:w-[6rem]"
           />
           <h3 className="text-5xl">{item.head}</h3>
-          <p className="text-2xl">{item.para}</p>
+          <p className="text-3xl">{item.para}</p>
         </div>
       ))}
       <div className="relative col-span-2 max-10xl:col-span-3 max-6xl:col-span-2 bg-black rounded-[25px] rounded-tr-[150px] max-10xl:rounded-r-[150px] flex flex-col p-[4rem] max-10xl:px-[8rem] max-10xl:py-[6rem] max-14xl:p-[2.5rem] text-white shadow-2xl overflow-hidden">

@@ -58,7 +58,7 @@ export default function OurCoverAreaSlider() {
           key={index}
           className="flex flex-col max-6xl:items-center gap-[2rem] max-6xl:w-[100%]"
         >
-          <div className="relative h-[25rem] w-[46rem] max-18xl:w-[40rem] max-16xl:w-[35rem] max-15xl:w-[30rem] max-10xl:w-[25rem] max-5xl:w-[80%] max-10xl:h-[15rem] max-6xl:h-[20rem] max-5xl:h-[25rem] max-6xl:w-[37rem] aspect-[16/9]">
+          <div className="relative h-[25rem] w-[42rem] max-18xl:w-[40rem] max-16xl:w-[35rem] max-15xl:w-[30rem] max-10xl:w-[25rem] max-5xl:w-[80%] max-10xl:h-[15rem] max-6xl:h-[20rem] max-5xl:h-[25rem] max-6xl:w-[37rem] aspect-[16/9]">
             <Image
               src={item.link}
               fill
