@@ -31,7 +31,7 @@ const data = {
         link: "/services/business-consultancy-services",
       },
       { name: "Local Sponsorships", link: "/services/local-sponsorships" },
-      { name: "Documents Attestaion", link: "/document-attestation" },
+      { name: "Documents Attestaion", link: "/services/document-attestation" },
     ],
   },
 };

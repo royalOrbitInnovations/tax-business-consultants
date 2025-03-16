@@ -18,7 +18,7 @@ const textData = [
   },
   {
     head1: "Own 100% of Your Business in Qatar",
-    head2: "Start your journey today—no local partner required!",
+    head2: "Start your journey today, no local partner required!",
     p: "You will always have the full control of your company",
   },
   {

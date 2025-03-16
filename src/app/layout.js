@@ -5,6 +5,7 @@ import ContactButtons from "@/components/ContactButtons";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Head from "next/head";
+import PopupForm from "@/components/PopupForm";
 
 // Define metadata for the homepage
 export const metadata = {
@@ -84,6 +85,7 @@ export default function RootLayout({ children }) {
         <Header />
         <Suspense fallback={<Loading />}>{children}</Suspense>
         <ContactButtons />
+        <PopupForm />
         <Footer />
       </body>
     </html>
