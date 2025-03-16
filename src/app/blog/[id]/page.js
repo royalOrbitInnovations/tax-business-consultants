@@ -44,7 +44,7 @@ export default async function BlogPostPage({ params }) {
           <img
             src={post.image}
             alt={post.heading}
-            className="object-cover hover:scale-110 transition-all duration-800"
+            className="object-cover hover:scale-110 transition-all duration-800 h-[100%] w-[100%]"
           />
         </div>
       )}
