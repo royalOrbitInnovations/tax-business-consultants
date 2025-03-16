@@ -63,13 +63,15 @@ export default function OurServicesBox() {
         </div>
 
         {/* Content */}
-        <h3 className="text-7xl relative z-10">Choose the</h3>
-        <h2 className="text-[5rem] relative z-10">BEST SERVICE</h2>
-        <p className="text-5xl relative z-10">Because you deserve to be the</p>
-        <h2 className="text-[10rem] relative z-10">Best</h2>
+        <h3 className="text-5xl relative z-10">Unlock Your</h3>
+        <h2 className="text-7xl relative z-10">FULL POTENTIAL</h2>
+        <p className="text-5xl relative z-10">We help you achieve the</p>
+        <h2 className="text-[10rem] max-16xl:text-[8rem] max-6xl:text-[5rem] relative z-10">
+          Extraordinary
+        </h2>
 
         <Link href="/contact-us">
-          <button className="flex absolute max-6xl:relative bottom-[8rem] max-10xl:bottom-[50%] max-6xl:bottom-0 max-10xl:translate-y-[50%] right-[8rem] max-6xl:right-0 text-[2rem] items-center gap-[1rem] bg-white text-black px-[1rem] py-[1rem] rounded-[10px] max-6xl:w-[50%] max-6xl:mb-5 hover:scale-110 transition-all duration-300 cursor-pointer z-10">
+          <button className="flex absolute max-6xl:relative bottom-[15rem] max-16xl:bottom-[4rem] max-10xl:bottom-[50%] max-6xl:bottom-0 max-10xl:translate-y-[50%] right-[8rem] max-6xl:right-0 text-[2rem] items-center gap-[1rem] bg-white text-black px-[1rem] py-[1rem] rounded-[10px] max-6xl:w-[50%] max-6xl:mb-5 hover:scale-110 transition-all duration-300 cursor-pointer z-10">
             Get a Quote
             <img
               src="/svg/arrow-right-tax-business-consultants.svg"
