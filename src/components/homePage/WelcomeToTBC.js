@@ -5,7 +5,7 @@ import CountUpOnView from "../CountUpOnView";
 
 export default function WelcomeToTBC() {
   return (
-    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] max-6xl:px-[5rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh] max-12xl:h-[60vh] max-10xl:h-[70vh] max-6xl:h-[80vh] max-5xl:h-[60vh]">
+    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] max-6xl:px-[5rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh] max-12xl:h-[60vh] max-10xl:h-[70vh] max-6xl:h-[80vh]">
       <TextWithBorder text="Welcome To Tax Business Consultant" />
       <h2 className="text-[4rem]">
         CHARTING SUCCESS TOGETHER - Empowering Your Enterprise for Success
@@ -28,7 +28,7 @@ export default function WelcomeToTBC() {
         />
       </Link>
 
-      <div className="absolute top-[45rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[50rem] max-5xl:top-[60rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] max-6xl:w-[90%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
+      <div className="absolute top-[45rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[50rem] max-5xl:top-[75rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] max-6xl:w-[90%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
         <Image
           src="/images/services-banner-image.webp"
           alt="WTTBC Business People Walking"

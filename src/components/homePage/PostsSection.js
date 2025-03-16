@@ -54,7 +54,7 @@ export default function PostsSection() {
             <img
               src={item.image}
               alt="post-image"
-              className="object-cover hover:scale-110 transition-all duration-500"
+              className="object-cover hover:scale-110 transition-all duration-500 h-[100%] w-[100%]"
             />
           </div>
           <h2 className="text-[2.5rem] w-[70%] max-14xl:w-[80%] mt-[2rem]">
