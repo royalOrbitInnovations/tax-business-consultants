@@ -74,16 +74,18 @@ export default function PopupForm() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full h-full backdrop-blur-lg bg-black/30 flex justify-center items-center z-50">
-        <div className="bg-(--ui-light) p-10 rounded-2xl shadow-xl max-w-lg w-full relative text-center">
-          <h2 className="text-3xl font-semibold mb-4 text-(--ui-dark)">
+      <div className="fixed top-0 left-0 w-full h-full backdrop-blur-lg bg-black/30 flex justify-center items-center z-[5000]">
+        <div className="bg-(--ui-light) p-10 rounded-2xl shadow-xl w-[50rem] h-[40rem] relative text-center">
+          <h2 className="text-4xl font-semibold mb-4 text-(--ui-dark) my-[4rem]">
             Looking to Start a Business in Qatar?
           </h2>
-          <p className="text-md text-gray-600 mb-6">Get a call back from us.</p>
+          <p className="text-2xl text-gray-600 mb-6">
+            Get a call back from us.
+          </p>
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-[2rem] w-[70%] mx-auto"
           >
             <input
               type="text"
@@ -91,7 +93,7 @@ export default function PopupForm() {
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--ui-dark)"
+              className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--ui-dark) text-2xl"
               required
             />
             <input
@@ -100,12 +102,12 @@ export default function PopupForm() {
               placeholder="Your Phone Number"
               value={formData.phone}
               onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--ui-dark)"
+              className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--ui-dark) text-2xl"
               required
             />
             <button
               type="submit"
-              className="bg-(--ui-dark) text-white py-3 px-6 rounded-lg hover:bg-opacity-80 transition duration-300"
+              className="bg-(--ui-dark) text-white py-3 px-6 rounded-lg hover:bg-opacity-80 transition duration-300 text-3xl"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Submitting..." : "Request a Call Back"}
