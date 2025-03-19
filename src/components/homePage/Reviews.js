@@ -39,7 +39,7 @@ const data = [
   {
     id: 5,
     head: "Fast",
-    text: "Prompt service with elegant knowledge and more over affordable charges comparing to other service providers",
+    text: "Prompt service with knowledge and more over affordable charges comparing to other service providers",
     name: "Shahul Sahil",
     date: "April 2024",
     image: "/images/post-image-1.webp",
