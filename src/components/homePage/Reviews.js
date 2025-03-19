@@ -31,7 +31,7 @@ const data = [
   {
     id: 4,
     head: "True Professionalist",
-    text: "True definition of action speaks louder. They are professional and supportive.",
+    text: "True definition of action speaks louder than words. They are professional and supportive.",
     name: "Cute Sisters",
     date: "Aug 2024",
     image: "/images/services-image-2.webp",
