@@ -11,9 +11,9 @@ export default function OurServices() {
         Empowering Business With Strategic Growth Solution
       </h2>
       <OurServicesBox />
-      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] max-5xl:hidden absolute w-[87%] max-6xl:w-[94%] bottom-[-35rem] max-16xl:bottom-[-26rem]  max-7xl:bottom-[-40rem] max-6xl:bottom-[-48rem] right-0 h-[40vh] max-12xl:h-[30vh] max-6xl:h-[50vh] " />
+      <div className="bg-[#EFEAE6] [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] max-5xl:hidden absolute w-[87%] max-6xl:w-[94%] bottom-[-25rem] max-16xl:bottom-[-26rem]  max-7xl:bottom-[-40rem] max-6xl:bottom-[-48rem] right-0 h-[40vh] max-12xl:h-[30vh] max-6xl:h-[50vh] " />
       <div
-        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] max-5xl:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)] absolute max-5xl:relative w-[85%] max-6xl:w-[92%]  max-5xl:w-[100%] bottom-[-35rem] max-16xl:bottom-[-26rem]  max-7xl:bottom-[-40rem] max-6xl:bottom-[-48rem] max-5xl:bottom-0 right-0 h-[40vh] max-12xl:h-[30vh] max-6xl:h-[50vh] pl-[10%] max-5xl:pl-0 gap-[5rem]  flex max-6xl:flex-col justify-center items-center max-5xl:mt-[2rem]"
+        className="bg-(--ui-light) [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)] max-5xl:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)] absolute max-5xl:relative w-[85%] max-6xl:w-[92%]  max-5xl:w-[100%] bottom-[-25rem] max-16xl:bottom-[-26rem]  max-7xl:bottom-[-40rem] max-6xl:bottom-[-48rem] max-5xl:bottom-0 right-0 h-[40vh] max-12xl:h-[30vh] max-6xl:h-[50vh] pl-[10%] max-5xl:pl-0 gap-[5rem]  flex max-6xl:flex-col justify-center items-center max-5xl:mt-[2rem]"
         style={{ fontFamily: "var(--font-secondary)" }}
       >
         <OurServicesList />
