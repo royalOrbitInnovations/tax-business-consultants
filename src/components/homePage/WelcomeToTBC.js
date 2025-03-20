@@ -5,12 +5,12 @@ import CountUpOnView from "../CountUpOnView";
 
 export default function WelcomeToTBC() {
   return (
-    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] max-6xl:px-[5rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[80vh] max-12xl:h-[60vh] max-10xl:h-[70vh] max-6xl:h-[80vh]">
+    <div className="relative bg-black text-white mt-[7rem] pl-[20rem] max-14xl:pl-[15rem] max-6xl:px-[5rem] pt-[10rem] flex flex-col gap-[2rem] h-[70vh] max-16xl:h-[85vh] max-12xl:h-[60vh] max-10xl:h-[70vh] max-6xl:h-[80vh]">
       <TextWithBorder text="Welcome To Tax Business Consultant" />
-      <h2 className="text-[4rem]">
+      <h2 className="text-[4rem] w-[70%]">
         CHARTING SUCCESS TOGETHER - Empowering Your Enterprise for Success
       </h2>
-      <p className="text-[2.2rem] w-[50%] max-15xl:w-[70%] max-6xl:w-[100%] max-6xl:text-justify">
+      <p className="text-[2.2rem] w-[50%] max-15xl:w-[70%] max-6xl:w-[100%] max-16xl:text-justify">
         Providing professional consulting services to businesses in various
         industries by offering expert advice and guidance to help businesses
         overcome challenges, optimize operations, and ultimately achieve their
@@ -28,7 +28,7 @@ export default function WelcomeToTBC() {
         />
       </Link>
 
-      <div className="absolute top-[45rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[50rem] max-5xl:top-[75rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] max-6xl:w-[90%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
+      <div className="absolute top-[45rem] max-16xl:top-[55rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[56rem] max-5xl:top-[75rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] max-6xl:w-[90%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
         <Image
           src="/images/services-banner-image.webp"
           alt="WTTBC Business People Walking"

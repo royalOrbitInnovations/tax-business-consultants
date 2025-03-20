@@ -7,7 +7,7 @@ export default function ClientSuccessStoryBox({ item, className }) {
       className={` relative ${className} bg-(--ui-light) py-[5rem] max-14xl:py-[3rem] px-[3rem] flex flex-col gap-[3rem] max-14xl:gap-[1.5rem] shadow-xl hover:scale-105 transition-all duration-300 hover:bg-[#EFEAE6]`}
     >
       <h2 className="text-[3rem]">{head}</h2>
-      <p className="text-[1.8rem]">{text}</p>
+      <p className="text-[1.6rem] max-16xl:text-justify">{text}</p>
       <button className="flex gap-[1rem] text-[1.8rem] items-center">
         Learn More
         <img

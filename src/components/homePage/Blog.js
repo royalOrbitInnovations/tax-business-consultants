@@ -10,7 +10,7 @@ export default function Blog() {
           <h2 className="text-[5rem]/20  w-[70%] max-10xl:w-[100%] max-10xl:text-center max-6xl:text-left">
             Get the coverage you need for your business, family, and assets.
           </h2>
-          <p className="text-4xl w-[80%] mt-[2rem] max-10xl:w-[100%]">
+          <p className="text-4xl w-[80%] mt-[2rem] max-10xl:w-[100%] max-16xl:text-justify">
             We Tax Business consultants (TBC) play a crucial role in helping
             organizations thrive by analyzing challenges, identifying growth
             opportunities, and implementing strategies. We offer tailored

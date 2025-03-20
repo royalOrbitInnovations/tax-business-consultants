@@ -18,9 +18,9 @@ const data = [
 
 export default function ClientSuccessStory() {
   return (
-    <div className="mt-[63rem] max-18xl:mt-[50rem] max-16xl:mt-[28%] max-14xl:mt-[35%] max-6xl:mt-[50%] max-5xl:mt-[55%] px-[20rem] max-14xl:px-[15rem] max-6xl:px-[5rem] flex flex-col gap-[5rem] max-4xl:mt-[80%]">
+    <div className="mt-[63rem] max-18xl:mt-[50rem] max-16xl:mt-[38%] max-14xl:mt-[35%] max-6xl:mt-[50%] max-5xl:mt-[55%] px-[20rem] max-14xl:px-[15rem] max-6xl:px-[5rem] flex flex-col gap-[5rem] max-4xl:mt-[80%]">
       <TextWithBorder text="Why Tax Business Consultant" />
-      <h3 className="text-[4rem]/20 w-[70%] max-14xl:w-[95%]">
+      <h3 className="text-[4rem]/20 w-[70%] max-14xl:w-[95%] max-16xl:text-justify">
         From feasibility study to business plan development, our expert team
         provides comprehensive company registration services in Qatar, ensuring
         a seamless launch for your entrepreneurial journey.

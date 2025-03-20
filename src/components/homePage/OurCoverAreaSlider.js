@@ -7,22 +7,22 @@ import TextWithBorder from "../TextWithBorder";
 const data = [
   {
     link: "/images/slider-image-1.webp",
-    type: "Business",
-    text: "Busines Startup Consultants",
+    type: "Startup Consulting",
+    text: "Business Startup Consultants",
   },
   {
     link: "/images/slider-image-2.webp",
-    type: "Business",
-    text: "Business Administartion Services",
+    type: "Corporate Services",
+    text: "Business Administration Services",
   },
   {
     link: "/images/slider-image-3.webp",
-    type: "Busines",
+    type: "Business Management",
     text: "Business Management Services",
   },
   {
     link: "/images/slider-image-4.webp",
-    type: "Marketing",
+    type: "Data & Analytics",
     text: "Data Analytics",
   },
 ];
@@ -67,7 +67,7 @@ export default function OurCoverAreaSlider() {
             />
           </div>
           <TextWithBorder text={item.type} py="0.3rem" size="1.6rem" />
-          <h3 className="text-[3.3rem] max-10xl:text-3xl max-10xl:font-bold max-16xl:text-[3rem] max-15xl:text-[2.5rem]">
+          <h3 className="text-[3.3rem] max-10xl:text-3xl max-10xl:font-bold max-16xl:text-[2.5rem] max-15xl:text-[2.5rem]">
             {item.text}
           </h3>
         </div>
