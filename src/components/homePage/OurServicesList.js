@@ -13,7 +13,7 @@ export default function OurServicesList() {
       {data.map((item, index) => (
         <li
           key={index}
-          className="flex gap-[1rem] pb-[2rem] max-14xl:pb-[1rem] text-4xl font-bold"
+          className="flex gap-[1rem] pb-[2rem] max-14xl:pb-[1rem] text-4xl font-bold max-9xl:text-3xl"
         >
           <img
             src="/svg/arrow-fill.svg"
