@@ -1,9 +1,9 @@
-import UnderDevelopment from "@/components/UnderDevelopment";
+import NotFoundPage from "@/components/NotFoundPage";
 
 export default function NotFound() {
   return (
     <div>
-      <UnderDevelopment />
+      <NotFoundPage />
     </div>
   );
 }
