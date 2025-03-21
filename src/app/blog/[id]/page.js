@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 // Dynamic metadata generation
 export async function generateMetadata({ params }) {
-  const { id } = params;
+  const { id } = await params;
 
   const { data: post, error } = await supabase
     .from("posts")
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
-  const { id } = params;
+  const { id } = await params;
 
   const { data: post, error } = await supabase
     .from("posts")

@@ -21,6 +21,13 @@ export default function EditPostPage() {
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
+  // New states for meta tag fields
+  const [metaTitle, setMetaTitle] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
+  const [metaKeywords, setMetaKeywords] = useState("");
+  const [authorName, setAuthorName] = useState("");
+  const [ogImage, setOgImage] = useState("");
+
   useEffect(() => {
     if (!postId) {
       setStatus("No post ID provided.");
@@ -39,6 +46,12 @@ export default function EditPostPage() {
         setHeading(data.heading);
         setContent(data.content);
         setImageUrl(data.image || "");
+        // Set meta tag values if available
+        setMetaTitle(data.meta_title || "");
+        setMetaDescription(data.meta_description || "");
+        setMetaKeywords(data.meta_keywords || "");
+        setAuthorName(data.author_name || "");
+        setOgImage(data.og_image || "");
         setLoading(false);
       } catch (error) {
         console.error("Error fetching post:", error);
@@ -57,7 +70,16 @@ export default function EditPostPage() {
       const res = await fetch(`/api/blogs/${postId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ heading, content, image: imageUrl }),
+        body: JSON.stringify({
+          heading,
+          content,
+          image: imageUrl,
+          meta_title: metaTitle,
+          meta_description: metaDescription,
+          meta_keywords: metaKeywords,
+          author_name: authorName,
+          og_image: ogImage,
+        }),
       });
       if (res.ok) {
         setStatus("Post updated successfully!");
@@ -108,7 +130,7 @@ export default function EditPostPage() {
           />
         </div>
 
-        {/* Replace textarea with CKEditorApp */}
+        {/* CKEditor for Content */}
         <div className="prose">
           <label
             htmlFor="content"
@@ -152,7 +174,111 @@ export default function EditPostPage() {
           )}
         </div>
 
-        {/* Submit */}
+        {/* SEO Meta Tags */}
+        <div className="border-t pt-6">
+          <h2 className="text-4xl font-bold text-center mb-4">SEO Meta Tags</h2>
+
+          {/* Meta Title */}
+          <div className="flex flex-col items-center">
+            <label
+              htmlFor="metaTitle"
+              className="block font-semibold mb-[1rem] text-3xl self-start"
+            >
+              Meta Title
+            </label>
+            <input
+              id="metaTitle"
+              type="text"
+              value={metaTitle}
+              onChange={(e) => setMetaTitle(e.target.value)}
+              className="text-2xl p-3 border rounded w-[60vw] border-gray-300"
+              placeholder="Enter Meta Title"
+            />
+          </div>
+
+          {/* Meta Description */}
+          <div className="flex flex-col items-center">
+            <label
+              htmlFor="metaDescription"
+              className="block font-semibold mb-[1rem] text-3xl self-start"
+            >
+              Meta Description
+            </label>
+            <textarea
+              id="metaDescription"
+              value={metaDescription}
+              onChange={(e) => setMetaDescription(e.target.value)}
+              className="text-2xl p-3 border rounded w-[60vw] border-gray-300"
+              placeholder="Enter Meta Description"
+              rows="3"
+            ></textarea>
+          </div>
+
+          {/* Meta Keywords */}
+          <div className="flex flex-col items-center">
+            <label
+              htmlFor="metaKeywords"
+              className="block font-semibold mb-[1rem] text-3xl self-start"
+            >
+              Meta Keywords
+            </label>
+            <input
+              id="metaKeywords"
+              type="text"
+              value={metaKeywords}
+              onChange={(e) => setMetaKeywords(e.target.value)}
+              className="text-2xl p-3 border rounded w-[60vw] border-gray-300"
+              placeholder="Enter Meta Keywords (comma separated)"
+            />
+          </div>
+
+          {/* Author Name */}
+          <div className="flex flex-col items-center">
+            <label
+              htmlFor="authorName"
+              className="block font-semibold mb-[1rem] text-3xl self-start"
+            >
+              Author Name
+            </label>
+            <input
+              id="authorName"
+              type="text"
+              value={authorName}
+              onChange={(e) => setAuthorName(e.target.value)}
+              className="text-2xl p-3 border rounded w-[60vw] border-gray-300"
+              placeholder="Enter Author Name"
+            />
+          </div>
+
+          {/* OG Image */}
+          <div className="flex flex-col items-center">
+            <label
+              htmlFor="ogImage"
+              className="block font-semibold mb-[1rem] text-3xl self-start"
+            >
+              OG Image URL
+            </label>
+            <input
+              id="ogImage"
+              type="text"
+              value={ogImage}
+              onChange={(e) => setOgImage(e.target.value)}
+              className="text-2xl p-3 border rounded w-[60vw] border-gray-300"
+              placeholder="Enter OG Image URL"
+            />
+            {ogImage && (
+              <div className="mt-4">
+                <img
+                  src={ogImage}
+                  alt="Current OG Image"
+                  className="w-[60rem] h-auto rounded shadow text-2xl"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Submit Button */}
         <button
           type="submit"
           disabled={submitting}

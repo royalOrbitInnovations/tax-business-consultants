@@ -10,6 +10,11 @@ export default function DashboardHome() {
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState("");
 
+  // Loading states for individual buttons
+  const [createLoading, setCreateLoading] = useState(false);
+  const [editLoading, setEditLoading] = useState({});
+  const [deleteLoading, setDeleteLoading] = useState({});
+
   // Fetch all posts and sort them by created_at (newest first)
   const fetchPosts = async () => {
     try {
@@ -44,6 +49,8 @@ export default function DashboardHome() {
 
   // Handler for deleting a post
   const handleDelete = async (id) => {
+    // Set the delete loading state for the specific post
+    setDeleteLoading((prev) => ({ ...prev, [id]: true }));
     try {
       const res = await fetch(`/api/blogs/${id}`, {
         method: "DELETE",
@@ -58,6 +65,8 @@ export default function DashboardHome() {
     } catch (error) {
       console.error("Error deleting post:", error);
       setStatus("Error deleting post");
+    } finally {
+      setDeleteLoading((prev) => ({ ...prev, [id]: false }));
     }
   };
 
@@ -77,12 +86,15 @@ export default function DashboardHome() {
       <div className="flex justify-between items-center mb-10">
         <h1 className="text-4xl font-bold text-center">Admin Dashboard</h1>
         <SearchBar />
-        {/* Create Post Button */}
+        {/* Create Post Button with loading state */}
         <Link
           href="/admin/dashboard/create"
-          className="text-3xl px-6 py-3 bg-(--ui-dark) text-white font-bold hover:scale-110 transition-all duration-300 rounded-full"
+          onClick={() => setCreateLoading(true)}
+          className={`text-3xl px-6 py-3 bg-(--ui-dark) text-white font-bold hover:scale-110 transition-all duration-300 rounded-full ${
+            createLoading ? "pointer-events-none opacity-50" : ""
+          }`}
         >
-          Create Post
+          {createLoading ? "Loading..." : "Create Post"}
         </Link>
       </div>
 
@@ -115,18 +127,31 @@ export default function DashboardHome() {
                 </div>
 
                 <div className="flex space-x-4">
+                  {/* Edit Button with loading state */}
                   <Link
                     href={`/admin/dashboard/edit?id=${post.id}`}
-                    className="bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-all duration-300 text-3xl px-[2rem] py-[1rem] hover:scale-105"
+                    onClick={() =>
+                      setEditLoading((prev) => ({ ...prev, [post.id]: true }))
+                    }
+                    className={`bg-yellow-500 text-white rounded transition-all duration-300 text-3xl px-[2rem] py-[1rem] hover:scale-105 ${
+                      editLoading[post.id]
+                        ? "pointer-events-none opacity-50"
+                        : "hover:bg-yellow-600"
+                    }`}
                   >
-                    Edit
+                    {editLoading[post.id] ? "Loading..." : "Edit"}
                   </Link>
-                  {/* Delete button */}
+                  {/* Delete Button with loading state */}
                   <button
                     onClick={() => handleDelete(post.id)}
-                    className="bg-red-600 text-white rounded hover:bg-red-700 transition-all duration-300 text-3xl px-[2rem] py-[1rem] hover:scale-105"
+                    disabled={deleteLoading[post.id]}
+                    className={`bg-red-600 text-white rounded transition-all duration-300 text-3xl px-[2rem] py-[1rem] hover:scale-105 ${
+                      deleteLoading[post.id]
+                        ? "pointer-events-none opacity-50"
+                        : "hover:bg-red-700"
+                    }`}
                   >
-                    Delete
+                    {deleteLoading[post.id] ? "Loading..." : "Delete"}
                   </button>
                 </div>
               </div>
