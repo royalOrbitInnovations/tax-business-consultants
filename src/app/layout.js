@@ -6,6 +6,8 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Head from "next/head";
 import PopupForm from "@/components/PopupForm";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 // Define metadata for the homepage
 export const metadata = {
@@ -59,6 +61,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <SpeedInsights />
+      <Analytics />
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
