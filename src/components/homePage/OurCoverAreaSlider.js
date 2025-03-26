@@ -67,7 +67,7 @@ export default function OurCoverAreaSlider() {
             />
           </div>
           <TextWithBorder text={item.type} py="0.3rem" size="1.6rem" />
-          <h3 className="text-[3.3rem] max-10xl:text-3xl max-10xl:font-bold max-16xl:text-[2.5rem] max-15xl:text-[2.5rem]">
+          <h3 className="text-[2.5rem] max-10xl:text-3xl max-10xl:font-bold max-16xl:text-[2.5rem] max-15xl:text-[2.5rem]">
             {item.text}
           </h3>
         </div>
