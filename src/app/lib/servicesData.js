@@ -1,5 +1,9 @@
 export const services = {
   "100-ownership-business-in-qatar": {
+    metaTitle: "100% Business Ownership in Qatar | Top Business Consultants",
+    metaDescription:
+      "Gain 100% Business Ownership in Qatar with the top Business onsultants in Qatar. Expert advice ensures smooth business setup, growth, and lasting success.",
+    metaKeywords: "100% Business Ownership in Qatar, Top Business Consultants",
     image: "/images/services-review-4.webp",
     title: "100% Ownership Business in Qatar",
     content: `
@@ -20,6 +24,10 @@ Unlock the full potential of the Qatari market with 100% foreign ownership of yo
 `,
   },
   "company-formation-in-qatar": {
+    metaTitle: "Company Formation in Qatar | Company Registration Services",
+    metaDescription:
+      "Expert Company Formation in Qatar and Company Registration Services to launch your business quickly, securely, and in full compliance with local regulations.",
+    metaKeywords: "Company Formation in Qatar, Company Registration Services",
     image: "/images/services-review-3.webp",
 
     title: "Company Formation in Qatar",
@@ -42,8 +50,11 @@ Establish your presence in Qatar with our streamlined company formation service.
 `,
   },
   "pro-services-in-qatar": {
+    metaTitle: "PRO Service Providers in Qatar | Best PRO Service in Qatar",
+    metaDescription:
+      "Top startup consultants in Qatar for company formation, business setup, and 100%  ownership. Boost your venture’s success in the Qatar market.",
+    metaKeywords: "PRO Service Providers in Qatar, Best PRO Service in Qatar",
     image: "/images/services-review-2.webp",
-
     title: "PRO Services in Qatar",
     content: `
 ### Expert PRO Services for Seamless Operations
@@ -64,8 +75,11 @@ Navigate Qatar's administrative landscape efficiently with our expert Public Rel
 `,
   },
   "business-consultancy-services": {
+    metaTitle: "Business Consultants Qatar | Business Consulting Services",
+    metaDescription:
+      "Boost your business with expert Business Consultants Qatar. Get tailored Business consulting Services for growth, strategy, and 100% foreign ownership in Qatar.",
+    metaKeywords: "Business Consultants Qatar, Business Consulting Services",
     image: "/images/happy.webp",
-
     title: "Business Consultancy Services",
     content: `
 ### Strategic Business Consultancy for Success in Qatar
@@ -88,8 +102,11 @@ Gain a competitive edge in the Qatari market with our comprehensive business con
 `,
   },
   "local-sponsorships": {
+    metaTitle: "Local Sponsorship Service in Qatar | Local Sponsorship Qatar",
+    metaDescription:
+      "Get reliable Local Sponsorship Service in Qatar with expert guidance. Secure seamless business setup with trusted Local Sponsorship Qatar solutions.",
+    metaKeywords: "Local Sponsorship Service in Qatar, Local Sponsorship Qatar",
     image: "/images/services-review-5.webp",
-
     title: "Local Sponsorships",
     content: `
 ### Secure and Compliant Local Sponsorship Services
@@ -110,8 +127,11 @@ While 100% foreign ownership is now possible in many sectors, some business acti
 `,
   },
   "document-attestation": {
+    metaTitle: "Document Attestation Service in Qatar | Document Attestation",
+    metaDescription:
+      "Get reliable document attestation service in Qatar for all your needs. Fast and secure document attestation to ensure hassle-free authentication.",
+    metaKeywords: "Document Attestation Service in Qatar, Document Attestation",
     image: "/images/happy-2.webp",
-
     title: "Document Attestation",
     content: `
 ### Streamlined Document Attestation Services

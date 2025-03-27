@@ -1,14 +1,8 @@
 export const metadata = {
-  title:
-    "Comprehensive Tax Services in Qatar | Corporate & Individual Tax Solutions",
+  title: "Startup Consultants in Qatar | Startup Business Consulting",
   description:
-    "Discover our range of tax services in Qatar, including corporate tax filing, VAT compliance, tax advisory, and financial planning for both businesses and individuals.",
-  keywords: [
-    "corporate tax filing Qatar",
-    "VAT compliance services",
-    "tax advisory Qatar",
-    "financial planning Qatar",
-  ],
+    "Expert startup consultants in Qatar offering seamless Startup Business Consulting in Qatar. Get professional guidance to establish your business with ease.",
+  keywords: ["Startup Consultants in Qatar", "Company Formation in Qatar"],
   openGraph: {
     title: "Comprehensive Tax Services in Qatar",
     description:

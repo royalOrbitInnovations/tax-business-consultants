@@ -1,12 +1,8 @@
 export const metadata = {
-  title: "About Our Tax Consultancy Firm in Qatar | Experienced Tax Advisors",
+  title: "Taxation Consultancy Services | Business Formation in Qatar",
   description:
-    "Learn about our experienced team of tax consultants in Qatar, dedicated to providing personalized tax advisory and compliance services to meet your financial goals.",
-  keywords: [
-    "experienced tax consultants Qatar",
-    "personalized tax advisory",
-    "tax compliance experts Qatar",
-  ],
+    "Get expert Taxation Consultancy Services & Business Formation in Qatar. Navigate tax regulations & set up your business seamlessly with our trusted consultants.",
+  keywords: ["Taxation Consultancy Services", "Business Formation in Qatar"],
   openGraph: {
     title: "About Our Tax Consultancy Firm in Qatar",
     description:

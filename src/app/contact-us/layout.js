@@ -1,12 +1,8 @@
 export const metadata = {
-  title: "Contact Our Tax Consultants in Qatar | Schedule a Consultation",
+  title: "Contact Tax Business Consultant | Business Consultants Qatar",
   description:
-    "Get in touch with our tax consultancy firm in Qatar for expert advice on tax planning, compliance, and advisory services. Schedule your consultation today.",
-  keywords: [
-    "tax consultants contact Qatar",
-    "schedule tax consultation",
-    "tax planning advice Qatar",
-  ],
+    "Get in touch with Tax Business Consultant, your trusted business consultants in Qatar. Contact us today for expert business consulting services in Qatar!",
+  keywords: ["Business Consultants Qatar"],
   openGraph: {
     title: "Contact Our Tax Consultants in Qatar",
     description:

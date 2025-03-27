@@ -11,15 +11,10 @@ import { Analytics } from "@vercel/analytics/react";
 
 // Define metadata for the homepage
 export const metadata = {
-  title: "Leading Tax Consultancy Services in Qatar | Expert Tax Advisors",
+  title: ">100% Single Ownership in Qatar | Best Consultants in Qatar",
   description:
-    "Offering comprehensive tax consultancy services in Qatar, including corporate tax compliance, VAT advisory, and financial planning for businesses and individuals.",
-  keywords: [
-    "tax consultancy Qatar",
-    "corporate tax compliance",
-    "VAT advisory Qatar",
-    "financial planning services",
-  ],
+    "Achieve 100% Single Ownership in Qatar with expert guidance. Partner with the Best Consultants in Qatar for seamless business setup and growth.",
+  keywords: ["100% Single Ownership in Qatar", "Best Consultants in Qatar"],
   openGraph: {
     title: "Leading Tax Consultancy Services in Qatar",
     description:

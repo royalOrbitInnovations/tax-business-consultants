@@ -2,14 +2,10 @@ import { Suspense } from "react";
 import Loading from "./loading";
 
 export const metadata = {
-  title: "Tax Consultancy Insights in Qatar | Expert Tax Advice Blog",
+  title: "Professional Business Consulting | Tax Registration Services",
   description:
-    "Explore our blog for the latest insights on tax regulations, compliance updates, and expert tax advice tailored for businesses and individuals in Qatar.",
-  keywords: [
-    "tax regulations Qatar",
-    "tax compliance updates",
-    "expert tax advice blog",
-  ],
+    "Tax Business Consultants optimize your tax strategy, ensure compliance, and maximize savings. Get expert tips and tricks for effective tax business registration.",
+  keywords: ["Startup Consultants in Qatar", "Company Formation in Qatar"],
   openGraph: {
     title: "Tax Consultancy Insights in Qatar",
     description:

@@ -11,12 +11,6 @@ import WelcomeToTBC from "@/components/homePage/WelcomeToTBC";
 import WorldMap from "@/components/homePage/WorldMap";
 import BusinessProcess from "@/components/homePage/BusinessProcess";
 
-export const metadata = {
-  title: "Leading Tax Consultancy Services in Qatar | Expert Tax Advisors",
-  description:
-    "Offering comprehensive tax consultancy services in Qatar, including corporate tax compliance, VAT advisory, and financial planning for businesses and individuals.",
-};
-
 export default function Home() {
   return (
     <>
