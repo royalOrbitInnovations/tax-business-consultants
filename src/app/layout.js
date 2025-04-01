@@ -5,13 +5,13 @@ import ContactButtons from "@/components/ContactButtons";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Head from "next/head";
+import Script from "next/script";
 import PopupForm from "@/components/PopupForm";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
-// Define metadata for the homepage
 export const metadata = {
-  title: ">100% Single Ownership in Qatar | Best Consultants in Qatar",
+  title: "100% Single Ownership in Qatar | Best Consultants in Qatar",
   description:
     "Achieve 100% Single Ownership in Qatar with expert guidance. Partner with the Best Consultants in Qatar for seamless business setup and growth.",
   keywords: ["100% Single Ownership in Qatar", "Best Consultants in Qatar"],
@@ -80,6 +80,21 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
+
+      {/* Google Analytics: Load after the page is interactive */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-6EWEWLL5N8"
+      />
+      <Script strategy="afterInteractive" id="ga-inline">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6EWEWLL5N8');
+        `}
+      </Script>
+
       <body>
         <Header />
         <Suspense fallback={<Loading />}>{children}</Suspense>
