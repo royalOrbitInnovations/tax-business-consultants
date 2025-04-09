@@ -28,7 +28,7 @@ export default function WelcomeToTBC() {
         />
       </Link>
 
-      <div className="absolute top-[45rem] max-16xl:top-[55rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[56rem] max-5xl:top-[75rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] max-6xl:w-[90%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
+      <div className="absolute top-[45rem] max-16xl:top-[55rem] max-15xl:top-[45rem] max-10xl:top-[50rem] h-[70rem] max-16xl:h-[56rem] max-5xl:top-[75rem] w-[80%] max-16xl:w-[70%] max-10xl:w-[80%] max-6xl:w-[90%] rounded-[25px] overflow-hidden shadow-xl hover:scale-102 transition-all duration-300 right-[50%] translate-x-[50%]">
         <Image
           src="/images/services-banner-image.webp"
           alt="WTTBC Business People Walking"
