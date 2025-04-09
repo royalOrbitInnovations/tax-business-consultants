@@ -3,27 +3,62 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import TextWithBorder from "../TextWithBorder";
+import TextWithDropdown from "./TextWithDropdown";
 
 const data = [
   {
     link: "/images/slider-image-1.webp",
     type: "Startup Consulting",
     text: "Business Startup Consultants",
+    textData: [
+      "Startup consultants",
+      "Company Registration Services",
+      "Corporate PRO Service",
+      "Local Sponsor Arrangements",
+      "HR & Administration Consultation",
+      "Business Plan and Feasibility Studies",
+      "Market Research and Analysis",
+      "Document Clearance services",
+      "Office space Allocations",
+      "Corporate Bank Account openings",
+    ],
   },
   {
     link: "/images/slider-image-2.webp",
     type: "Corporate Services",
     text: "Business Administration Services",
+    textData: [
+      "Financial Advisory & Consulting",
+      "Audit & Tax Filings",
+      "Internal & External Audit works",
+      "Accounting & Bookkeeping",
+      "Online/offline CFO services",
+      "ISO certifications & Standardizations",
+      "Legal Advisory Services",
+    ],
   },
   {
     link: "/images/slider-image-3.webp",
     type: "Business Management",
     text: "Business Management Services",
+    textData: [
+      "Branding & Trademark Registration",
+      "Attestation & Translation services",
+      "Share - Sale/Purchase services",
+      "Liquidation & Termination of Business",
+      "Business Training and empowering services",
+    ],
   },
   {
     link: "/images/slider-image-4.webp",
     type: "Data & Analytics",
     text: "Data Analytics",
+    textData: [
+      "Digital Marketing and SEO Rank",
+      "Project Design & Engineering",
+      "Data Analysis & Data Visualization",
+      "Technical System Support",
+    ],
   },
 ];
 
@@ -67,9 +102,7 @@ export default function OurCoverAreaSlider() {
             />
           </div>
           <TextWithBorder text={item.type} py="0.3rem" size="1.6rem" />
-          <h3 className="text-[2.5rem] max-10xl:text-3xl max-10xl:font-bold max-16xl:text-[2.5rem] max-15xl:text-[2.5rem]">
-            {item.text}
-          </h3>
+          <TextWithDropdown title={item.text} items={item.textData} />
         </div>
       ))}
     </div>

@@ -12,7 +12,7 @@ const images = [
 
 const textData = [
   {
-    head1: "Tax Business consultant",
+    head1: "Tax Business consultants",
     head2: "are the best professional service providers in Qatar",
     p: "Elevate Your Business to the next level",
   },
