@@ -10,7 +10,7 @@ export default function ContactUs() {
     <>
       <PageBanner
         image="/images/contact-us-banner.webp"
-        mainText="Conatct Us"
+        mainText="Contact Us"
         currentPage="Contact Us"
       />
       <InitialPageText
