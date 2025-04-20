@@ -1,13 +1,15 @@
 // app/sitemap.js
-
 import supabase from "@/app/lib/supabaseClient";
 
-/**
- * Next.js will invoke this at build time or on-demand (ISR),
- * and expose /sitemap.xml automatically.
- */
+// ─────────────────────────────────────────────────────────────────────────────
+// Force this route to be Server‑Side Rendered on every request
+export const dynamic = "force-dynamic";
+// // Or, to cache then revalidate hourly, use:
+// // export const revalidate = 3600;
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default async function sitemap() {
-  // 1. Your static pages
+  // 1. Static routes
   const staticRoutes = [
     {
       url: "https://taxbusinessconsultants.com",
@@ -41,25 +43,24 @@ export default async function sitemap() {
     },
   ];
 
-  // 2. Fetch all posts from Supabase
+  // 2. Fetch all posts (using created_at instead of updated_at)
   const { data: posts, error } = await supabase
     .from("posts")
-    .select("id, updated_at");
+    .select("id, created_at");
 
-  if (error) {
+  if (error || !posts) {
     console.error("Error fetching posts for sitemap:", error);
-    // Fallback to only static routes if Supabase is down
     return staticRoutes;
   }
 
-  // 3. Map each post to a sitemap entry
+  // 3. Build dynamic routes array
   const dynamicRoutes = posts.map((post) => ({
     url: `https://taxbusinessconsultants.com/blog/${post.id}`,
-    lastModified: new Date(post.updated_at),
+    lastModified: new Date(post.created_at),
     changeFrequency: "daily",
     priority: 0.7,
   }));
 
-  // 4. Combine and return
+  // 4. Return merged sitemap entries
   return [...staticRoutes, ...dynamicRoutes];
 }
