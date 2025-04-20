@@ -15,7 +15,7 @@ export default async function sitemap() {
       url: "https://taxbusinessconsultants.com",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: "https://taxbusinessconsultants.com/about-us",
@@ -27,13 +27,13 @@ export default async function sitemap() {
       url: "https://taxbusinessconsultants.com/services",
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       url: "https://taxbusinessconsultants.com/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       url: "https://taxbusinessconsultants.com/contact-us",
@@ -58,7 +58,7 @@ export default async function sitemap() {
     url: `https://taxbusinessconsultants.com/blog/${post.id}`,
     lastModified: new Date(post.created_at),
     changeFrequency: "daily",
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   // 4. Return merged sitemap entries
