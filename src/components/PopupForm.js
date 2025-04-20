@@ -1,72 +1,71 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+import "react-phone-input-2/lib/style.css";
 import emailjs from "@emailjs/browser";
+
+// only load on client
+const PhoneInput = dynamic(() => import("react-phone-input-2"), { ssr: false });
 
 export default function PopupForm() {
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({ name: "", phone: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    countryCode: "in",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("success"); // 'success' or 'error'
+  const [messageType, setMessageType] = useState("success");
   const [confirmation, setConfirmation] = useState(false);
   const formRef = useRef(null);
 
   useEffect(() => {
-    const popupClosedTime = localStorage.getItem("popupClosedTime");
-    const popupSubmittedTime = localStorage.getItem("popupSubmittedTime");
-    const currentTime = new Date().getTime();
+    const closed = localStorage.getItem("popupClosedTime");
+    const submitted = localStorage.getItem("popupSubmittedTime");
+    const now = Date.now();
 
-    if (popupClosedTime && currentTime - popupClosedTime < 3600000) {
-      return; // If closed within the last 1 hour, don't show popup
-    }
+    if (closed && now - closed < 3600_000) return; // closed within 1h
+    if (submitted && now - submitted < 259_200_000) return; // submitted within 3d
 
-    if (popupSubmittedTime && currentTime - popupSubmittedTime < 259200000) {
-      return; // If submitted within the last 3 days, don't show popup
-    }
-
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 10000); // 10 seconds delay
+    const timer = setTimeout(() => setIsVisible(true), 10_000);
     return () => clearTimeout(timer);
   }, []);
 
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((p) => ({ ...p, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    emailjs
-      .sendForm(
+    try {
+      await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         formRef.current,
         process.env.NEXT_PUBLIC_EMAILJS_USER_ID
-      )
-      .then((res) => {
-        setMessage("Thank you! Your details have been submitted.");
-        setMessageType("success");
-        localStorage.setItem("popupSubmittedTime", new Date().getTime()); // Store submission time
-        setConfirmation(true);
-        setTimeout(() => {
-          setConfirmation(false);
-          setIsVisible(false);
-        }, 3000);
-      })
-      .catch((error) => {
-        setMessage("Failed to submit. Please try again.");
-        setMessageType("error");
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-      });
+      );
+      setMessage("Thank you! Your details have been submitted.");
+      setMessageType("success");
+      localStorage.setItem("popupSubmittedTime", Date.now());
+      setConfirmation(true);
+      setTimeout(() => {
+        setConfirmation(false);
+        setIsVisible(false);
+      }, 3000);
+    } catch {
+      setMessage("Failed to submit. Please try again.");
+      setMessageType("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
-    localStorage.setItem("popupClosedTime", new Date().getTime()); // Store close time
+    localStorage.setItem("popupClosedTime", Date.now());
     setIsVisible(false);
   };
 
@@ -74,45 +73,81 @@ export default function PopupForm() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full h-full backdrop-blur-lg bg-black/30 flex justify-center items-center z-[5000]">
-        <div className="bg-(--ui-light) p-10 rounded-2xl shadow-xl w-[50rem] h-[40rem] relative text-center">
-          <h2 className="text-4xl font-semibold mb-4 text-(--ui-dark) my-[4rem]">
+      {/* overlay */}
+      <div className="fixed inset-0 backdrop-blur-lg bg-black/30 flex justify-center items-center z-[5000] ">
+        {/* modal */}
+        <div className="bg-[var(--ui-light)] rounded-2xl shadow-xl w-[36rem] max-w-full relative text-center p-[4rem]">
+          {/* close */}
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl"
+          >
+            ✖
+          </button>
+
+          {/* title */}
+          <h2 className="text-4xl font-semibold mb-5 text-[var(--ui-dark)]">
             Looking to Start a Business in Qatar?
           </h2>
-          <p className="text-2xl text-gray-600 mb-6">
-            Get a call back from us.
-          </p>
+          <p className="text-xl text-gray-600 mb-6">Get a call back from us.</p>
+
+          {/* form */}
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="flex flex-col gap-[2rem] w-[70%] mx-auto"
+            className="flex flex-col gap-4"
           >
+            {/* name */}
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--ui-dark) text-2xl"
+              className="w-full h-[4rem] border border-gray-300 bg-white text-[var(--ui-dark)] placeholder-gray-400 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--ui-dark)] text-lg"
               required
             />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Your Phone Number"
+
+            {/* phone */}
+            <PhoneInput
+              country={formData.countryCode}
               value={formData.phone}
-              onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--ui-dark) text-2xl"
-              required
+              countryCodeEditable={false}
+              onChange={(value, data) =>
+                setFormData((p) => ({
+                  ...p,
+                  phone: value,
+                  countryCode: data.countryCode.toLowerCase(),
+                }))
+              }
+              inputProps={{
+                name: "phone",
+                required: true,
+                placeholder: "Your Phone Number",
+              }}
+              containerClass="w-full"
+              inputClass="w-full h-[5rem] border border-gray-300 bg-white text-[var(--ui-dark)] placeholder-gray-400 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--ui-dark)] text-lg"
+              dropdownClass="rounded-lg border-gray-200"
             />
+
+            {/* hidden for country */}
+            <input
+              type="hidden"
+              name="countryCode"
+              value={formData.countryCode.toUpperCase()}
+            />
+
+            {/* submit */}
             <button
               type="submit"
-              className="bg-(--ui-dark) text-white py-3 px-6 rounded-lg hover:bg-opacity-80 transition duration-300 text-3xl"
               disabled={isSubmitting}
+              className="w-full bg-[var(--ui-dark)] text-white py-2 rounded-lg text-2xl font-bold mt-[2rem] hover:bg-opacity-90 transition disabled:opacity-50"
             >
               {isSubmitting ? "Submitting..." : "Request a Call Back"}
             </button>
           </form>
+
+          {/* inline message */}
           {message && (
             <p
               className={`mt-4 text-sm ${
@@ -122,16 +157,12 @@ export default function PopupForm() {
               {message}
             </p>
           )}
-          <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl"
-          >
-            ✖
-          </button>
         </div>
       </div>
+
+      {/* toast */}
       {confirmation && (
-        <div className="fixed bottom-5 right-5 bg-(--ui-dark) text-white py-3 px-6 rounded-lg shadow-lg text-sm animate-fade-in-out">
+        <div className="fixed bottom-5 right-5 bg-[var(--ui-dark)] text-white py-2 px-4 rounded-lg shadow-lg text-sm animate-fade-in-out">
           We have received your number. We will get back to you soon.
         </div>
       )}
