@@ -1,3 +1,5 @@
+// app/layout.js
+
 import Header from "@/components/header/Header";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
@@ -40,7 +42,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLd = {
+  // 1) WebSite schema
+  const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Tax Business Consultants",
@@ -56,6 +59,48 @@ export default function RootLayout({ children }) {
       "https://www.linkedin.com/in/melvinprince/",
     ],
   };
+
+  // 2) Organization schema
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Tax Business Consultants",
+    url: "https://www.taxbusinessconsultants.com",
+    logo: "https://www.taxbusinessconsultants.com/logo.png",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+974-5050-1234",
+        contactType: "customer service",
+        areaServed: "QA",
+        availableLanguage: ["English", "Arabic"],
+      },
+    ],
+    sameAs: [
+      "https://www.facebook.com/YourPage",
+      "https://www.linkedin.com/company/yourcompany",
+    ],
+  };
+
+  // 3) ProfessionalService schema
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Corporate Tax Compliance & VAT Advisory",
+    provider: {
+      "@type": "Organization",
+      name: "Tax Business Consultants",
+      url: "https://www.taxbusinessconsultants.com",
+    },
+    areaServed: "QA",
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: "https://www.taxbusinessconsultants.com/contact",
+    },
+  };
+
+  // Combine all schemas
+  const structuredData = [websiteSchema, orgSchema, serviceSchema];
 
   return (
     <html lang="en">
@@ -78,9 +123,13 @@ export default function RootLayout({ children }) {
           name="twitter:description"
           content={metadata.twitter.description}
         />
+
+        {/* Structured Data (Schema.org) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </Head>
 
