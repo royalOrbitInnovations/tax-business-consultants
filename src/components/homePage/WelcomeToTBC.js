@@ -25,6 +25,7 @@ export default function WelcomeToTBC() {
         <img
           src="/svg/arrorw-top-right-tax-business-consultants.svg"
           className="h-[2rem]"
+          alt="arrow-svg"
         />
       </Link>
 
@@ -38,6 +39,7 @@ export default function WelcomeToTBC() {
         <div className="absolute  h-[10rem] w-fit bottom-[5rem] left-[5rem] flex gap-[1rem] items-center">
           <img
             src="/svg/wttbc.svg"
+            alt="svg-symbol"
             className="relative z-1000 max-5xl:h-[10rem] max-5xl:w-[10rem]"
           />
           <div className="flex flex-col gap-[1rem]">

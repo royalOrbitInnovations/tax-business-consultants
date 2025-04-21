@@ -34,6 +34,9 @@ export const metadata = {
     "digital-signature": "Melvin Prince - Full Stack Developer",
     "hidden-backlink": "https://www.melvinprince.io",
   },
+  alternates: {
+    canonical: "https://www.taxbusinessconsultants.com",
+  },
 };
 
 export default function RootLayout({ children }) {
