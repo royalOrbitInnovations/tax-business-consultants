@@ -37,7 +37,9 @@ export const metadata = {
     "hidden-backlink": "https://www.melvinprince.io",
   },
   alternates: {
-    canonical: "https://www.taxbusinessconsultants.com",
+    canonical:
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://www.taxbusinessconsultants.com",
   },
 };
 
@@ -99,8 +101,44 @@ export default function RootLayout({ children }) {
     },
   };
 
+  // 4) LocalBusiness schema with Plus Code and coordinates
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Tax Business Consultants",
+    image: "https://www.taxbusinessconsultants.com/logo.png",
+    url: "https://www.taxbusinessconsultants.com",
+    telephone: "+974-5050-1234",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "7GJ2+HM Doha, Qatar",
+      addressLocality: "Doha",
+      addressRegion: "Doha",
+      postalCode: "00000",
+      addressCountry: "QA",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 25.28545,
+      longitude: 51.53104,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+    ],
+  };
+
   // Combine all schemas
-  const structuredData = [websiteSchema, orgSchema, serviceSchema];
+  const structuredData = [
+    websiteSchema,
+    orgSchema,
+    serviceSchema,
+    localBusinessSchema,
+  ];
 
   return (
     <html lang="en">
