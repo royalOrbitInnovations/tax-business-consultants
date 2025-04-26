@@ -1,62 +1,10 @@
-// CKEditorApp.js (formerly SKEEditor.js)
-
-import { useState, useEffect, useRef, useMemo } from "react";
+import React, { useRef, useMemo } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-/*
-  This imports from a local "ckeditor5" directory/bundle (your custom build).
-  Make sure that custom build includes the Font plugin. If not, you’ll need to 
-  rebuild or install @ckeditor/ckeditor5-font and integrate it.
-*/
-import {
-  ClassicEditor,
-  Autoformat,
-  Autosave,
-  BalloonToolbar,
-  BlockQuote,
-  BlockToolbar,
-  Bold,
-  Essentials,
-  FindAndReplace,
-  Heading,
-  Indent,
-  IndentBlock,
-  Italic,
-  Link,
-  List,
-  ListProperties,
-  Markdown,
-  Paragraph,
-  PasteFromMarkdownExperimental,
-  PasteFromOffice,
-  SpecialCharacters,
-  SpecialCharactersArrows,
-  SpecialCharactersCurrency,
-  SpecialCharactersEssentials,
-  SpecialCharactersLatin,
-  SpecialCharactersMathematical,
-  SpecialCharactersText,
-  Table,
-  TableCaption,
-  TableCellProperties,
-  TableColumnResize,
-  TableProperties,
-  TableToolbar,
-  TextPartLanguage,
-  TextTransformation,
-  // Removed Title,
-  TodoList,
-  Underline,
-  WordCount,
-  // Add Font (if it's in your custom build):
-  Font,
-} from "ckeditor5";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
+// Preserve your existing CSS for styling
 import "ckeditor5/ckeditor5.css";
-import "./CKE.css"; // Custom CSS overrides (if any).
-
-// If you have a license key, update it accordingly
-const LICENSE_KEY =
-  "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzM0NDYzOTksImp0aSI6IjA5NGRlYjExLWU0OTItNDhjYS04Y2RhLTU3ZmQ4YzVhNDAyYSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6ImQ4ZThhZmMyIn0.hpNZwOmdt9X8ItuiLTqTMieO9ySt5SoWQBdl95yslIQj8JeByoToUse2GGpkCx4huA1minbEzAFGfFGm2tyU4Q";
+import "./CKE.css";
 
 export default function CKEditorApp({
   initialData = "",
@@ -64,247 +12,134 @@ export default function CKEditorApp({
   placeholder = "Type or paste your content here!",
 }) {
   const editorContainerRef = useRef(null);
-  const editorRef = useRef(null);
   const editorWordCountRef = useRef(null);
-  const [isLayoutReady, setIsLayoutReady] = useState(false);
 
-  useEffect(() => {
-    setIsLayoutReady(true);
-    return () => setIsLayoutReady(false);
-  }, []);
-
-  const { editorConfig } = useMemo(() => {
-    if (!isLayoutReady) {
-      return {};
-    }
-
-    return {
-      editorConfig: {
-        // 1. Customize your toolbar items
-        toolbar: {
-          items: [
-            "findAndReplace",
-            "textPartLanguage",
-            "|",
-            "heading",
-            "|",
-            "bold",
-            "italic",
-            "underline",
-            // Add fontSize to let users pick a text size
-            "fontSize",
-            "|",
-            "specialCharacters",
-            "link",
-            "insertTable",
-            "blockQuote",
-            "|",
-            "bulletedList",
-            "numberedList",
-            "todoList",
-            "outdent",
-            "indent",
-          ],
-          shouldNotGroupWhenFull: false,
-        },
-
-        // 2. Load the necessary plugins
-        plugins: [
-          Autoformat,
-          Autosave,
-          BalloonToolbar,
-          BlockQuote,
-          BlockToolbar,
-          Bold,
-          Essentials,
-          FindAndReplace,
-          Heading,
-          Indent,
-          IndentBlock,
-          Italic,
-          Link,
-          List,
-          ListProperties,
-          Markdown,
-          Paragraph,
-          PasteFromMarkdownExperimental,
-          PasteFromOffice,
-          SpecialCharacters,
-          SpecialCharactersArrows,
-          SpecialCharactersCurrency,
-          SpecialCharactersEssentials,
-          SpecialCharactersLatin,
-          SpecialCharactersMathematical,
-          SpecialCharactersText,
-          Table,
-          TableCaption,
-          TableCellProperties,
-          TableColumnResize,
-          TableProperties,
-          TableToolbar,
-          TextPartLanguage,
-          TextTransformation,
-          // Removed Title plugin, so first line won't be forced as heading
-          TodoList,
-          Underline,
-          WordCount,
-          // Add the Font plugin
-          Font,
-        ],
-
-        // 3. Optional balloon & block toolbars
-        balloonToolbar: [
+  const config = useMemo(
+    () => ({
+      toolbar: {
+        items: [
+          "findAndReplace",
+          "textPartLanguage",
+          "|",
+          "heading",
+          "|",
           "bold",
           "italic",
+          "underline",
+          "fontSize",
           "|",
-          "link",
-          "|",
-          "bulletedList",
-          "numberedList",
-        ],
-        blockToolbar: [
-          "bold",
-          "italic",
-          "|",
+          "specialCharacters",
           "link",
           "insertTable",
+          "blockQuote",
           "|",
           "bulletedList",
           "numberedList",
+          "todoList",
           "outdent",
           "indent",
         ],
+        shouldNotGroupWhenFull: false,
+      },
 
-        // 4. Customize heading levels if you want
-        heading: {
-          options: [
-            {
-              model: "paragraph",
-              title: "Paragraph",
-              class: "ck-heading_paragraph",
-            },
-            {
-              model: "heading1",
-              view: "h1",
-              title: "Heading 1",
-              class: "ck-heading_heading1",
-            },
-            {
-              model: "heading2",
-              view: "h2",
-              title: "Heading 2",
-              class: "ck-heading_heading2",
-            },
-            {
-              model: "heading3",
-              view: "h3",
-              title: "Heading 3",
-              class: "ck-heading_heading3",
-            },
-            {
-              model: "heading4",
-              view: "h4",
-              title: "Heading 4",
-              class: "ck-heading_heading4",
-            },
-            {
-              model: "heading5",
-              view: "h5",
-              title: "Heading 5",
-              class: "ck-heading_heading5",
-            },
-            {
-              model: "heading6",
-              view: "h6",
-              title: "Heading 6",
-              class: "ck-heading_heading6",
-            },
-          ],
-        },
-
-        // 5. FontSize configuration
-        fontSize: {
-          // Display text-based choices or numeric sizes
-          options: ["tiny", "small", "default", "big", "huge"],
-          supportAllValues: false, // set true if you want the user to type any size
-        },
-
-        initialData,
-        licenseKey: LICENSE_KEY,
-
-        link: {
-          addTargetToExternalLinks: true,
-          defaultProtocol: "https://",
-          decorators: {
-            toggleDownloadable: {
-              mode: "manual",
-              label: "Downloadable",
-              attributes: { download: "file" },
-            },
+      heading: {
+        options: [
+          {
+            model: "paragraph",
+            title: "Paragraph",
+            class: "ck-heading_paragraph",
           },
-        },
-
-        list: {
-          properties: {
-            styles: true,
-            startIndex: true,
-            reversed: true,
+          {
+            model: "heading1",
+            view: "h1",
+            title: "Heading 1",
+            class: "ck-heading_heading1",
           },
-        },
+          {
+            model: "heading2",
+            view: "h2",
+            title: "Heading 2",
+            class: "ck-heading_heading2",
+          },
+          {
+            model: "heading3",
+            view: "h3",
+            title: "Heading 3",
+            class: "ck-heading_heading3",
+          },
+        ],
+      },
 
-        menuBar: { isVisible: true },
+      fontSize: {
+        options: ["tiny", "small", "default", "big", "huge"],
+        supportAllValues: false,
+      },
 
-        placeholder,
-
-        table: {
-          contentToolbar: [
-            "tableColumn",
-            "tableRow",
-            "mergeTableCells",
-            "tableProperties",
-            "tableCellProperties",
-          ],
+      link: {
+        addTargetToExternalLinks: true,
+        defaultProtocol: "https://",
+        decorators: {
+          toggleDownloadable: {
+            mode: "manual",
+            label: "Downloadable",
+            attributes: { download: "file" },
+          },
         },
       },
-    };
-  }, [isLayoutReady, initialData, placeholder]);
+
+      list: {
+        properties: {
+          styles: true,
+          startIndex: true,
+          reversed: true,
+        },
+      },
+
+      menuBar: { isVisible: true },
+
+      table: {
+        contentToolbar: [
+          "tableColumn",
+          "tableRow",
+          "mergeTableCells",
+          "tableProperties",
+          "tableCellProperties",
+        ],
+      },
+
+      placeholder,
+    }),
+    [placeholder]
+  );
 
   return (
     <div className="main-container">
       <div
-        className="editor-container editor-container_classic-editor editor-container_include-block-toolbar editor-container_include-word-count"
+        className="editor-container editor-container_classic-editor editor-container_include-block-toolbar editor-container_include-word-count w-[60vw] min-h-[50vh]"
         ref={editorContainerRef}
       >
-        <div className="editor-container__editor">
-          <div ref={editorRef}>
-            {editorConfig && (
-              <CKEditor
-                editor={ClassicEditor}
-                config={editorConfig}
-                onReady={(editor) => {
-                  // WordCount plugin: attach to DOM if needed
-                  const wordCount = editor.plugins.get("WordCount");
-                  if (wordCount) {
-                    editorWordCountRef.current?.appendChild(
-                      wordCount.wordCountContainer
-                    );
-                  }
-                }}
-                onAfterDestroy={() => {
-                  // Clean up WordCount DOM nodes
-                  if (editorWordCountRef.current) {
-                    Array.from(editorWordCountRef.current.children).forEach(
-                      (child) => child.remove()
-                    );
-                  }
-                }}
-                onChange={(event, editor) => {
-                  const data = editor.getData();
-                  onChange(data);
-                }}
-              />
-            )}
-          </div>
+        <div className="editor-container__editor w-[60vw] min-h-[50vh]">
+          <CKEditor
+            editor={ClassicEditor}
+            data={initialData}
+            config={config}
+            onReady={(editor) => {
+              const wordCount = editor.plugins.get("WordCount");
+              if (wordCount) {
+                editorWordCountRef.current?.appendChild(
+                  wordCount.wordCountContainer
+                );
+              }
+            }}
+            onAfterDestroy={() => {
+              if (editorWordCountRef.current) {
+                Array.from(editorWordCountRef.current.children).forEach(
+                  (child) => child.remove()
+                );
+              }
+            }}
+            onChange={(event, editor) => onChange(editor.getData())}
+          />
         </div>
 
         <div
