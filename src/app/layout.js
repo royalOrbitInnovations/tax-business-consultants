@@ -172,17 +172,20 @@ export default function RootLayout({ children }) {
       </Head>
 
       {/* Google Analytics: Load after the page is interactive */}
+
       <Script
+        id="google-analytics"
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-6EWEWLL5N8"
+        src="https://www.googletagmanager.com/gtag/js?id=G-MBS0SC76G2"
       />
-      <Script strategy="afterInteractive" id="ga-inline">
+
+      <Script id="google-analytics-inline" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-6EWEWLL5N8');
-        `}
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MBS0SC76G2');
+  `}
       </Script>
 
       <body>
