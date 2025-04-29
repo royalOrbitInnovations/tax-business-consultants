@@ -17,6 +17,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "ckeditor5": "^44.3.0",
+    "ckeditor5-build-classic-custom": "^1.0.2",
     "dotenv": "^16.4.7",
     "jose": "^6.0.10",
     "jsonwebtoken": "^9.0.2",

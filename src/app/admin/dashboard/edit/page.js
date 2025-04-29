@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import TurndownService from "turndown";
+import { marked } from "marked"; // ✅ NEW
 
 // Dynamically import CKEditorApp on the client only
 const CKEditorApp = dynamic(() => import("@/components/Admin/CKEditorApp"), {
@@ -18,15 +20,28 @@ export default function EditPostPage() {
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState("");
   const [heading, setHeading] = useState("");
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(""); // CKEditor expects HTML
   const [imageUrl, setImageUrl] = useState("");
 
-  // New states for meta tag fields
+  // Meta-tag fields
   const [metaTitle, setMetaTitle] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
   const [metaKeywords, setMetaKeywords] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [ogImage, setOgImage] = useState("");
+
+  /* ------------------------------------------------------------------ */
+  /* Turndown (HTML ➜ Markdown) for saving                              */
+  /* ------------------------------------------------------------------ */
+  const turndown = useMemo(
+    () =>
+      new TurndownService({
+        headingStyle: "atx",
+        bulletListMarker: "-",
+      }),
+    []
+  );
+  /* ------------------------------------------------------------------ */
 
   useEffect(() => {
     if (!postId) {
@@ -43,10 +58,12 @@ export default function EditPostPage() {
           return;
         }
         const data = await res.json();
+
+        // Convert stored content (Markdown or HTML) to HTML for CKEditor
+        const htmlContent = marked.parse(data.content || "");
         setHeading(data.heading);
-        setContent(data.content);
+        setContent(htmlContent);
         setImageUrl(data.image || "");
-        // Set meta tag values if available
         setMetaTitle(data.meta_title || "");
         setMetaDescription(data.meta_description || "");
         setMetaKeywords(data.meta_keywords || "");
@@ -67,12 +84,15 @@ export default function EditPostPage() {
     setStatus("Updating post...");
     setSubmitting(true);
     try {
+      // Convert CKEditor HTML back to Markdown for storage
+      const markdownContent = turndown.turndown(content);
+
       const res = await fetch(`/api/blogs/${postId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           heading,
-          content,
+          content: markdownContent,
           image: imageUrl,
           meta_title: metaTitle,
           meta_description: metaDescription,
@@ -107,6 +127,7 @@ export default function EditPostPage() {
     <div className="max-w-[70vw] mx-auto space-y-8 pt-[15rem] mb-[10rem]">
       <h1 className="text-5xl font-bold text-center">Edit Post</h1>
       {status && <p className="text-center text-lg">{status}</p>}
+
       <form
         onSubmit={handleSubmit}
         className="space-y-6 border border-(--ui-dark) p-[2rem] rounded-xl shadow-2xl bg-gray-50"
@@ -141,7 +162,7 @@ export default function EditPostPage() {
           <div className="pl-[3rem]">
             <CKEditorApp
               initialData={content}
-              onChange={(data) => setContent(data)}
+              onChange={(data) => setContent(data)} // receives HTML
               placeholder="Type or paste your content here!"
             />
           </div>

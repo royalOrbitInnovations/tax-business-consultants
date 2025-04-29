@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react"; // ✅ useMemo added
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import TurndownService from "turndown"; // ✅ NEW
 
 // Dynamically import CKEditorApp on the client only
 const CKEditorApp = dynamic(() => import("@/components/Admin/CKEditorApp"), {
@@ -12,17 +13,30 @@ const CKEditorApp = dynamic(() => import("@/components/Admin/CKEditorApp"), {
 export default function CreatePostPage() {
   const router = useRouter();
   const [heading, setHeading] = useState("");
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(""); // CKEditor HTML
   const [imageUrl, setImageUrl] = useState("");
   const [status, setStatus] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  // New states for meta tag fields
+  // Meta tag states
   const [metaTitle, setMetaTitle] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
   const [metaKeywords, setMetaKeywords] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [ogImage, setOgImage] = useState("");
+
+  /* ------------------------------------------------------------------ */
+  /* Turndown (HTML ➜ Markdown)                                         */
+  /* ------------------------------------------------------------------ */
+  const turndown = useMemo(
+    () =>
+      new TurndownService({
+        headingStyle: "atx",
+        bulletListMarker: "-",
+      }),
+    []
+  );
+  /* ------------------------------------------------------------------ */
 
   // Handler for form submission to create a post
   const handleSubmit = async (e) => {
@@ -30,13 +44,18 @@ export default function CreatePostPage() {
     setStatus("Creating post...");
     setSubmitting(true);
     try {
+      /* -------------------------------------------------------------- */
+      /* Convert CKEditor HTML to Markdown before sending               */
+      /* -------------------------------------------------------------- */
+      const markdownContent = turndown.turndown(content);
+      /* -------------------------------------------------------------- */
+
       const res = await fetch("/api/blogs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        // Note: content will be HTML when using CKEditorApp
         body: JSON.stringify({
           heading,
-          content,
+          content: markdownContent, // store as Markdown
           image: imageUrl,
           meta_title: metaTitle,
           meta_description: metaDescription,
@@ -87,7 +106,7 @@ export default function CreatePostPage() {
           />
         </div>
 
-        {/* Replace textarea with CKEditorApp */}
+        {/* CKEditor Content */}
         <div className="prose">
           <label
             htmlFor="content"
@@ -98,7 +117,7 @@ export default function CreatePostPage() {
           <div className="pl-[3rem]">
             <CKEditorApp
               initialData={content}
-              onChange={(data) => setContent(data)}
+              onChange={(data) => setContent(data)} // receives HTML
               placeholder="Type or paste your content here!"
             />
           </div>
