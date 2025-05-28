@@ -188,7 +188,11 @@ export default function RootLayout({ children }) {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-MBS0SC76G2');
+
+    // Add both tags here
+    gtag('config', 'G-MBS0SC76G2'); // Existing
+    gtag('config', 'G-6EWEWLL5N8'); // New Tag
+
   `}
       </Script>
 
